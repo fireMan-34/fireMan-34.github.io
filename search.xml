@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Hello World</title>
-    <url>/2022/06/03/hello-world/</url>
+    <url>/2022/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -17,10 +17,13 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
   </entry>
   <entry>
     <title>hexo搭建日志</title>
-    <url>/2022/06/03/hexo%E6%90%AD%E5%BB%BA%E6%97%A5%E5%BF%97/</url>
+    <url>/2022/hexo%E6%90%AD%E5%BB%BA%E6%97%A5%E5%BF%97/</url>
     <content><![CDATA[<p>hexo搭建过程，部分记录</p>
 <h1 id="分类和标签"><a href="#分类和标签" class="headerlink" title="分类和标签"></a>分类和标签</h1><pre><code>分类：具有顺序和层次
 标签：则没有
@@ -44,20 +47,24 @@
 <h2 id="支持格式"><a href="#支持格式" class="headerlink" title="支持格式"></a>支持格式</h2><p>Hexo 支持以任何格式书写文章，只要安装了相应的渲染插件。</p>
 <hr>
 <h1 id="标签插件语法"><a href="#标签插件语法" class="headerlink" title="标签插件语法"></a>标签插件语法</h1><h1 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h1><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://www.jianshu.com/p/43eb0819f51a">Hexo数据文件功能添加友情链接</a><style>
- #logo{
-     font-size:10px;
- }
-</style></li>
+<li><a href="https://www.jianshu.com/p/43eb0819f51a">Hexo数据文件功能添加友情链接</a></li>
+</ol>
+<style>
+    #logo{
+        font-size:10px;
+    }
+</style>
+<h2 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h2><ol>
 <li>layout目录,layout.ejs为主体框架,partial为子目录</li>
 <li><code>&lt;span id=&quot;logo&quot;&gt;&lt;%= title %&gt;&lt;/span&gt;</code>任意parial的模板header.ejs</li>
 <li><code>&lt;%- partial(&#39;partial/header&#39;, &#123;title: &#39;Hello World&#39;&#125;) %&gt;</code>调用</li>
 <li>markdown支持内嵌html,css语法.</li>
 <li>低级错误对着在线发布页面测试</li>
 </ol>
-]]></content>
+<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1>]]></content>
       <categories>
         <category>Web</category>
+        <category>hexo</category>
       </categories>
       <tags>
         <tag>hexo</tag>
