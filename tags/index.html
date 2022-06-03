@@ -52,6 +52,35 @@
 
 
 <body>
+  <div class="my">
+    <h1 id="logo" onclick="myOnClick()">我</h1>
+    
+        <a href="/"> Home </a>
+      
+        <a href="/gallery/"> Gallery </a>
+      
+        <a href="/archives/"> Archives </a>
+      
+</div>
+<style>
+    .my{
+      color: rgb(141, 15, 15);
+      font-size: large;
+      font-weight: bolder;
+      text-align: center;
+      position: absolute;
+      z-index: 9;
+      top: 20px;
+      right: 20px;
+      width: 100px;
+      height: 100px;
+    }
+</style>
+<script>
+    const myOnClick=(e)=>{
+        alert('你点击了我.');
+    }
+</script>
   <div id="app">
     
       
