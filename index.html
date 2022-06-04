@@ -53,33 +53,40 @@
 
 <body>
   <div class="my">
-    <h1 id="logo" onclick="myOnClick()">我</h1>
     
-        <a href="/"> Home </a>
+        <a href="/" class="myA"> 主页 </a>
       
-        <a href="/gallery/"> Gallery </a>
+        <a href="/archives/" class="myA"> 归档 </a>
       
-        <a href="/archives/"> Archives </a>
+        <a href="/categories/" class="myA"> 分类 </a>
+      
+        <a href="/tags/" class="myA"> 标签 </a>
       
 </div>
 <style>
     .my{
-      color: rgb(141, 15, 15);
-      font-size: large;
-      font-weight: bolder;
-      text-align: center;
       position: absolute;
       z-index: 9;
-      top: 20px;
-      right: 20px;
+      bottom: 150px;
+      right:15px;
       width: 100px;
       height: 100px;
     }
+    .myA{
+        text-decoration: none;
+        background-color:rgba(141, 15, 15,.5);
+        color: #fff;
+        font-weight: bold;
+        display: block;
+        text-align: center;
+    }
+    .myA:hover{
+        background-color:rgba(141, 15, 15,.75);
+        color: #000;
+    }
 </style>
 <script>
-    const myOnClick=(e)=>{
-        alert('你点击了我.');
-    }
+    
 </script>
   <div id="app">
     
@@ -87,11 +94,6 @@
     <main class="content on">
       
 <section class="cover">
-    
-      
-      <a class="forkMe" href="https://github.com/Shen-Yu/hexo-theme-ayer"
-        target="_blank"><img width="149" height="149" src="/images/forkme.png"
-          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
     
   <div class="cover-frame">
     <div class="bg-box">
@@ -188,6 +190,56 @@
     
     
     <article
+  id="post-梦中等雨"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/%E6%A2%A6%E4%B8%AD%E7%AD%89%E9%9B%A8/"
+    >梦中等雨</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/%E6%A2%A6%E4%B8%AD%E7%AD%89%E9%9B%A8/" class="article-date">
+  <time datetime="2022-06-04T03:04:33.000Z" itemprop="datePublished">2022-06-04</time>
+</a>
+      <a href="/2022/%E6%A2%A6%E4%B8%AD%E7%AD%89%E9%9B%A8/" class="article-date">
+    更新:
+    <time datetime="2022-06-04T04:03:02.558Z" itemprop="datePublished">2022-06-04</time>
+  </a> 
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E4%BD%93%E9%AA%8C/">体验</a>
+  </div>
+   
+    </div>
+       
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E7%94%9F/" rel="tag">人生</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-hexo搭建日志"
   class="article article-type-post"
   itemscope
@@ -263,7 +315,7 @@
 </a>
       <a href="/2022/hello-world/" class="article-date">
     更新:
-    <time datetime="2022-06-03T03:45:54.267Z" itemprop="datePublished">2022-06-03</time>
+    <time datetime="2022-06-03T15:05:36.655Z" itemprop="datePublished">2022-06-03</time>
   </a> 
       
   <div class="article-category">
