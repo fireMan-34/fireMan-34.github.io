@@ -161,7 +161,6 @@
 <ol>
 <li><p>GitHub登陆验证过程</p>
 <p>采用跳转到验证</p>
-<p><a href="https://github.com/login/oauth/authorize?client_id=0eef2fa971fd9f7d46a2&amp;redirect_uri=https://api.netlify.com/auth/done&amp;state=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwaWQiOiI1NmMzZjE1MDcxZTIwYTE4ZGIwMDAwMGYiLCJleHAiOjE2NTQzODk2MjEsImxvZ2luIjp0cnVlfQ.kqkX8bcLzax1dd32PJ42Gc23drbGK88iksmwWynDjYg&amp;scope=user:email">https://github.com/login/oauth/authorize?client_id=0eef2fa971fd9f7d46a2&amp;redirect_uri=https%3A%2F%2Fapi.netlify.com%2Fauth%2Fdone&amp;state=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwaWQiOiI1NmMzZjE1MDcxZTIwYTE4ZGIwMDAwMGYiLCJleHAiOjE2NTQzODk2MjEsImxvZ2luIjp0cnVlfQ.kqkX8bcLzax1dd32PJ42Gc23drbGK88iksmwWynDjYg&amp;scope=user%3Aemail</a></p>
 </li>
 </ol>
 <p><strong>词汇</strong></p>

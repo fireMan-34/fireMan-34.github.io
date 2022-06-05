@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-06-05T00:57:58.942Z</updated>
+  <updated>2022-06-05T01:10:11.454Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://example.com/2022/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/"/>
     <id>http://example.com/2022/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/</id>
     <published>2022-06-04T11:09:14.000Z</published>
-    <updated>2022-06-05T00:57:58.942Z</updated>
+    <updated>2022-06-05T01:10:11.454Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="使用-CDN-加速你的-GitHub-Pages-网站"><a href="#使用-CDN-加速你的-GitHub-Pages-网站" class="headerlink" title="使用 CDN 加速你的 GitHub Pages 网站"></a>使用 CDN 加速你的 GitHub Pages 网站</h1><p><strong>感谢</strong></p><ul><li>云游君！： <a href="https://www.yunyoujun.cn/posts/use-cdn-speed-up-site/">使用 CDN 加速你的 GitHub Pages 网站</a></li><li><a href="https://blog.csdn.net/hl_java/article/details/83989727">DNS术语中的CNAME、A、MX、TTL名词解释</a></li><li><a href="https://blog.csdn.net/huiruwei1020/article/details/107728435">利用CDN加速GithubPage访问速度</a></li><li><a href="https://app.netlify.com/">免费网站部署</a></li></ul><hr><p><strong>记录</strong></p><ol><li><p>GitHub登陆验证过程</p><p>采用跳转到验证</p><p><a href="https://github.com/login/oauth/authorize?client_id=0eef2fa971fd9f7d46a2&amp;redirect_uri=https://api.netlify.com/auth/done&amp;state=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwaWQiOiI1NmMzZjE1MDcxZTIwYTE4ZGIwMDAwMGYiLCJleHAiOjE2NTQzODk2MjEsImxvZ2luIjp0cnVlfQ.kqkX8bcLzax1dd32PJ42Gc23drbGK88iksmwWynDjYg&amp;scope=user:email">https://github.com/login/oauth/authorize?client_id=0eef2fa971fd9f7d46a2&amp;redirect_uri=https%3A%2F%2Fapi.netlify.com%2Fauth%2Fdone&amp;state=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwaWQiOiI1NmMzZjE1MDcxZTIwYTE4ZGIwMDAwMGYiLCJleHAiOjE2NTQzODk2MjEsImxvZ2luIjp0cnVlfQ.kqkX8bcLzax1dd32PJ42Gc23drbGK88iksmwWynDjYg&amp;scope=user%3Aemail</a></p></li></ol><p><strong>词汇</strong></p><p>FreeLancer自由职业者</p><p>Hobby developer业余爱好者</p><p>Other其他者</p><p>overview概述</p><p>permission准许</p><p>Verify验证</p><p><strong>术语</strong></p><ul><li>DNS(域名)</li></ul><ol><li>A(Address)记录是用来指定主机名（或域名）对应的IP地址记录，绑定Web Server</li><li>MAX(Mail exchanger)邮件路由记录，绑定Mail Server。</li><li>CNAME(Canonical name)别名记录，多个域名指向同一个ip。</li><li>TTL(Time To Line)生存时间，指的是对未知域名记录的缓存存在时间，缓存策略。</li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="使用-CDN-加速你的-GitHub-Pages-网站"><a href="#使用-CDN-加速你的-GitHub-Pages-网站" class="headerlink" title="使用 CDN 加速你的 GitHub Pages 网站"></a>使用 CDN 加速你的 GitHub Pages 网站</h1><p><strong>感谢</strong></p><ul><li>云游君！： <a href="https://www.yunyoujun.cn/posts/use-cdn-speed-up-site/">使用 CDN 加速你的 GitHub Pages 网站</a></li><li><a href="https://blog.csdn.net/hl_java/article/details/83989727">DNS术语中的CNAME、A、MX、TTL名词解释</a></li><li><a href="https://blog.csdn.net/huiruwei1020/article/details/107728435">利用CDN加速GithubPage访问速度</a></li><li><a href="https://app.netlify.com/">免费网站部署</a></li></ul><hr><p><strong>记录</strong></p><ol><li><p>GitHub登陆验证过程</p><p>采用跳转到验证</p></li></ol><p><strong>词汇</strong></p><p>FreeLancer自由职业者</p><p>Hobby developer业余爱好者</p><p>Other其他者</p><p>overview概述</p><p>permission准许</p><p>Verify验证</p><p><strong>术语</strong></p><ul><li>DNS(域名)</li></ul><ol><li>A(Address)记录是用来指定主机名（或域名）对应的IP地址记录，绑定Web Server</li><li>MAX(Mail exchanger)邮件路由记录，绑定Mail Server。</li><li>CNAME(Canonical name)别名记录，多个域名指向同一个ip。</li><li>TTL(Time To Line)生存时间，指的是对未知域名记录的缓存存在时间，缓存策略。</li></ol>]]></content>
     
     
       
