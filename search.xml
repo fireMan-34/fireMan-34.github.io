@@ -116,6 +116,13 @@
 <p><strong>gravatar</strong>根据邮箱地址返回 Gravatar 头像 URL。<br>如果你不指定 options 参数，将会应用默认参数。否则，你可以将其设置为一个数字，这个数字将会作为 Gravatar 的大小参数。最后，如果你设置它一个对象，它将会被转换为 Gravatar 的一个查询字符串参数。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">gravatar</span>(email, [options]) %&gt;</span><br></pre></td></tr></table></figure>
 <hr>
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><ul>
+<li>在实现文件加密，ejs的JavaScript标签不能内嵌一些变量元素，可能我没有深入学习，我采用另外一种迂回方案，就是dom，和传统组件以及jsonp技术类似。<br>在阅读主题时发现另一种js用esj语法变量的方法，之前可能没有加&#x3D;&#x2F;-，还有字符串,导致无效，目前看来只适合字符串形式。</li>
+</ul>
+<h1 id="ejs"><a href="#ejs" class="headerlink" title="ejs"></a>ejs</h1><p>- </p>
+<h1 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h1><ul>
+<li>在一个while判断的时候，只要循环条件不被打破，就无法history.back();<br>问题解决了，明明我会的的，哼！<br>其实这个问题就是Bom API is belong to async，and while is a sync code,now if you wan to make it work frist you should break it or make it can’t work.<br>thanks 红宝书 and <a href="https://stackoverflow.com/questions/25543052/what-happens-to-code-after-history-back">thisQuesstion</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>Web</category>
