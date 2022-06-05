@@ -1,0 +1,26 @@
+.my {
+  position: absolute;
+  z-index: 9;
+  bottom: 250px;
+  right: 15px;
+  width: 10px;
+  height: 120px;
+  font-size: 0;
+  background-color: rgba(141,15,15,0.5);
+  transition: width 1.5s;
+}
+.my:hover {
+  width: 100px;
+  font-size: 16px;
+}
+.myA {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+}
+.myA:hover {
+  background-color: rgba(141,15,15,0.75);
+  color: #000;
+}

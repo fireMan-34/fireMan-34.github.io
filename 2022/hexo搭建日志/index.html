@@ -23,6 +23,9 @@
 <link rel="stylesheet" href="/dist/main.css">
 
       
+<link rel="stylesheet" href="/css/my.css">
+
+      
 <link rel="stylesheet" href="/css/fonts/remixicon.css">
 
       
@@ -63,31 +66,6 @@
         <a href="/tags/" class="myA"> 标签 </a>
       
 </div>
-<style>
-    .my{
-      position: absolute;
-      z-index: 9;
-      bottom: 150px;
-      right:15px;
-      width: 100px;
-      height: 100px;
-    }
-    .myA{
-        text-decoration: none;
-        background-color:rgba(141, 15, 15,.5);
-        color: #fff;
-        font-weight: bold;
-        display: block;
-        text-align: center;
-    }
-    .myA:hover{
-        background-color:rgba(141, 15, 15,.75);
-        color: #000;
-    }
-</style>
-<script>
-    
-</script>
   <div id="app">
     
       
@@ -118,8 +96,8 @@
 </a>
       <a href="/2022/hexo%E6%90%AD%E5%BB%BA%E6%97%A5%E5%BF%97/" class="article-date">
     更新:
-    <time datetime="2022-06-03T11:45:49.000Z" itemprop="datePublished">2022-06-03</time>
-  </a> 
+    <time datetime="2022-06-04T11:08:38.721Z" itemprop="datePublished">2022-06-04</time>
+</a> 
       
   <div class="article-category">
     <a class="article-category-link" href="/categories/Web/">Web</a> / <a class="article-category-link" href="/categories/Web/hexo/">hexo</a>
@@ -130,7 +108,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">534</span>
+            <span class="post-count">722</span>
         </span>
     </span>
 
@@ -200,6 +178,7 @@
 <li>生成文件<br> hexo new [layout] fileName</li>
 <li>草稿<br> hexo publice [layout] [title]</li>
 <li>模板<br> 在新建文章时，Hexo 会根据 scaffolds 文件夹内相对应的文件来建立文件。<br> 以下是您可以在模版中使用的变量：<br> layout，title，date</li>
+<li>文章更新<br> _congfig.yml updated:true,ejs使用变量接受，应该是post.updated</li>
 </ol>
 <h2 id="默认布局"><a href="#默认布局" class="headerlink" title="默认布局"></a>默认布局</h2><p>post&#x2F;source&#x2F;page&#x3D;&gt;source&#x2F;_post\source\source&#x2F;_drafs</p>
 <h2 id="支持格式"><a href="#支持格式" class="headerlink" title="支持格式"></a>支持格式</h2><p>Hexo 支持以任何格式书写文章，只要安装了相应的渲染插件。</p>
@@ -221,9 +200,31 @@
 </ol>
 <h1 id="markdown语法"><a href="#markdown语法" class="headerlink" title="markdown语法"></a>markdown语法</h1><ul>
 <li>代码块<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">\<span class="code">```</span></span><br><span class="line"><span class="code">code</span></span><br><span class="line"><span class="code">\```</span></span><br></pre></td></tr></table></figure></li>
-<li>缩进</li>
+<li>缩进<h1 id="辅助函数"><a href="#辅助函数" class="headerlink" title="辅助函数"></a>辅助函数</h1><strong>网址</strong></li>
 </ul>
-<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1> 
+<p><strong>url_for</strong>在路径前加上根路径，从 Hexo 2.7 开始您应该使用此函数而不是 <code>config.root + path</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">url_for</span>(path,[options]) %&gt;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>relative</td>
+<td>是否输出相对连接</td>
+<td>congig.relative_link的值</td>
+</tr>
+</tbody></table>
+<p><strong>relative_url</strong>取得与 from 相对的 to 路径。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">relative_url</span>(<span class="keyword">from</span>, to) %&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>gravatar</strong>根据邮箱地址返回 Gravatar 头像 URL。<br>如果你不指定 options 参数，将会应用默认参数。否则，你可以将其设置为一个数字，这个数字将会作为 Gravatar 的大小参数。最后，如果你设置它一个对象，它将会被转换为 Gravatar 的一个查询字符串参数。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">gravatar</span>(email, [options]) %&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+ 
       <!-- reward -->
       
     </div>

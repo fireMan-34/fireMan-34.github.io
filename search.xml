@@ -70,6 +70,7 @@
 <li>生成文件<br> hexo new [layout] fileName</li>
 <li>草稿<br> hexo publice [layout] [title]</li>
 <li>模板<br> 在新建文章时，Hexo 会根据 scaffolds 文件夹内相对应的文件来建立文件。<br> 以下是您可以在模版中使用的变量：<br> layout，title，date</li>
+<li>文章更新<br> _congfig.yml updated:true,ejs使用变量接受，应该是post.updated</li>
 </ol>
 <h2 id="默认布局"><a href="#默认布局" class="headerlink" title="默认布局"></a>默认布局</h2><p>post&#x2F;source&#x2F;page&#x3D;&gt;source&#x2F;_post\source\source&#x2F;_drafs</p>
 <h2 id="支持格式"><a href="#支持格式" class="headerlink" title="支持格式"></a>支持格式</h2><p>Hexo 支持以任何格式书写文章，只要安装了相应的渲染插件。</p>
@@ -91,9 +92,31 @@
 </ol>
 <h1 id="markdown语法"><a href="#markdown语法" class="headerlink" title="markdown语法"></a>markdown语法</h1><ul>
 <li>代码块<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">\<span class="code">```</span></span><br><span class="line"><span class="code">code</span></span><br><span class="line"><span class="code">\```</span></span><br></pre></td></tr></table></figure></li>
-<li>缩进</li>
+<li>缩进<h1 id="辅助函数"><a href="#辅助函数" class="headerlink" title="辅助函数"></a>辅助函数</h1><strong>网址</strong></li>
 </ul>
-<h1 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h1>]]></content>
+<p><strong>url_for</strong>在路径前加上根路径，从 Hexo 2.7 开始您应该使用此函数而不是 <code>config.root + path</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">url_for</span>(path,[options]) %&gt;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>relative</td>
+<td>是否输出相对连接</td>
+<td>congig.relative_link的值</td>
+</tr>
+</tbody></table>
+<p><strong>relative_url</strong>取得与 from 相对的 to 路径。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">relative_url</span>(<span class="keyword">from</span>, to) %&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>gravatar</strong>根据邮箱地址返回 Gravatar 头像 URL。<br>如果你不指定 options 参数，将会应用默认参数。否则，你可以将其设置为一个数字，这个数字将会作为 Gravatar 的大小参数。最后，如果你设置它一个对象，它将会被转换为 Gravatar 的一个查询字符串参数。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">gravatar</span>(email, [options]) %&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+]]></content>
       <categories>
         <category>Web</category>
         <category>hexo</category>
@@ -121,6 +144,52 @@
       </categories>
       <tags>
         <tag>人生</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo博客部署</title>
+    <url>/2022/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h1 id="使用-CDN-加速你的-GitHub-Pages-网站"><a href="#使用-CDN-加速你的-GitHub-Pages-网站" class="headerlink" title="使用 CDN 加速你的 GitHub Pages 网站"></a>使用 CDN 加速你的 GitHub Pages 网站</h1><p><strong>感谢</strong></p>
+<ul>
+<li>云游君！： <a href="https://www.yunyoujun.cn/posts/use-cdn-speed-up-site/">使用 CDN 加速你的 GitHub Pages 网站</a></li>
+<li><a href="https://blog.csdn.net/hl_java/article/details/83989727">DNS术语中的CNAME、A、MX、TTL名词解释</a></li>
+<li><a href="https://blog.csdn.net/huiruwei1020/article/details/107728435">利用CDN加速GithubPage访问速度</a></li>
+<li><a href="https://app.netlify.com/">免费网站部署</a></li>
+</ul>
+<hr>
+<p><strong>记录</strong></p>
+<ol>
+<li><p>GitHub登陆验证过程</p>
+<p>采用跳转到验证</p>
+<p><a href="https://github.com/login/oauth/authorize?client_id=0eef2fa971fd9f7d46a2&amp;redirect_uri=https://api.netlify.com/auth/done&amp;state=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwaWQiOiI1NmMzZjE1MDcxZTIwYTE4ZGIwMDAwMGYiLCJleHAiOjE2NTQzODk2MjEsImxvZ2luIjp0cnVlfQ.kqkX8bcLzax1dd32PJ42Gc23drbGK88iksmwWynDjYg&amp;scope=user:email">https://github.com/login/oauth/authorize?client_id=0eef2fa971fd9f7d46a2&amp;redirect_uri=https%3A%2F%2Fapi.netlify.com%2Fauth%2Fdone&amp;state=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwaWQiOiI1NmMzZjE1MDcxZTIwYTE4ZGIwMDAwMGYiLCJleHAiOjE2NTQzODk2MjEsImxvZ2luIjp0cnVlfQ.kqkX8bcLzax1dd32PJ42Gc23drbGK88iksmwWynDjYg&amp;scope=user%3Aemail</a></p>
+</li>
+</ol>
+<p><strong>词汇</strong></p>
+<p>FreeLancer自由职业者</p>
+<p>Hobby developer业余爱好者</p>
+<p>Other其他者</p>
+<p>overview概述</p>
+<p>permission准许</p>
+<p>Verify验证</p>
+<p><strong>术语</strong></p>
+<ul>
+<li>DNS(域名)</li>
+</ul>
+<ol>
+<li>A(Address)记录是用来指定主机名（或域名）对应的IP地址记录，绑定Web Server</li>
+<li>MAX(Mail exchanger)邮件路由记录，绑定Mail Server。</li>
+<li>CNAME(Canonical name)别名记录，多个域名指向同一个ip。</li>
+<li>TTL(Time To Line)生存时间，指的是对未知域名记录的缓存存在时间，缓存策略。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>web</category>
+        <category>hexo</category>
+        <category>部署</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>部署</tag>
       </tags>
   </entry>
 </search>
