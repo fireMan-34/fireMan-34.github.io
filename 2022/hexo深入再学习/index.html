@@ -1,214 +1,173 @@
-<?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+  
+<!DOCTYPE html>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<html lang="zh-CN">
+  
 
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="成长,数学,语文，英语,Web前端,修养,日记" />
+       
+      <meta name="description" content="这是我部署地静态博客。" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>hexo深入再学习 |  我的博客</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>Web</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>hexo搭建日志</title>
-    <url>/2022/hexo%E6%90%AD%E5%BB%BA%E6%97%A5%E5%BF%97/</url>
-    <content><![CDATA[<p>hexo搭建过程，部分记录</p>
-<h1 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h1><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://blog.csdn.net/weixin_54880923/article/details/115319991">yml知识</a></li>
-<li><a href="https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml">yml,in,markdown</a></li>
-<li><a href="https://blog.csdn.net/weixin_42305648/article/details/114733118">代码高亮</a></li>
-<li><a href="https://www.jianshu.com/p/65ab196bef04">代码高亮2</a><h2 id="yaml语法"><a href="#yaml语法" class="headerlink" title="yaml语法"></a>yaml语法</h2></li>
-</ol>
-<ul>
-<li><p>普通键值对</p>
-  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 备注</span></span><br><span class="line"><span class="attr">key:</span> <span class="string">value</span></span><br></pre></td></tr></table></figure></li>
-<li><p>对象键值对</p>
-  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">person：</span></span><br><span class="line"> <span class="attr">name:</span> <span class="string">无为</span></span><br><span class="line"> <span class="attr">age:</span> <span class="number">18</span></span><br></pre></td></tr></table></figure>
-<p>  ||</p>
-  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> &#123;</span><br><span class="line">   <span class="attr">key:</span> <span class="string">value</span>,</span><br><span class="line">   <span class="attr">key:</span> <span class="string">value</span></span><br><span class="line">   &#125;   </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>数组键值对   </p>
-  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> <span class="bullet">-</span> <span class="string">value</span> <span class="bullet">-</span> <span class="string">value</span></span><br></pre></td></tr></table></figure>
-<p>  ||</p>
-  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> [<span class="string">value</span>,<span class="string">value</span>]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>集合</p>
-  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> [&#123;<span class="attr">key:</span> <span class="string">value</span>&#125;,&#123;<span class="attr">key:</span> <span class="string">value</span>&#125;]</span><br></pre></td></tr></table></figure>
-<h2 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h2></li>
-<li><p>打包没有发现对应的yaml样式<br>  -&gt;尝试其他代码块,markdown语法编译器可以高亮，但hexo打包没有高亮<br>  -&gt;打包没有对应的样式包<br>  -&gt;浏览器样式区别对比<br>  -&gt;解决了，过程里发现自己在之前关闭高亮设置，hexo clean，hexo server</p>
-</li>
-<li><p>多行字体显示不全<br>  -&gt;浏览器排查，发现是padding属性导致字体显示空间错误。<br>  —&gt;或者改一下font-Size以及line-height<br>  -&gt;问题解决了，wrap开启true</p>
-</li>
-</ul>
-<hr>
-<h1 id="分类和标签"><a href="#分类和标签" class="headerlink" title="分类和标签"></a>分类和标签</h1><pre><code>分类：具有顺序和层次
-标签：则没有
-</code></pre>
-<h2 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://blog.csdn.net/weixin_33857230/article/details/91474562">Hexo 添加分类及标签</a></li>
-</ol>
-<h2 id="创建选项"><a href="#创建选项" class="headerlink" title="创建选项"></a>创建选项</h2><pre><code>hexo new page[layout] categories/tags
-</code></pre>
-<h2 id="追加选项"><a href="#追加选项" class="headerlink" title="追加选项"></a>追加选项</h2><pre><code>在生成的配置文件里追加type categories/tags，如果是有配置化的布局，还可以加入layout配置
-</code></pre>
-<h2 id="文章使用"><a href="#文章使用" class="headerlink" title="文章使用"></a>文章使用</h2><pre><code>在文章里追加相应属性，categories/tags：- 属性1 -属性2
-</code></pre>
-<hr>
-<h1 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h1><h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><ol>
-<li>生成文件<br> hexo new [layout] fileName</li>
-<li>草稿<br> hexo publice [layout] [title]</li>
-<li>模板<br> 在新建文章时，Hexo 会根据 scaffolds 文件夹内相对应的文件来建立文件。<br> 以下是您可以在模版中使用的变量：<br> layout，title，date</li>
-<li>文章更新<br> _congfig.yml updated:true,ejs使用变量接受，应该是post.updated</li>
-</ol>
-<h2 id="默认布局"><a href="#默认布局" class="headerlink" title="默认布局"></a>默认布局</h2><p>post&#x2F;source&#x2F;page&#x3D;&gt;source&#x2F;_post\source\source&#x2F;_drafs</p>
-<h2 id="支持格式"><a href="#支持格式" class="headerlink" title="支持格式"></a>支持格式</h2><p>Hexo 支持以任何格式书写文章，只要安装了相应的渲染插件。</p>
-<hr>
-<h1 id="标签插件语法"><a href="#标签插件语法" class="headerlink" title="标签插件语法"></a>标签插件语法</h1><h1 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h1><h2 id="参考-2"><a href="#参考-2" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://www.jianshu.com/p/43eb0819f51a">Hexo数据文件功能添加友情链接</a></li>
-</ol>
-<style>
-    #logo{
-        font-size:10px;
+      
+<link rel="stylesheet" href="/css/my.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+<div id="addShowdowOnPC"></div>
+<script>
+    function isMobile(){
+    if(window.navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec   wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
+     return true; // 移动端
+    }else{
+     return false; // PC端
     }
-</style>
-<h2 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h2><ol>
-<li>layout目录,layout.ejs为主体框架,partial为子目录</li>
-<li><code>&lt;span id=&quot;logo&quot;&gt;&lt;%= title %&gt;&lt;/span&gt;</code>任意parial的模板header.ejs</li>
-<li><code>&lt;%- partial(&#39;partial/header&#39;, &#123;title: &#39;Hello World&#39;&#125;) %&gt;</code>调用</li>
-<li>markdown支持内嵌html,css语法.</li>
-<li>低级错误对着在线发布页面测试</li>
-</ol>
-<h1 id="markdown语法"><a href="#markdown语法" class="headerlink" title="markdown语法"></a>markdown语法</h1><ul>
-<li>代码块<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">\<span class="code">```</span></span><br><span class="line"><span class="code">code</span></span><br><span class="line"><span class="code">\```</span></span><br></pre></td></tr></table></figure></li>
-<li>缩进<h1 id="辅助函数"><a href="#辅助函数" class="headerlink" title="辅助函数"></a>辅助函数</h1><strong>网址</strong></li>
-</ul>
-<p><strong>url_for</strong>在路径前加上根路径，从 Hexo 2.7 开始您应该使用此函数而不是 <code>config.root + path</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">url_for</span>(path,[options]) %&gt;</span><br></pre></td></tr></table></figure>
+}
+if(!isMobile()){
+const styleText=`.article{
+    box-shadow: 0 0 7px #657b83;
+    padding: 2em !important;
+    margin: 2em;
+  }`;
+if(document.all){
+  window.style=styleText;
+  document.createStyleSheet("javascript:style");
+}
+else{
+  const styleDom=document.createElement('style');
+  const addShowdowOnPC=document.getElementById('addShowdowOnPC');
+  styleDom.type="text/css";
+  styleDom.innerHTML=styleText;
+  addShowdowOnPC.appendChild(styleDom);
+}
+}
+</script> 
+<body>
+  <div class="my">
+    
+        <a href="/" class="myA"> 主页 </a>
+      
+        <a href="/archives/" class="myA"> 归档 </a>
+      
+        <a href="/categories/" class="myA"> 分类 </a>
+      
+        <a href="/tags/" class="myA"> 标签 </a>
+      
+</div>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-hexo深入再学习"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  hexo深入再学习
+</h1>
+ 
 
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-<th>默认值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>relative</td>
-<td>是否输出相对连接</td>
-<td>congig.relative_link的值</td>
-</tr>
-</tbody></table>
-<p><strong>relative_url</strong>取得与 from 相对的 to 路径。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">relative_url</span>(<span class="keyword">from</span>, to) %&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>gravatar</strong>根据邮箱地址返回 Gravatar 头像 URL。<br>如果你不指定 options 参数，将会应用默认参数。否则，你可以将其设置为一个数字，这个数字将会作为 Gravatar 的大小参数。最后，如果你设置它一个对象，它将会被转换为 Gravatar 的一个查询字符串参数。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">gravatar</span>(email, [options]) %&gt;</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><ul>
-<li>在实现文件加密，ejs的JavaScript标签不能内嵌一些变量元素，可能我没有深入学习，我采用另外一种迂回方案，就是dom，和传统组件以及jsonp技术类似。<br>在阅读主题时发现另一种js用esj语法变量的方法，之前可能没有加&#x3D;&#x2F;-，还有字符串,导致无效，目前看来只适合字符串形式。</li>
-</ul>
-<h1 id="ejs"><a href="#ejs" class="headerlink" title="ejs"></a>ejs</h1><p>- </p>
-<h1 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h1><ul>
-<li>在一个while判断的时候，只要循环条件不被打破，就无法history.back();<br>问题解决了，明明我会的的，哼！<br>其实这个问题就是Bom API is belong to async，and while is a sync code,now if you wan to make it work frist you should break it or make it can’t work.<br>thanks 红宝书 and <a href="https://stackoverflow.com/questions/25543052/what-happens-to-code-after-history-back">thisQuesstion</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Web</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>梦中等雨</title>
-    <url>/2022/%E6%A2%A6%E4%B8%AD%E7%AD%89%E9%9B%A8/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　今早我从睡醒开始到10：30，一直在浅学hexo的博客搭建，学习了简单的代码块语法，以及高亮尝试，中间浅浅地接触了yaml格式配置，highlight.js高亮。</p>
-<p>　　然而我的早餐时间，并未开始。于是乎，到10：30时，我准备去附近的肉夹馍店……在前往的途中，遇上了这场雨，它似乎想要告诉我什么。</p>
-<h1 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h1><ul>
-<li>初始<br>　　简单的穿了鞋子，没有带上任何东西的我，出了门。</li>
-</ul>
-<p>　　开始的时候，雨犹如细丝，一丝丝地落在我的周围，我也享受这种视觉感受。</p>
-<p>　　逐渐，雨开始大了点，雨由丝化滴，稀疏地滴落在我的衣服上。我也渐渐地靠向附近地屋檐边躲雨边前行。</p>
-<ul>
-<li>发生<br>　　在到达一个楼道通口的时候，细雨连成线，我就停下了前往吃饭的意识，收紧步伐，等待雨停之时……<br>　　等雨的时间里，雨落声音又带着我进入那种体验者的感觉，没有目的，没有束缚。它是想告诉我什么，停止步伐，还是继续前进。<br>　　雨的一切好像占据了我的格式塔心智，雨在告诉我它的众生相，我仿佛见到了众生在它里五味杂陈。谁能言的明“雨”的相，吾的“雨”与汝的“雨”如何相同呢？雨的到来，风的羁绊。风雨里的心仿佛都在彷徨着远方的灯塔，迫切地焦急地追逐。我如我所见，我的心在此刻亦如焦灼般的追逐。亦如我现在对找工作的态度一样。对于雨，我知道我的这份等待，雨终将会停止并等待下一次的到来，我可以等待；而我的人生，自己的工作，或许亦如所有，同样也只有等待，去明白自己的追寻，去沉淀自己的感觉，才能在等待中明白自己的所有。雨仿佛知道我的等待，越下越大，我再一次沉浸其中，然而风的存在却在呼唤着我，它的存在。我想是的，如我们所“见”，我们只在乎我们知道的。<br>　　雨，它的所有，填充着每个人的心灵，成为背景，成为旋律，成为遇见，成为我们每个的相。<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1>　　雨在述说着它的一切，而我是这场雨的一个观众。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>体验</category>
-      </categories>
-      <tags>
-        <tag>人生</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo博客部署</title>
-    <url>/2022/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/</url>
-    <content><![CDATA[<h1 id="使用-CDN-加速你的-GitHub-Pages-网站"><a href="#使用-CDN-加速你的-GitHub-Pages-网站" class="headerlink" title="使用 CDN 加速你的 GitHub Pages 网站"></a>使用 CDN 加速你的 GitHub Pages 网站</h1><p><strong>感谢</strong></p>
-<ul>
-<li>云游君！： <a href="https://www.yunyoujun.cn/posts/use-cdn-speed-up-site/">使用 CDN 加速你的 GitHub Pages 网站</a></li>
-<li><a href="https://blog.csdn.net/hl_java/article/details/83989727">DNS术语中的CNAME、A、MX、TTL名词解释</a></li>
-<li><a href="https://blog.csdn.net/huiruwei1020/article/details/107728435">利用CDN加速GithubPage访问速度</a></li>
-<li><a href="https://app.netlify.com/">免费网站部署</a></li>
-</ul>
-<hr>
-<p><strong>记录</strong></p>
-<ol>
-<li><p>GitHub登陆验证过程</p>
-<p>采用跳转到验证</p>
-</li>
-</ol>
-<p><strong>词汇</strong></p>
-<p>FreeLancer自由职业者</p>
-<p>Hobby developer业余爱好者</p>
-<p>Other其他者</p>
-<p>overview概述</p>
-<p>permission准许</p>
-<p>Verify验证</p>
-<p><strong>术语</strong></p>
-<ul>
-<li>DNS(域名)</li>
-</ul>
-<ol>
-<li>A(Address)记录是用来指定主机名（或域名）对应的IP地址记录，绑定Web Server</li>
-<li>MAX(Mail exchanger)邮件路由记录，绑定Mail Server。</li>
-<li>CNAME(Canonical name)别名记录，多个域名指向同一个ip。</li>
-<li>TTL(Time To Line)生存时间，指的是对未知域名记录的缓存存在时间，缓存策略。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>web</category>
-        <category>hexo</category>
-        <category>部署</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>部署</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo深入再学习</title>
-    <url>/2022/hexo%E6%B7%B1%E5%85%A5%E5%86%8D%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="主题文件夹功能探索"><a href="#主题文件夹功能探索" class="headerlink" title="主题文件夹功能探索"></a>主题文件夹功能探索</h1><h2 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h2><p><strong>ejs</strong>文件或者其他模板文件。</p>
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/hexo%E6%B7%B1%E5%85%A5%E5%86%8D%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2022-06-05T10:02:57.000Z" itemprop="datePublished">2022-06-05</time>
+</a>
+      <a href="/2022/hexo%E6%B7%B1%E5%85%A5%E5%86%8D%E5%AD%A6%E4%B9%A0/" class="article-date">
+    更新:
+    <time datetime="2022-06-05T16:01:51.035Z" itemprop="datePublished">2022-06-06</time>
+</a> 
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/web/">web</a> / <a class="article-category-link" href="/categories/web/hexo/">hexo</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">9 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="主题文件夹功能探索"><a href="#主题文件夹功能探索" class="headerlink" title="主题文件夹功能探索"></a>主题文件夹功能探索</h1><h2 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h2><p><strong>ejs</strong>文件或者其他模板文件。</p>
 <h1 id="HEXO设计模式笔记"><a href="#HEXO设计模式笔记" class="headerlink" title="HEXO设计模式笔记"></a>HEXO设计模式笔记</h1><p>静态网站生成器以及api文档。</p>
-<h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><p><a href="https://juejin.cn/post/6844903469669679117">hexo设计模式探索</a></p>
-<p><a href="https://www.jianshu.com/p/56b9cb8ac2ea">node之proce模块</a></p>
-<p><a href="https://blog.csdn.net/fangxuan1509/article/details/107469465">minimist命令行引擎</a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf">Object.setPrototypeOf原型组合</a></p>
-<p><a href="https://baike.baidu.com/item/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"> 模板引擎</a></p>
-<p><a href="http://nodejs.cn/api/vm.html">nodejs vm模块</a></p>
+<h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903469669679117">hexo设计模式探索</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/56b9cb8ac2ea">node之proce模块</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/fangxuan1509/article/details/107469465">minimist命令行引擎</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf">Object.setPrototypeOf原型组合</a></p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"> 模板引擎</a></p>
+<p><a target="_blank" rel="noopener" href="http://nodejs.cn/api/vm.html">nodejs vm模块</a></p>
 <h2 id="框架特色"><a href="#框架特色" class="headerlink" title="框架特色"></a>框架特色</h2><p>​	nodejs运行环境，速度块，扩展能力强，插件丰富，主题开发，一键部署。</p>
 <h2 id="盲点"><a href="#盲点" class="headerlink" title="盲点"></a>盲点</h2><h3 id="process-argv"><a href="#process-argv" class="headerlink" title="process.argv"></a>process.argv</h3><p>process.argv返回一个包含所有启动Nodejs的参数，第一个参数为process.execPath,第二个为当前执行js文件的路径，其它为其它命令行参数。</p>
 <h3 id="minimist"><a href="#minimist" class="headerlink" title="minimist"></a>minimist</h3><p>轻量级nodejs命令行解析引擎。</p>
@@ -280,13 +239,458 @@
 <p>Hexo 引入 Promise 库  bindBrid,  内置丰富 API，</p>
 <p>很方便的处理异步的流程控制，如使用 Promise.promisify(require(‘fs’).readFile)可以原生 fs 模块包装成一个promise对象。</p>
 <h3 id="通用日志模块"><a href="#通用日志模块" class="headerlink" title="通用日志模块"></a>通用日志模块</h3><p>把Log划分为六个级别，’TRACE’,’DEBUG’,’INFO,’WARN’,’FATAL’,不同级别输出不同的格式与颜色(chalk) ,并提供命令含接口，如果带有–debug字段，则Log自动降级为’TRACE’。</p>
-]]></content>
-      <categories>
-        <category>web</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-</search>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/hexo%E6%B7%B1%E5%85%A5%E5%86%8D%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2022/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">hexo博客部署</div>
+      </a>
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2022
+        <i class="ri-heart-fill heart_icon"></i> Ma
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="我的博客"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/representations">总结</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
