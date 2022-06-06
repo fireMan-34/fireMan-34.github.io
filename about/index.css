@@ -1,0 +1,76 @@
+:root{
+    --blue-color:#0078e7;
+    --red-color:#db2828;
+    --gray-color:#999;
+    --sunshine-color:#F4d772;
+    --hty-secondary-text-color: #555;
+}
+#about-me-box{
+    display: flex;
+    justify-content: space-between
+}
+#avatar-box{
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: auto;
+}
+#avatar{
+    display:block;
+    /* width:120px; */
+    /* height:120px; */
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+#avatar-border{
+    border-radius: 50%;
+    width:120px;
+    height:120px;
+    border: 10px solid #fff;
+    box-shadow: 0 2px 7px 0 rebeccapurple;
+    overflow: hidden;
+}
+#avatar-fire{
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 4px 5px 20px 0 var(--sunshine-color);
+    z-index: 2;
+    right: 65px;
+    animation: fireColor 10s ease infinite alternate;
+}
+@keyframes fireColor{
+    0%{
+        background-color:rgba(184, 63, 63,.5);
+        width: 10px;
+        height: 10px;
+        bottom: 0px;
+    }
+    100%{
+        background-color:rgba(184, 63, 63,1);
+        width: 20px;
+        height: 20px;
+        bottom: 140px;
+    }
+}
+#about-me-text{
+    width: 140px;
+    height: 140px;
+}
+#my-name{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    color: var(--red-color);
+}
+#site-name{
+    text-align: center;
+    color: var(--gray-color);
+    font-weight:lighter;
+    line-height: 1.2em;
+}
+#say-name{
+    color: var(--hty-secondary-text-color);
+}

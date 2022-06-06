@@ -65,9 +65,11 @@
 }
 if(!isMobile()){
 const styleText=`.article{
-    box-shadow: 0 0 7px #657b83;
+    box-shadow: 0 0 3px #657b83;
     padding: 2em !important;
     margin: 2em;
+  }.article:hover{
+    box-shadow: 0 0 7px #657b83;
   }`;
 if(document.all){
   window.style=styleText;
@@ -124,19 +126,21 @@ else{
 </a>
       <a href="/2022/hexo%E6%B7%B1%E5%85%A5%E5%86%8D%E5%AD%A6%E4%B9%A0/" class="article-date">
     更新:
-    <time datetime="2022-06-05T16:01:51.035Z" itemprop="datePublished">2022-06-06</time>
+    <time datetime="2022-06-06T08:52:38.750Z" itemprop="datePublished">2022-06-06</time>
 </a> 
       
   <div class="article-category">
     <a class="article-category-link" href="/categories/web/">web</a> / <a class="article-category-link" href="/categories/web/hexo/">hexo</a>
   </div>
-  
+
+       
+       
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">2.1k</span>
+            <span class="post-count">4.7k</span>
         </span>
     </span>
 
@@ -145,7 +149,7 @@ else{
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">9 分钟</span>
+            <span class="post-count">20 分钟</span>
         </span>
     </span>
 </div>
@@ -168,6 +172,7 @@ else{
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf">Object.setPrototypeOf原型组合</a></p>
 <p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"> 模板引擎</a></p>
 <p><a target="_blank" rel="noopener" href="http://nodejs.cn/api/vm.html">nodejs vm模块</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f935e5459c49">简书-个人学习</a></p>
 <h2 id="框架特色"><a href="#框架特色" class="headerlink" title="框架特色"></a>框架特色</h2><p>​	nodejs运行环境，速度块，扩展能力强，插件丰富，主题开发，一键部署。</p>
 <h2 id="盲点"><a href="#盲点" class="headerlink" title="盲点"></a>盲点</h2><h3 id="process-argv"><a href="#process-argv" class="headerlink" title="process.argv"></a>process.argv</h3><p>process.argv返回一个包含所有启动Nodejs的参数，第一个参数为process.execPath,第二个为当前执行js文件的路径，其它为其它命令行参数。</p>
 <h3 id="minimist"><a href="#minimist" class="headerlink" title="minimist"></a>minimist</h3><p>轻量级nodejs命令行解析引擎。</p>
@@ -196,7 +201,7 @@ else{
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//加载外部插件</span></span><br><span class="line"><span class="title class_">Hexo</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">loadPlugin</span>=<span class="keyword">function</span>(<span class="params">path</span>)&#123;</span><br><span class="line">    fs.<span class="title function_">readFile</span>(path).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">script</span>)&#123;</span><br><span class="line">       script=<span class="string">`(function(hexo)&#123;`</span>+script+<span class="string">&#x27;&#125;)&#x27;</span>; </span><br><span class="line">    &#125;);</span><br><span class="line">    retutn vm.<span class="title function_">runInThisContext</span>(script,path)(<span class="variable language_">this</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="Hexo编译模块设计"><a href="#Hexo编译模块设计" class="headerlink" title="Hexo编译模块设计"></a>Hexo编译模块设计</h2><p>预期用户命令接口</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo generate</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
 <p>首先往 Hexo 扩展对象 Console 中注册 &#x3D;&#x3D;generate&#x3D;&#x3D; 函数</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">register</span>(<span class="string">&#x27;generate&#x27;</span>,<span class="string">&#x27;Generate static files&#x27;</span>,&#123;</span><br><span class="line">   <span class="attr">options</span>:[</span><br><span class="line">       &#123;<span class="attr">name</span>:<span class="string">&#x27;-d,--deloy&#x27;</span>,<span class="attr">desc</span>:<span class="string">&#x27;Deploy after generated&#x27;</span>&#125;,</span><br><span class="line">       &#123;<span class="attr">name</span>:<span class="string">&#x27;-f,--force&#x27;</span>,<span class="attr">desc</span>:<span class="string">&#x27;Force regenerate&#x27;</span>&#125;,</span><br><span class="line">       &#123;<span class="attr">name</span>:<span class="string">&#x27;-w,--watch&#x27;</span>,<span class="attr">dec</span>:<span class="string">&#x27;Watch file changes&#x27;</span>&#125;,</span><br><span class="line">   ]</span><br><span class="line">&#125;,<span class="built_in">require</span>(<span class="string">&#x27;/generate&#x27;</span>))</span><br></pre></td></tr></table></figure>
@@ -239,7 +244,240 @@ else{
 <p>Hexo 引入 Promise 库  bindBrid,  内置丰富 API，</p>
 <p>很方便的处理异步的流程控制，如使用 Promise.promisify(require(‘fs’).readFile)可以原生 fs 模块包装成一个promise对象。</p>
 <h3 id="通用日志模块"><a href="#通用日志模块" class="headerlink" title="通用日志模块"></a>通用日志模块</h3><p>把Log划分为六个级别，’TRACE’,’DEBUG’,’INFO,’WARN’,’FATAL’,不同级别输出不同的格式与颜色(chalk) ,并提供命令含接口，如果带有–debug字段，则Log自动降级为’TRACE’。</p>
+<hr>
+<h2 id="高级进阶"><a href="#高级进阶" class="headerlink" title="高级进阶"></a>高级进阶</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>_config.yml</p>
+<p>markdown.md Front-matter</p>
+<h3 id="多语言支持"><a href="#多语言支持" class="headerlink" title="多语言支持"></a>多语言支持</h3><h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><h4 id="全局设置"><a href="#全局设置" class="headerlink" title="全局设置"></a>全局设置</h4><h4 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h4><h4 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h4><p>基本就是网站布局，如果你想要亲手制作一个Hexo的主题，那么就要深入了解这块内容。每一个主题至少都要包含index模板，下面是各页面对应的模板名称：</p>
+<ul>
+<li>index 首页</li>
+<li>post 文章</li>
+<li>page 分页</li>
+<li>archive 归档</li>
+<li>category 分类归档</li>
+<li>tag 标签归档</li>
+</ul>
+<h5 id="Layouts-布局"><a href="#Layouts-布局" class="headerlink" title="Layouts 布局"></a>Layouts 布局</h5><p>如果页面结构类似，模板之间都包含相同结构，可以使用布局功能让模板共享相同结构。一个布局文件必须要能包含显示body变量内容，如此一来模板内容才能显示。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- index.ejs --&gt;</span><br><span class="line">index</span><br><span class="line">&lt;!-- layout.ejs --&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;%- body %&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>生成结果：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        index</span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>每个模板都默认使用 <strong>layout</strong> 布局，你可在文章的前置申明指定布局。比如 post 或者 page 或者设为 false 来关闭布局功能。如果不填默认是 post ，这个在_config.yml中设置默认值，你甚至可以在布局中中再使用其它布局来建立嵌套布局。</p>
+<h5 id="Pratials-局部模板"><a href="#Pratials-局部模板" class="headerlink" title="Pratials 局部模板"></a>Pratials 局部模板</h5><p>局部模板可以让你在不同的模板中分享相同的组件，例如Header，Footer，Sidebar侧边栏等，可以利用局部模版功能将各个组件分割独立的文件，便于维护。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- partial/header.ejs--&gt;</span><br><span class="line">&lt;h1 id=&quot;logo&quot;&gt;</span><br><span class="line">    &lt;%= config.title %&gt;</span><br><span class="line">&lt;/h1&gt;</span><br><span class="line">&lt;!-- index.ejs--&gt;</span><br><span class="line">&lt;div id=&quot;content&quot;&gt;</span><br><span class="line">    Home page</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>生成就是：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;logo&quot;</span>&gt;</span></span><br><span class="line">    My Site</span><br><span class="line"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;content&quot;</span>&gt;</span></span><br><span class="line">    Home page</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这个很容易理解，就是将局部模块里的内容，原封不动的拷贝到引用它的文件中。</p>
+<h5 id="Local-Variables-本地变量"><a href="#Local-Variables-本地变量" class="headerlink" title="Local Variables 本地变量"></a>Local Variables 本地变量</h5><p>这里的变量指的是针对局部模板来使用的，你可以在局部模块中指定局部变量来进行传递。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!--partial/header.ejs--&gt;</span><br><span class="line">&lt;h1 id=&quot;logo&quot;&gt;</span><br><span class="line">    &lt;%- title %&gt;</span><br><span class="line">&lt;/h1&gt;</span><br><span class="line">&lt;!--index.ejs--&gt;</span><br><span class="line">&lt;%- partial(&#x27;partial/header&#x27;,&#123;title:&#x27;Hello,World&#x27;&#125;) %&gt;</span><br><span class="line">&lt;div id=&quot;content&quot;&gt;</span><br><span class="line">    Home page</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>生成后就是：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;logo&quot;</span>&gt;</span></span><br><span class="line">    Hello World</span><br><span class="line"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;content&quot;</span>&gt;</span></span><br><span class="line">    Home page</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这个也不难理解，就是传递变量的过程。</p>
+<h5 id="Optimization-最优化"><a href="#Optimization-最优化" class="headerlink" title="Optimization 最优化"></a>Optimization 最优化</h5><p>假如你的主题特别复杂，因为要生成的文件过于庞大，这样导致hexo 生成性能下降，除了优化主题外，你可以通过 Fragment Caching 局部缓存的功能来处理。它主要的功能是缓存局部的内容，减少文件查询。</p>
+<p>常用在哪些变动很少的模块。例如Header、Footer。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;%- fragment_cache(&#x27;header&#x27;,function()&#123;</span><br><span class="line">   retutn `&lt;header&gt;&lt;/header&gt;` </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>如果使用局部模板的话，如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;%- partial(&#x27;header&#x27;,&#123;&#125;,&#123;cache:true&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>但是需要注意的是，如果开启了<code>relativet1_link</code>参数的话，就不要使用局部缓存的功能，因为relative link在每个页面可能不同。</p>
+<h4 id="变量-1"><a href="#变量-1" class="headerlink" title="变量"></a>变量</h4><h5 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h5><ul>
+<li><code>site</code>网站变量</li>
+<li><code>site.posts</code> 所有文章</li>
+<li><code>site.pages</code>所有分类</li>
+<li><code>site.categories</code>所有分类</li>
+<li><code>site.tags</code>所有标签</li>
+<li><code>page</code>针对改页面的内容以及申明前置所设定的变量</li>
+<li><code>config</code>配置文件中的变量</li>
+<li><code>theme</code>配置文件中的变量</li>
+<li><code>_</code>lodash函数库</li>
+<li><code>path</code>当前页面的路径(不含根路径)</li>
+<li><code>url</code>页面完整</li>
+<li><code>env</code>环境变量</li>
+</ul>
+<h5 id="页面变量"><a href="#页面变量" class="headerlink" title="页面变量"></a>页面变量</h5><p><strong>Page</strong> 这里指的是 <code>hexo new page</code>创建的页面</p>
+<ul>
+<li><code>page.title</code>文章标题</li>
+<li><code>page.date</code>文章建立日期</li>
+<li><code>page.updated</code>文章更新日期</li>
+<li><code>page.comments</code>留言是否开启</li>
+<li><code>page.layout</code>布局名称</li>
+<li><code>page.content</code>文章完整内容</li>
+<li><code>page.excerpt</code>文章摘要</li>
+<li><code>page.more</code>除了摘要的其它内容</li>
+<li><code>page.source</code>文章原始路径</li>
+<li><code>page.full_source</code>文章完整原始路径</li>
+<li><code>page.path</code>文章网址(不含根路径)，通常在主题中使用 <code>url_for(page.path)</code></li>
+<li><code>page.permalink</code>文章永久网址</li>
+<li><code>page.prev</code>上一章，如果此为第一篇文章则为 <code>null</code></li>
+<li><code>page.next</code>下一章，如果此为最后一篇文章则为 <code>null</code></li>
+<li><code>page.raw</code>文章的原始内容</li>
+<li><code>page.photos</code>文章的照片(用于相册)</li>
+<li><code>page.link</code>文章的外链(用于链接文章)</li>
+</ul>
+<p><strong>Post</strong>这里指的是文章页面，与page布局相同，添加如下变量：</p>
+<ul>
+<li><code>page.pulished</code>文章非草稿为 <code>true</code></li>
+<li><code>page.categories</code>文章分类</li>
+<li><code>page.tags</code>文章的标签</li>
+</ul>
+<p><strong>首页 index</strong></p>
+<ul>
+<li><code>page.per_page</code>每一页显示的文章数</li>
+<li><code>page.total</code>文章数量</li>
+<li><code>page.current</code>  当前页码</li>
+<li><code>page.current_url</code>当前页的URL </li>
+<li><code>page.posts</code>当前页的文章ge</li>
+<li><code>page.prev</code>前一页页码，如果为第一页，该值为0</li>
+<li><code>page.prev_link</code>前一页URL，如果为第一页，则为“</li>
+<li><code>page.next_link</code>后一页URL，如果为最后一页，则为”</li>
+<li><code>page.path</code>当前不含根路径网址，通常在主题中使用 <code>url_for(page.path)</code></li>
+</ul>
+<p><strong>归档页 archive</strong></p>
+<p>与<code>index</code>布局相同，但是新增如下变量</p>
+<ul>
+<li><code>archive</code>为 <code>true</code></li>
+<li><code>year</code>归档年份</li>
+<li><code>month</code>归档月份</li>
+</ul>
+<p><strong>分类页 category</strong></p>
+<p>与 <code> index</code> 布局相同，但是新增如下变量</p>
+<ul>
+<li><code>category</code>分类名称</li>
+</ul>
+<p><strong>标签页</strong></p>
+<p>与 <code> index</code> 布局相同，但是新增如下变量</p>
+<ul>
+<li><code>tag</code>标签名称</li>
+</ul>
+<h4 id="帮助函数"><a href="#帮助函数" class="headerlink" title="帮助函数"></a>帮助函数</h4><p>帮助函数用于在模板中快速插入内容</p>
+<h5 id="url"><a href="#url" class="headerlink" title="url"></a>url</h5><ol>
+<li><p><code>url_for</code>返回一个带root路径的，用法 <code>&lt;%- url_for(path) %&gt;</code></p>
+</li>
+<li><p><code>relative_url</code>返回from相对的to路径，用法 <code>&lt;%- relative_url %&gt;</code></p>
+</li>
+<li><p><code>gravater</code>插入Gravatar图片，用法：<code>&lt;%- gravagtar(email,[size]) %&gt;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;%- gravatar(&#x27;a@abc.com&#x27;) %&gt;</span><br><span class="line"> // http://www.gravatar.com/avatar/b9b00e66c6b8a70f88c73cb6bdb06787</span><br><span class="line">&lt;%- gravatar(&#x27;a@abc.com&#x27;,40) %&gt;</span><br><span class="line"> // http://www.gravatar.com/avatar/b9b00e66c6b8a70f88c73cb6bdb06787?s=40</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h5><ol>
+<li><p><code>css</code>载入CSS文件。用法：<code>&lt;% css(path,...) %&gt;</code>,<code>path</code>可以是数据或者字符串，如果 <code>path</code>开头不是 <code>/</code> 或者任何协议，则会自动加上根路径，如果没有 <code>.css</code>扩展名，也会自动加上。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;%- css(&#x27;style.css&#x27;) %&gt;</span><br><span class="line">// &lt;link rel=&quot;stylesheet&quot; href=&quot;/style.css&quot; type=&quot;text/css&quot;&gt;</span><br><span class="line">   </span><br><span class="line">&lt;%- css([&#x27;style.css&#x27;, &#x27;screen.css&#x27;]) %&gt;</span><br><span class="line">// &lt;link rel=&quot;stylesheet&quot; href=&quot;/style.css&quot; type=&quot;text/css&quot;&gt;</span><br><span class="line">// &lt;link rel=&quot;stylesheet&quot; href=&quot;/screen.css&quot; type=&quot;text/css&quot;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>js</code> 载入 JavaScript 文件。用法：<code>&lt;%- js(path, ...) %&gt;</code>，<code>path</code> 可以是数组或字符串，如果 <code>path</code> 开头不是 <code>/</code>或任何协议，则会自动加上根路径；如果后面没有加上 <code>.js</code>扩展名的话，也会自动加上。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;%- js(&#x27;script.js&#x27;) %&gt;</span><br><span class="line">// &lt;script type=&quot;text/javascript&quot; src=&quot;/script.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;%- js([&#x27;script.js&#x27;, &#x27;gallery.js&#x27;]) %&gt;</span><br><span class="line">// &lt;script type=&quot;text/javascript&quot; src=&quot;/script.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">// &lt;script type=&quot;text/javascript&quot; src=&quot;/gallery.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><code>link_to</code> 插入链接。用法：<code>&lt;%- link_to(path, [text], [options]) %&gt;</code>，<code>options</code>参数有：</p>
+<ul>
+<li><p><code>external</code> 在新窗口中打开链接，默认值为false</p>
+</li>
+<li><p><code>class</code> Class名称，也就是html标签a的class名</p>
+</li>
+<li><p><code>id</code> ID名，也就是html标签a的id名</p>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;%- link_to(&#x27;http://www.google.com&#x27;) %&gt;</span><br><span class="line">// &lt;a href=&quot;http://www.google.com&quot; title=&quot;http://www.google.com&quot;&gt;http://www.google.com&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;%- link_to(&#x27;http://www.google.com&#x27;, &#x27;Google&#x27;) %&gt;</span><br><span class="line">// &lt;a href=&quot;http://www.google.com&quot; title=&quot;Google&quot;&gt;Google&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;%- link_to(&#x27;http://www.google.com&#x27;, &#x27;Google&#x27;, &#123;external: true, class: &quot;link&quot;&#125;) %&gt;</span><br><span class="line">// &lt;a href=&quot;http://www.google.com&quot; title=&quot;Google&quot; target=&quot;_blank&quot; rel=&quot;external&quot; class=&quot;link&quot;&gt;Google&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// &lt;a href=&quot;http://www.google.com&quot; title=&quot;Google&quot; target=&quot;_blank&quot; rel=&quot;external&quot; class=&quot;link&quot;&gt;Google&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><code>mail_to</code> 插入电子邮件链接。用法：<code>&lt;%- mail_to(path, [text], [options])%&gt;</code>，<code>options</code>参数有：</li>
+</ol>
+<ul>
+<li><code>class</code> Class名称，也就是html标签a的class名</li>
+<li><code>id</code> ID名，也就是html标签a的id名</li>
+<li><code>subject</code> 邮件主题</li>
+<li><code>cc</code> 抄送（CC）</li>
+<li><code>bcc</code> 密送（BCC）</li>
+<li><code>body</code> 邮件内容</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;%- mail_to(&#x27;a@abc.com&#x27;) %&gt;</span><br><span class="line">// &lt;a href=&quot;mailto:a@abc.com&quot; title=&quot;a@abc.com&quot;&gt;a@abc.com&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;%- mail_to(&#x27;a@abc.com&#x27;, &#x27;Email&#x27;) %&gt;</span><br><span class="line">// &lt;a href=&quot;mailto:a@abc.com&quot; title=&quot;Email&quot;&gt;Email&lt;/a&gt;  </span><br></pre></td></tr></table></figure>
+
+<p>5.<code>image_tag</code> 插入图片。用法：<code>&lt;%- image_tag(path, [options]) %&gt;</code>，<code>options</code>参数有：</p>
+<ul>
+<li><code>class</code> Class名称，也就是html标签a的class名</li>
+<li><code>id</code> ID名，也就是html标签a的id名</li>
+<li><code>alt</code> 替代文字</li>
+<li><code>width</code> 宽度</li>
+<li><code>height</code> 高度</li>
+</ul>
+<p>基本上就是<code>img</code>标签里的属性值。</p>
+<p>6.<code>favicon_tag</code>插入favicon。用法：<code>&lt;%- favicon_tag(path) %&gt;</code></p>
+<p>7.<code>feed_tag</code> 插入feed链接。用法：<code>&lt;%- feed_tag(path, [options]) %&gt;</code>，参数有：<code>title</code>和<code>type</code>(默认值为atom)</p>
+<h5 id="条件函数"><a href="#条件函数" class="headerlink" title="条件函数"></a>条件函数</h5><ul>
+<li><code>is_current</code> 判断<code>path</code>是否符合目前页面的网址。<code>&lt;%- is_current(path, [strict]) %&gt;</code></li>
+<li><code>is_home</code> 判断目前是否为首页。</li>
+<li><code>is_post</code> 检查目前是否为文章。 <code>&lt;%- is_post() %&gt;</code></li>
+<li><code>is_archive</code> 检查目前是否为存档页面。<code>&lt;%- is_archive() %&gt;</code></li>
+<li><code>is_year</code> 检查目前是否为年度归档页面。<code>&lt;%- is_year() %&gt;</code></li>
+<li><code>is_month</code>检查目前是否为月度归档页面。&lt;%- is_month() %&gt;</li>
+<li><code>is_category</code>检查目前是否为分类归档页面。&lt;%- is_category() %&gt;</li>
+<li><code>is_tag</code>检查目前是否为标签归档页面。<code>&lt;%- is_tag() %&gt;</code></li>
+</ul>
+<h5 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h5><ul>
+<li><code> trim</code>清楚字符串开头和结尾的空格。<code>&lt;%- trim(string) %&gt; </code></li>
+<li><code>strip_html</code>清楚字符串中HTML标签。<code>&lt;%- strip_html(string) %&gt;</code></li>
+<li><code>titlecase</code>把字符串转换为Title case。<code>&lt;%- titlecase(string) %&gt;</code></li>
+<li><code>markdown</code>使用 Markdown 解析字符串。<code>&lt;%- markdown(string) %&gt;</code></li>
+<li><code>render</code> 解析字符串。<code>&lt;%- render(str, engine, [options]) %&gt;</code></li>
+<li><code>word_wrap</code>使每行的字符串长度不超过 <code>length</code>。<code>length</code> 预设为 80。<code>&lt;%- word_wrap(str, [length]) %&gt;</code></li>
+<li><code>truncate</code>移除超过 <code>length</code> 长度的字符串。<code>&lt;%- truncate(text, length) %&gt;</code></li>
+</ul>
+<h5 id="模板-1"><a href="#模板-1" class="headerlink" title="模板"></a>模板</h5><ul>
+<li><code>partial</code>载入其它模板文件，你可在 <code>locals</code>设定变量。<code>&lt;%- partial(layout,[locals],[options]) %&gt;</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cache</td>
+<td>缓存，使用Fragment cache</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>only</td>
+<td>限制局部变量，在模板中只能使用 <code>locals</code>中设定的变量</td>
+<td><code>false</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>fragment_cache</code>局部缓存。它储存局部内容，下次使用时就能直接使用缓存。<code>&lt;%- fragment_cache(id, fn);</code></li>
+</ul>
+<h5 id="日期和时间"><a href="#日期和时间" class="headerlink" title="日期和时间"></a>日期和时间</h5><p><code>date</code>插入的格式化的日期，Unix，ISO字符串，Date对象或Moment对象。</p>
+<p><code>format</code>默认为 <code>date_format</code>配置信息。</p>
+<p><code>&lt;%- date(Date.now(),&#39;YYYY/M/D) %&gt;</code></p>
+<p><code>date_xml</code>插入XML格式的日期。数据格式和调用同上。</p>
+<p><code>time</code>&#x2F;<code>full_date</code></p>
+<h5 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h5><ul>
+<li><code>list_categories</code>插入分类列表，<code>&lt;%- list_categories([categories], [options]) %&gt;</code></li>
+<li><code>list_tags</code></li>
+<li><code>list_archives</code></li>
+<li><code>lsit_posts</code></li>
+<li><code>tagclound</code><strong>想要学习</strong></li>
+<li><code>paginator</code>插入分页连接</li>
+<li><code>search_form</code>插入谷歌搜索</li>
+<li><code>number_format</code></li>
+<li><code>open_graph</code></li>
+<li><code>toc</code></li>
+</ul>
+<h4 id="本地化"><a href="#本地化" class="headerlink" title="本地化"></a>本地化</h4><h4 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h4><h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>上面提到的所有<code>Options</code>参数一定要按照<code>json</code>的格式来书写；</p>
  
+      <div style="text-align:center;color: #ccc;font-size:14px;margin: 2em;">---------------- The End and 
+    <span style="color: brown;font-weight: bold;">I</span> hope 
+    <span style="color: #F4d772;font-weight: bold;font-size: 1.5em;" >sunshines</span>
+ on the outside. ----------------</div>
       <!-- reward -->
       
     </div>
@@ -303,7 +541,7 @@ else{
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2022/hexo%E6%B7%B1%E5%85%A5%E5%86%8D%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://fireman-34.github.io/2022/hexo%E6%B7%B1%E5%85%A5%E5%86%8D%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -315,6 +553,15 @@ else{
 
    
   <nav class="article-nav">
+    
+      <a href="/2022/study-from-%E4%BA%91%E6%B8%B8%E5%90%9B/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            study-from-云游君
+          
+        </div>
+      </a>
     
     
       <a href="/2022/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/" class="article-nav-link">

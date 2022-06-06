@@ -65,9 +65,11 @@
 }
 if(!isMobile()){
 const styleText=`.article{
-    box-shadow: 0 0 7px #657b83;
+    box-shadow: 0 0 3px #657b83;
     padding: 2em !important;
     margin: 2em;
+  }.article:hover{
+    box-shadow: 0 0 7px #657b83;
   }`;
 if(document.all){
   window.style=styleText;
