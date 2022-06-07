@@ -184,9 +184,61 @@
       </tags>
   </entry>
   <entry>
+    <title>study-from-云游君</title>
+    <url>/2022/study-from-%E4%BA%91%E6%B8%B8%E5%90%9B/</url>
+    <content><![CDATA[<h1 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h1><p><a href="https://www.yunyoujun.cn/">云游君的小站</a></p>
+<p><a href="https://blog.csdn.net/dcl199728/article/details/123380485"><code>css</code>中的<code>var()</code>和<code>:root</code></a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/var">mdn</a></p>
+<h1 id="css"><a href="#css" class="headerlink" title="css"></a>css</h1><ol>
+<li><code>:root</code>里面可以设置公用颜色属性 <code>--bg-color:#fff</code><br>然后颜色用 <code>var(--bg-color)</code>;</li>
+<li>background-img设置渐进色,linear&#x2F;radio gradient</li>
+<li>鼠标悬浮显示特效</li>
+</ol>
+<ul>
+<li><p>第一种,文字左右两角悬浮</p>
+<p>首先，我们用一种样式名</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;text-hover&quot;</span>&gt;</span></span><br><span class="line">   //text </span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>定义两个伪类元素，让其获得边框,  并绝对定位该元素于悬浮触发器元素，设置过渡属性0.3s,运动采用贝塞尔曲线,透明度为0，变形属性设置移动。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.text-hover</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.text-hover</span><span class="selector-pseudo">:before</span>,<span class="selector-class">.text-hover</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    position:absolute;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">10px</span>;<span class="attribute">height</span>:<span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">border-style</span>:solid;</span><br><span class="line">    <span class="attribute">transition</span>: .<span class="number">3s</span>;</span><br><span class="line">    <span class="attribute">transition-timing-function</span>: <span class="built_in">cubic-bezier</span>(<span class="number">0.17</span>,<span class="number">0.67</span>,<span class="number">0.05</span>,<span class="number">1.29</span>);</span><br><span class="line">    <span class="attribute">opacity</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.hover-text</span><span class="selector-pseudo">::before</span>&#123;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">2px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">2px</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(<span class="number">10px</span>,<span class="number">10px</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.hover-text</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">2px</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(-<span class="number">10px</span>,-<span class="number">10px</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>设置悬浮样式，触发过度效果</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.hover-text</span><span class="selector-pseudo">:hover</span><span class="selector-pseudo">::before</span>,<span class="selector-class">.hover-text</span><span class="selector-pseudo">:hover</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>梦中等雨</title>
+    <url>/2022/%E6%A2%A6%E4%B8%AD%E7%AD%89%E9%9B%A8/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　今早我从睡醒开始到10：30，一直在浅学hexo的博客搭建，学习了简单的代码块语法，以及高亮尝试，中间浅浅地接触了yaml格式配置，highlight.js高亮。</p>
+<p>　　然而我的早餐时间，并未开始。于是乎，到10：30时，我准备去附近的肉夹馍店……在前往的途中，遇上了这场雨，它似乎想要告诉我什么。</p>
+<h1 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h1><ul>
+<li>初始<br>　　简单的穿了鞋子，没有带上任何东西的我，出了门。</li>
+</ul>
+<p>　　开始的时候，雨犹如细丝，一丝丝地落在我的周围，我也享受这种视觉感受。</p>
+<p>　　逐渐，雨开始大了点，雨由丝化滴，稀疏地滴落在我的衣服上。我也渐渐地靠向附近地屋檐边躲雨边前行。</p>
+<ul>
+<li>发生<br>　　在到达一个楼道通口的时候，细雨连成线，我就停下了前往吃饭的意识，收紧步伐，等待雨停之时……<br>　　等雨的时间里，雨落声音又带着我进入那种体验者的感觉，没有目的，没有束缚。它是想告诉我什么，停止步伐，还是继续前进。<br>　　雨的一切好像占据了我的格式塔心智，雨在告诉我它的众生相，我仿佛见到了众生在它里五味杂陈。谁能言的明“雨”的相，吾的“雨”与汝的“雨”如何相同呢？雨的到来，风的羁绊。风雨里的心仿佛都在彷徨着远方的灯塔，迫切地焦急地追逐。我如我所见，我的心在此刻亦如焦灼般的追逐。亦如我现在对找工作的态度一样。对于雨，我知道我的这份等待，雨终将会停止并等待下一次的到来，我可以等待；而我的人生，自己的工作，或许亦如所有，同样也只有等待，去明白自己的追寻，去沉淀自己的感觉，才能在等待中明白自己的所有。雨仿佛知道我的等待，越下越大，我再一次沉浸其中，然而风的存在却在呼唤着我，它的存在。我想是的，如我们所“见”，我们只在乎我们知道的。<br>　　雨，它的所有，填充着每个人的心灵，成为背景，成为旋律，成为遇见，成为我们每个的相。<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1>　　雨在述说着它的一切，而我是这场雨的一个观众。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>体验</category>
+      </categories>
+      <tags>
+        <tag>人生</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo深入再学习</title>
     <url>/2022/hexo%E6%B7%B1%E5%85%A5%E5%86%8D%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="主题文件夹功能探索"><a href="#主题文件夹功能探索" class="headerlink" title="主题文件夹功能探索"></a>主题文件夹功能探索</h1><h2 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h2><p><strong>ejs</strong>文件或者其他模板文件。</p>
+<h3 id="条件函数使用"><a href="#条件函数使用" class="headerlink" title="条件函数使用"></a>条件函数使用</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;%= is_post()?&quot;class1&quot;:&quot;class2&quot; %&gt;</span><br></pre></td></tr></table></figure>
+
 <h1 id="HEXO设计模式笔记"><a href="#HEXO设计模式笔记" class="headerlink" title="HEXO设计模式笔记"></a>HEXO设计模式笔记</h1><p>静态网站生成器以及api文档。</p>
 <h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><p><a href="https://juejin.cn/post/6844903469669679117">hexo设计模式探索</a></p>
 <p><a href="https://www.jianshu.com/p/56b9cb8ac2ea">node之proce模块</a></p>
@@ -503,36 +555,5 @@
       <tags>
         <tag>hexo</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>梦中等雨</title>
-    <url>/2022/%E6%A2%A6%E4%B8%AD%E7%AD%89%E9%9B%A8/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　今早我从睡醒开始到10：30，一直在浅学hexo的博客搭建，学习了简单的代码块语法，以及高亮尝试，中间浅浅地接触了yaml格式配置，highlight.js高亮。</p>
-<p>　　然而我的早餐时间，并未开始。于是乎，到10：30时，我准备去附近的肉夹馍店……在前往的途中，遇上了这场雨，它似乎想要告诉我什么。</p>
-<h1 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h1><ul>
-<li>初始<br>　　简单的穿了鞋子，没有带上任何东西的我，出了门。</li>
-</ul>
-<p>　　开始的时候，雨犹如细丝，一丝丝地落在我的周围，我也享受这种视觉感受。</p>
-<p>　　逐渐，雨开始大了点，雨由丝化滴，稀疏地滴落在我的衣服上。我也渐渐地靠向附近地屋檐边躲雨边前行。</p>
-<ul>
-<li>发生<br>　　在到达一个楼道通口的时候，细雨连成线，我就停下了前往吃饭的意识，收紧步伐，等待雨停之时……<br>　　等雨的时间里，雨落声音又带着我进入那种体验者的感觉，没有目的，没有束缚。它是想告诉我什么，停止步伐，还是继续前进。<br>　　雨的一切好像占据了我的格式塔心智，雨在告诉我它的众生相，我仿佛见到了众生在它里五味杂陈。谁能言的明“雨”的相，吾的“雨”与汝的“雨”如何相同呢？雨的到来，风的羁绊。风雨里的心仿佛都在彷徨着远方的灯塔，迫切地焦急地追逐。我如我所见，我的心在此刻亦如焦灼般的追逐。亦如我现在对找工作的态度一样。对于雨，我知道我的这份等待，雨终将会停止并等待下一次的到来，我可以等待；而我的人生，自己的工作，或许亦如所有，同样也只有等待，去明白自己的追寻，去沉淀自己的感觉，才能在等待中明白自己的所有。雨仿佛知道我的等待，越下越大，我再一次沉浸其中，然而风的存在却在呼唤着我，它的存在。我想是的，如我们所“见”，我们只在乎我们知道的。<br>　　雨，它的所有，填充着每个人的心灵，成为背景，成为旋律，成为遇见，成为我们每个的相。<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1>　　雨在述说着它的一切，而我是这场雨的一个观众。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>体验</category>
-      </categories>
-      <tags>
-        <tag>人生</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>study-from-云游君</title>
-    <url>/2022/study-from-%E4%BA%91%E6%B8%B8%E5%90%9B/</url>
-    <content><![CDATA[<h1 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h1><p><a href="https://www.yunyoujun.cn/">云游君的小站</a></p>
-<p><a href="https://blog.csdn.net/dcl199728/article/details/123380485"><code>css</code>中的<code>var()</code>和<code>:root</code></a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/var">mdn</a></p>
-<h1 id="css"><a href="#css" class="headerlink" title="css"></a>css</h1><p><code>:root</code>里面可以设置公用颜色属性 <code>--bg-color:#fff</code></p>
-<p>然后颜色用 <code>var(--bg-color)</code>;</p>
-]]></content>
   </entry>
 </search>

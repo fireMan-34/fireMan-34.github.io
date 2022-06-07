@@ -16,7 +16,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>web |  我的博客</title>
+      <title>Web |  我的博客</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -106,7 +106,7 @@ else{
   <article class="articles">
     
     
-    <h1 class="page-type-title">web</h1>
+    <h1 class="page-type-title">Web</h1>
     
     
   
@@ -124,13 +124,13 @@ else{
       <article class="archive-article archive-type-post">
   <div class="archive-article-inner">
     <header class="archive-article-header">
-      <a href="/2022/hexo%E6%B7%B1%E5%85%A5%E5%86%8D%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  <time datetime="2022-06-05T10:02:57.000Z" itemprop="datePublished">06/05</time>
+      <a href="/2022/hexo%E6%90%AD%E5%BB%BA%E6%97%A5%E5%BF%97/" class="archive-article-date">
+  <time datetime="2022-06-03T04:45:49.000Z" itemprop="datePublished">06/03</time>
 </a>
        
 <h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/hexo%E6%B7%B1%E5%85%A5%E5%86%8D%E5%AD%A6%E4%B9%A0/"
-    >hexo深入再学习</a> 
+  <a class="archive-article-title" href="/2022/hexo%E6%90%AD%E5%BB%BA%E6%97%A5%E5%BF%97/"
+    >hexo搭建日志</a> 
 </h2>
  
 
@@ -138,7 +138,7 @@ else{
     
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/web/">web</a> / <a class="article-category-link" href="/categories/web/hexo/">hexo</a>
+    <a class="article-category-link" href="/categories/Web/">Web</a> / <a class="article-category-link" href="/categories/Web/hexo/">hexo</a>
   </div>
 
     
@@ -151,13 +151,13 @@ else{
       <article class="archive-article archive-type-post">
   <div class="archive-article-inner">
     <header class="archive-article-header">
-      <a href="/2022/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-  <time datetime="2022-06-04T11:09:14.000Z" itemprop="datePublished">06/04</time>
+      <a href="/2022/hello-world/" class="archive-article-date">
+  <time datetime="2022-06-03T03:45:54.267Z" itemprop="datePublished">06/03</time>
 </a>
        
 <h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/"
-    >hexo博客部署</a> 
+  <a class="archive-article-title" href="/2022/hello-world/"
+    >Hello World</a> 
 </h2>
  
 
@@ -165,7 +165,7 @@ else{
     
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/web/">web</a> / <a class="article-category-link" href="/categories/web/hexo/">hexo</a> / <a class="article-category-link" href="/categories/web/%E9%83%A8%E7%BD%B2/">部署</a>
+    <a class="article-category-link" href="/categories/Web/">Web</a>
   </div>
 
     
@@ -493,6 +493,46 @@ else{
         wait(function () { // 等待两秒钟后恢复
           $icon.removeClass('ri-checkbox-circle-line');
           $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>con.addClass('ri-file-copy-2-line');
           $span[0].innerText = 'COPY';
         }, 2000);
       });
