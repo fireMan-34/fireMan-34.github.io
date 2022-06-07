@@ -72,6 +72,17 @@
 <li><input checked="" disabled="" type="checkbox"> 图片悬浮文本，语义化处理，seo优化</li>
 <li><input checked="" disabled="" type="checkbox"> 请求优化，开启 gzip 压缩</li>
 </ul>
+<h1 id="优化前数据-1"><a href="#优化前数据-1" class="headerlink" title="优化前数据"></a>优化前数据</h1><p><code>Performance</code>：93</p>
+<p><code>Accessibility</code>：86</p>
+<p><code>Best Prctices</code>92</p>
+<p><code>SEO</code>：92</p>
+<p><code>PWA</code>： 无</p>
+<p><code>Frist Contentful Paint</code>:2.9</p>
+<p><code>Time to interactive</code>:25</p>
+<p><code>Speed Index</code>:5.4</p>
+<p><code>Total Blocking Time</code>：0</p>
+<p><code>Largest Contentful Paint</code>：2.9</p>
+<p><code>Cumulative Layout Shift</code>：0.012</p>
 <h1 id="后面再优化"><a href="#后面再优化" class="headerlink" title="后面再优化"></a>后面再优化</h1><p>先更新版本</p>
 ]]></content>
       <categories>
