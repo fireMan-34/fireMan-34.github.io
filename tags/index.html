@@ -27,8 +27,8 @@
 <link rel="stylesheet" href="/css/my.css">
 
       
-<link rel="stylesheet" href="/css/fonts/remixicon.css">
-
+       
+      <link href="https://cdn.jsdelivr.net/npm/remixicon@2.1.0/fonts/remixicon.css" rel="stylesheet">
       
 <link rel="stylesheet" href="/css/custom.css">
  
@@ -54,36 +54,6 @@
   </html>
 </html>
 
-<div id="addShowdowOnPC"></div>
-<script>
-    function isMobile(){
-    if(window.navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec   wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
-     return true; // 移动端
-    }else{
-     return false; // PC端
-    }
-}
-if(!isMobile()){
-const styleText=`.article{
-    box-shadow: 0 0 3px #657b83;
-    padding: 2em !important;
-    margin: 2em;
-  }.article:hover{
-    box-shadow: 0 0 7px #657b83;
-  }`;
-if(document.all){
-  window.style=styleText;
-  document.createStyleSheet("javascript:style");
-}
-else{
-  const styleDom=document.createElement('style');
-  const addShowdowOnPC=document.getElementById('addShowdowOnPC');
-  styleDom.type="text/css";
-  styleDom.innerHTML=styleText;
-  addShowdowOnPC.appendChild(styleDom);
-}
-}
-</script> 
 <body>
   <div class="my">
     
@@ -103,7 +73,7 @@ else{
       <section class="outer">
   
     <h1 class="page-type-title">标签</h1>
-    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E7%94%9F/" rel="tag">人生</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li></ul>
+    <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web-%E6%80%A7%E8%83%BD/" rel="tag">web,性能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E7%94%9F/" rel="tag">人生</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag">部署</a></li></ul>
   
 </section>
 
@@ -162,7 +132,7 @@ else{
 
     </div>
     <aside class="sidebar on">
-      <button class="navbar-toggle"></button>
+      <button class="navbar-toggle" aria-label="a button can opend or hide navbar"></button>
 <nav class="navbar">
   
   <div class="logo">
@@ -457,6 +427,36 @@ else{
     
 
   </div>
+  <div id="addShowdowOnPC"></div>
+<script async>
+    function isMobile(){
+    if(window.navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec   wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
+     return true; // 移动端
+    }else{
+     return false; // PC端
+    }
+}
+if(!isMobile()){
+const styleText=`.article{
+    box-shadow: 0 0 3px #657b83;
+    padding: 2em !important;
+    margin: 2em;
+  }.article:hover{
+    box-shadow: 0 0 7px #657b83;
+  }`;
+if(document.all){
+  window.style=styleText;
+  document.createStyleSheet("javascript:style");
+}
+else{
+  const styleDom=document.createElement('style');
+  const addShowdowOnPC=document.getElementById('addShowdowOnPC');
+  styleDom.type="text/css";
+  styleDom.innerHTML=styleText;
+  addShowdowOnPC.appendChild(styleDom);
+}
+}
+</script> 
 </body>
 
 </html>

@@ -27,8 +27,8 @@
 <link rel="stylesheet" href="/css/my.css">
 
       
-<link rel="stylesheet" href="/css/fonts/remixicon.css">
-
+       
+      <link href="https://cdn.jsdelivr.net/npm/remixicon@2.1.0/fonts/remixicon.css" rel="stylesheet">
       
 <link rel="stylesheet" href="/css/custom.css">
  
@@ -54,36 +54,6 @@
   </html>
 </html>
 
-<div id="addShowdowOnPC"></div>
-<script>
-    function isMobile(){
-    if(window.navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec   wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
-     return true; // 移动端
-    }else{
-     return false; // PC端
-    }
-}
-if(!isMobile()){
-const styleText=`.article{
-    box-shadow: 0 0 3px #657b83;
-    padding: 2em !important;
-    margin: 2em;
-  }.article:hover{
-    box-shadow: 0 0 7px #657b83;
-  }`;
-if(document.all){
-  window.style=styleText;
-  document.createStyleSheet("javascript:style");
-}
-else{
-  const styleDom=document.createElement('style');
-  const addShowdowOnPC=document.getElementById('addShowdowOnPC');
-  styleDom.type="text/css";
-  styleDom.innerHTML=styleText;
-  addShowdowOnPC.appendChild(styleDom);
-}
-}
-</script> 
 <body>
   <div class="my">
     
@@ -104,7 +74,7 @@ else{
   
     <h1 class="page-type-title">分类</h1>
     <div class="categories-box">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/hexo/">hexo</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/web/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/%E9%83%A8%E7%BD%B2/">部署</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BD%93%E9%AA%8C/">体验</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Web/hexo/">hexo</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/web/hexo/">hexo</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/%E9%83%A8%E7%BD%B2/">部署</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BD%93%E9%AA%8C/">体验</a><span class="category-list-count">2</span></li></ul>
     </div>
   
 </section>
@@ -162,7 +132,7 @@ else{
 
     </div>
     <aside class="sidebar on">
-      <button class="navbar-toggle"></button>
+      <button class="navbar-toggle" aria-label="a button can opend or hide navbar"></button>
 <nav class="navbar">
   
   <div class="logo">
@@ -457,6 +427,36 @@ else{
     
 
   </div>
+  <div id="addShowdowOnPC"></div>
+<script async>
+    function isMobile(){
+    if(window.navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec   wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
+     return true; // 移动端
+    }else{
+     return false; // PC端
+    }
+}
+if(!isMobile()){
+const styleText=`.article{
+    box-shadow: 0 0 3px #657b83;
+    padding: 2em !important;
+    margin: 2em;
+  }.article:hover{
+    box-shadow: 0 0 7px #657b83;
+  }`;
+if(document.all){
+  window.style=styleText;
+  document.createStyleSheet("javascript:style");
+}
+else{
+  const styleDom=document.createElement('style');
+  const addShowdowOnPC=document.getElementById('addShowdowOnPC');
+  styleDom.type="text/css";
+  styleDom.innerHTML=styleText;
+  addShowdowOnPC.appendChild(styleDom);
+}
+}
+</script> 
 </body>
 
 </html>

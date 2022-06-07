@@ -1,6 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo性能优化记录</title>
+    <url>/2022/Hexo%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  本来我是打算先写一篇关于vim的笔记。其实我觉得自己的博客没有自己真实的技术输出，所以这些看起来文章看起来更多像自己的笔记。<br>  我是用的是谷歌的“光之屋”进行来实施对应优化的。</p>
+<p>之前更多是采用<code>Webpack</code>的构建<code>plugin</code>进行优化，所以这对于我来说算是一个新的尝试。</p>
+<h1 id="英文词汇"><a href="#英文词汇" class="headerlink" title="英文词汇"></a>英文词汇</h1><ul>
+<li>Performance 表演，表现</li>
+<li>Accessibility 可访问性</li>
+<li>Prctices 实践，惯例</li>
+</ul>
+<h1 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h1><p><a href="https://webmasters.stackexchange.com/questions/56561/is-gzip-compression-available-for-github-pages">Is gzip compression available for GitHub pages?</a></p>
+<p><a href="https://blog.skk.moe/post/improve-fcp-for-my-blog/">skk blog</a></p>
+<h1 id="优化前数据"><a href="#优化前数据" class="headerlink" title="优化前数据"></a>优化前数据</h1><p><code>Performance</code>：88</p>
+<p><code>Accessibility</code>：68</p>
+<p><code>Best Prctices</code>83</p>
+<p><code>SEO</code>：92</p>
+<p><code>PWA</code>： 无</p>
+<p><code>Frist Contentful Paint</code>:1.9</p>
+<p><code>Time to interactive</code>:1.9</p>
+<p><code>Speed Index</code>:27.8 </p>
+<p><code>Total Blocking Time</code>：0</p>
+<p><code>Largest Contentful Paint</code>：1.9</p>
+<p><code>Cumulative Layout Shift</code>：0.014</p>
+<h2 id="光之屋的优化建议"><a href="#光之屋的优化建议" class="headerlink" title="光之屋的优化建议"></a>光之屋的优化建议</h2><ul>
+<li><strong>Serve images in next-gen formats</strong> 2.2 s 建议我采用 Webp 或者 AVIF 格式图片。</li>
+<li><strong>Efficiently encode images</strong> 1.5 s 建议我采用压缩图片和 使用更少的请求</li>
+<li>Eliminate render-blocking resources 0.66 s 压缩资源</li>
+<li>Use HTTP&#x2F;2 0.3s 使用HTTP&#x2F;2协议</li>
+<li><strong>Image elements do not have explicit <code>width</code> and <code>height</code></strong> 图像无明显宽高</li>
+<li><strong>Serve static assets with an efficient cache policy 17 resources found</strong>应该是配置请求策略，后面转图床或者个人服务器。</li>
+<li><strong>Minimize main-thread work</strong> 7.6 s 考虑减少分析、编译和执行 js 所花费的时间。</li>
+</ul>
+<p>Other 3 s ，Style &amp; Layout 2.1 s ，Render 1.4 s, Script Evaluation .74 s</p>
+<p>Maximum critical path latency: <strong>30,330 ms</strong></p>
+<p>​	main.css 1.4 s  8.32 k</p>
+<p>​	my.css  1.4 s  .85 k</p>
+<p>​	fonts 5.8 s  93 k</p>
+<p>​	custom 1.7s .56k</p>
+<p>​	jquery &#x2F; lazyload …. 采用GitHub 域名的速度都比较慢。</p>
+<ul>
+<li>User Timing marks and measures 用户计时标志和措施</li>
+<li>Keep request counts low and transfer sizes small 保持请求体积合理化</li>
+<li>Largest Contentful Paint element 最大绘制内容</li>
+<li>Avoid large layout shifts 避免大的布局变化</li>
+<li>Avoid long main-thread tasks </li>
+<li>Avoid non-composited animations</li>
+<li><strong>Buttons do not have an accessible name</strong></li>
+<li>**Links do not have a discernible name **</li>
+<li>BEST PRACTICES <code>[user-scalable=&quot;no&quot;]</code> is used in the <code>&lt;meta name=&quot;viewport&quot;&gt;</code> element or the <code>[maximum-scale]</code> attribute is less than 5.</li>
+<li>Background and foreground colors do not have a sufficient contrast ratio.背景色和前景色没有足够的对比度。</li>
+<li>Browser errors were logged to the console 控制台打印错误 bulma sweetaler2</li>
+<li>Links are not crawlable</li>
+<li>Web app manifest or service worker do not meet the installability requirements</li>
+</ul>
+<h1 id="优化过程"><a href="#优化过程" class="headerlink" title="优化过程"></a>优化过程</h1><ul>
+<li><input disabled="" type="checkbox"> 图片资源优化可选策略<ul>
+<li><input disabled="" type="checkbox"> <del>替换格式</del>，浏览器有一部分不支持，图床也要搞，还要搞个多图方案，算了吧</li>
+<li><input checked="" disabled="" type="checkbox"> 压缩体积，采用tinify压缩，自己写启动脚本</li>
+<li><input disabled="" type="checkbox"> 懒加载处理，以后再说</li>
+<li><input disabled="" type="checkbox"> 小图预加载，搞到图床再说</li>
+<li><input disabled="" type="checkbox"> 骨架渲染，现在没空</li>
+<li><input disabled="" type="checkbox"> 分离静态资源，搞到图床再说</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 字体资源优化<ul>
+<li><input disabled="" type="checkbox"> 搞到访问好的静态服务器，最好是 free，主题里面竟然下载全部 UI 库，不过图标真的可以过我审美。</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 按钮添加可访问名称，语义化处理，seo优化</li>
+<li><input checked="" disabled="" type="checkbox"> 图片悬浮文本，语义化处理，seo优化</li>
+<li><input checked="" disabled="" type="checkbox"> 请求优化，开启 gzip 压缩</li>
+</ul>
+<h1 id="后面再优化"><a href="#后面再优化" class="headerlink" title="后面再优化"></a>后面再优化</h1><p>先更新版本</p>
+]]></content>
+      <categories>
+        <category>web</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>web,性能</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2022/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -70,167 +152,6 @@
       <tags>
         <tag>hexo</tag>
         <tag>部署</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo搭建日志</title>
-    <url>/2022/hexo%E6%90%AD%E5%BB%BA%E6%97%A5%E5%BF%97/</url>
-    <content><![CDATA[<p>hexo搭建过程，部分记录</p>
-<h1 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h1><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://blog.csdn.net/weixin_54880923/article/details/115319991">yml知识</a></li>
-<li><a href="https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml">yml,in,markdown</a></li>
-<li><a href="https://blog.csdn.net/weixin_42305648/article/details/114733118">代码高亮</a></li>
-<li><a href="https://www.jianshu.com/p/65ab196bef04">代码高亮2</a><h2 id="yaml语法"><a href="#yaml语法" class="headerlink" title="yaml语法"></a>yaml语法</h2></li>
-</ol>
-<ul>
-<li><p>普通键值对</p>
-  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 备注</span></span><br><span class="line"><span class="attr">key:</span> <span class="string">value</span></span><br></pre></td></tr></table></figure></li>
-<li><p>对象键值对</p>
-  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">person：</span></span><br><span class="line"> <span class="attr">name:</span> <span class="string">无为</span></span><br><span class="line"> <span class="attr">age:</span> <span class="number">18</span></span><br></pre></td></tr></table></figure>
-<p>  ||</p>
-  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> &#123;</span><br><span class="line">   <span class="attr">key:</span> <span class="string">value</span>,</span><br><span class="line">   <span class="attr">key:</span> <span class="string">value</span></span><br><span class="line">   &#125;   </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>数组键值对   </p>
-  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> <span class="bullet">-</span> <span class="string">value</span> <span class="bullet">-</span> <span class="string">value</span></span><br></pre></td></tr></table></figure>
-<p>  ||</p>
-  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> [<span class="string">value</span>,<span class="string">value</span>]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>集合</p>
-  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> [&#123;<span class="attr">key:</span> <span class="string">value</span>&#125;,&#123;<span class="attr">key:</span> <span class="string">value</span>&#125;]</span><br></pre></td></tr></table></figure>
-<h2 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h2></li>
-<li><p>打包没有发现对应的yaml样式<br>  -&gt;尝试其他代码块,markdown语法编译器可以高亮，但hexo打包没有高亮<br>  -&gt;打包没有对应的样式包<br>  -&gt;浏览器样式区别对比<br>  -&gt;解决了，过程里发现自己在之前关闭高亮设置，hexo clean，hexo server</p>
-</li>
-<li><p>多行字体显示不全<br>  -&gt;浏览器排查，发现是padding属性导致字体显示空间错误。<br>  —&gt;或者改一下font-Size以及line-height<br>  -&gt;问题解决了，wrap开启true</p>
-</li>
-</ul>
-<hr>
-<h1 id="分类和标签"><a href="#分类和标签" class="headerlink" title="分类和标签"></a>分类和标签</h1><pre><code>分类：具有顺序和层次
-标签：则没有
-</code></pre>
-<h2 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://blog.csdn.net/weixin_33857230/article/details/91474562">Hexo 添加分类及标签</a></li>
-</ol>
-<h2 id="创建选项"><a href="#创建选项" class="headerlink" title="创建选项"></a>创建选项</h2><pre><code>hexo new page[layout] categories/tags
-</code></pre>
-<h2 id="追加选项"><a href="#追加选项" class="headerlink" title="追加选项"></a>追加选项</h2><pre><code>在生成的配置文件里追加type categories/tags，如果是有配置化的布局，还可以加入layout配置
-</code></pre>
-<h2 id="文章使用"><a href="#文章使用" class="headerlink" title="文章使用"></a>文章使用</h2><pre><code>在文章里追加相应属性，categories/tags：- 属性1 -属性2
-</code></pre>
-<hr>
-<h1 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h1><h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><ol>
-<li>生成文件<br> hexo new [layout] fileName</li>
-<li>草稿<br> hexo publice [layout] [title]</li>
-<li>模板<br> 在新建文章时，Hexo 会根据 scaffolds 文件夹内相对应的文件来建立文件。<br> 以下是您可以在模版中使用的变量：<br> layout，title，date</li>
-<li>文章更新<br> _congfig.yml updated:true,ejs使用变量接受，应该是post.updated</li>
-</ol>
-<h2 id="默认布局"><a href="#默认布局" class="headerlink" title="默认布局"></a>默认布局</h2><p>post&#x2F;source&#x2F;page&#x3D;&gt;source&#x2F;_post\source\source&#x2F;_drafs</p>
-<h2 id="支持格式"><a href="#支持格式" class="headerlink" title="支持格式"></a>支持格式</h2><p>Hexo 支持以任何格式书写文章，只要安装了相应的渲染插件。</p>
-<hr>
-<h1 id="标签插件语法"><a href="#标签插件语法" class="headerlink" title="标签插件语法"></a>标签插件语法</h1><h1 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h1><h2 id="参考-2"><a href="#参考-2" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://www.jianshu.com/p/43eb0819f51a">Hexo数据文件功能添加友情链接</a></li>
-</ol>
-<style>
-    #logo{
-        font-size:10px;
-    }
-</style>
-<h2 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h2><ol>
-<li>layout目录,layout.ejs为主体框架,partial为子目录</li>
-<li><code>&lt;span id=&quot;logo&quot;&gt;&lt;%= title %&gt;&lt;/span&gt;</code>任意parial的模板header.ejs</li>
-<li><code>&lt;%- partial(&#39;partial/header&#39;, &#123;title: &#39;Hello World&#39;&#125;) %&gt;</code>调用</li>
-<li>markdown支持内嵌html,css语法.</li>
-<li>低级错误对着在线发布页面测试</li>
-</ol>
-<h1 id="markdown语法"><a href="#markdown语法" class="headerlink" title="markdown语法"></a>markdown语法</h1><ul>
-<li>代码块<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">\<span class="code">```</span></span><br><span class="line"><span class="code">code</span></span><br><span class="line"><span class="code">\```</span></span><br></pre></td></tr></table></figure></li>
-<li>缩进<h1 id="辅助函数"><a href="#辅助函数" class="headerlink" title="辅助函数"></a>辅助函数</h1><strong>网址</strong></li>
-</ul>
-<p><strong>url_for</strong>在路径前加上根路径，从 Hexo 2.7 开始您应该使用此函数而不是 <code>config.root + path</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">url_for</span>(path,[options]) %&gt;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-<th>默认值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>relative</td>
-<td>是否输出相对连接</td>
-<td>congig.relative_link的值</td>
-</tr>
-</tbody></table>
-<p><strong>relative_url</strong>取得与 from 相对的 to 路径。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">relative_url</span>(<span class="keyword">from</span>, to) %&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>gravatar</strong>根据邮箱地址返回 Gravatar 头像 URL。<br>如果你不指定 options 参数，将会应用默认参数。否则，你可以将其设置为一个数字，这个数字将会作为 Gravatar 的大小参数。最后，如果你设置它一个对象，它将会被转换为 Gravatar 的一个查询字符串参数。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">gravatar</span>(email, [options]) %&gt;</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><ul>
-<li>在实现文件加密，ejs的JavaScript标签不能内嵌一些变量元素，可能我没有深入学习，我采用另外一种迂回方案，就是dom，和传统组件以及jsonp技术类似。<br>在阅读主题时发现另一种js用esj语法变量的方法，之前可能没有加&#x3D;&#x2F;-，还有字符串,导致无效，目前看来只适合字符串形式。</li>
-</ul>
-<h1 id="ejs"><a href="#ejs" class="headerlink" title="ejs"></a>ejs</h1><p>- </p>
-<h1 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h1><ul>
-<li>在一个while判断的时候，只要循环条件不被打破，就无法history.back();<br>问题解决了，明明我会的的，哼！<br>其实这个问题就是Bom API is belong to async，and while is a sync code,now if you wan to make it work frist you should break it or make it can’t work.<br>thanks 红宝书 and <a href="https://stackoverflow.com/questions/25543052/what-happens-to-code-after-history-back">thisQuesstion</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Web</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>study-from-云游君</title>
-    <url>/2022/study-from-%E4%BA%91%E6%B8%B8%E5%90%9B/</url>
-    <content><![CDATA[<h1 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h1><p><a href="https://www.yunyoujun.cn/">云游君的小站</a></p>
-<p><a href="https://blog.csdn.net/dcl199728/article/details/123380485"><code>css</code>中的<code>var()</code>和<code>:root</code></a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/var">mdn</a></p>
-<h1 id="css"><a href="#css" class="headerlink" title="css"></a>css</h1><ol>
-<li><code>:root</code>里面可以设置公用颜色属性 <code>--bg-color:#fff</code><br>然后颜色用 <code>var(--bg-color)</code>;</li>
-<li>background-img设置渐进色,linear&#x2F;radio gradient</li>
-<li>鼠标悬浮显示特效</li>
-</ol>
-<ul>
-<li><p>第一种,文字左右两角悬浮</p>
-<p>首先，我们用一种样式名</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;text-hover&quot;</span>&gt;</span></span><br><span class="line">   //text </span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>定义两个伪类元素，让其获得边框,  并绝对定位该元素于悬浮触发器元素，设置过渡属性0.3s,运动采用贝塞尔曲线,透明度为0，变形属性设置移动。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.text-hover</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.text-hover</span><span class="selector-pseudo">:before</span>,<span class="selector-class">.text-hover</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    position:absolute;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">10px</span>;<span class="attribute">height</span>:<span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">border-style</span>:solid;</span><br><span class="line">    <span class="attribute">transition</span>: .<span class="number">3s</span>;</span><br><span class="line">    <span class="attribute">transition-timing-function</span>: <span class="built_in">cubic-bezier</span>(<span class="number">0.17</span>,<span class="number">0.67</span>,<span class="number">0.05</span>,<span class="number">1.29</span>);</span><br><span class="line">    <span class="attribute">opacity</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.hover-text</span><span class="selector-pseudo">::before</span>&#123;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">2px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">2px</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(<span class="number">10px</span>,<span class="number">10px</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.hover-text</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">2px</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(-<span class="number">10px</span>,-<span class="number">10px</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>设置悬浮样式，触发过度效果</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.hover-text</span><span class="selector-pseudo">:hover</span><span class="selector-pseudo">::before</span>,<span class="selector-class">.hover-text</span><span class="selector-pseudo">:hover</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-      <categories>
-        <category>web</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>梦中等雨</title>
-    <url>/2022/%E6%A2%A6%E4%B8%AD%E7%AD%89%E9%9B%A8/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　今早我从睡醒开始到10：30，一直在浅学hexo的博客搭建，学习了简单的代码块语法，以及高亮尝试，中间浅浅地接触了yaml格式配置，highlight.js高亮。</p>
-<p>　　然而我的早餐时间，并未开始。于是乎，到10：30时，我准备去附近的肉夹馍店……在前往的途中，遇上了这场雨，它似乎想要告诉我什么。</p>
-<h1 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h1><ul>
-<li>初始<br>　　简单的穿了鞋子，没有带上任何东西的我，出了门。</li>
-</ul>
-<p>　　开始的时候，雨犹如细丝，一丝丝地落在我的周围，我也享受这种视觉感受。</p>
-<p>　　逐渐，雨开始大了点，雨由丝化滴，稀疏地滴落在我的衣服上。我也渐渐地靠向附近地屋檐边躲雨边前行。</p>
-<ul>
-<li>发生<br>　　在到达一个楼道通口的时候，细雨连成线，我就停下了前往吃饭的意识，收紧步伐，等待雨停之时……<br>　　等雨的时间里，雨落声音又带着我进入那种体验者的感觉，没有目的，没有束缚。它是想告诉我什么，停止步伐，还是继续前进。<br>　　雨的一切好像占据了我的格式塔心智，雨在告诉我它的众生相，我仿佛见到了众生在它里五味杂陈。谁能言的明“雨”的相，吾的“雨”与汝的“雨”如何相同呢？雨的到来，风的羁绊。风雨里的心仿佛都在彷徨着远方的灯塔，迫切地焦急地追逐。我如我所见，我的心在此刻亦如焦灼般的追逐。亦如我现在对找工作的态度一样。对于雨，我知道我的这份等待，雨终将会停止并等待下一次的到来，我可以等待；而我的人生，自己的工作，或许亦如所有，同样也只有等待，去明白自己的追寻，去沉淀自己的感觉，才能在等待中明白自己的所有。雨仿佛知道我的等待，越下越大，我再一次沉浸其中，然而风的存在却在呼唤着我，它的存在。我想是的，如我们所“见”，我们只在乎我们知道的。<br>　　雨，它的所有，填充着每个人的心灵，成为背景，成为旋律，成为遇见，成为我们每个的相。<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1>　　雨在述说着它的一切，而我是这场雨的一个观众。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>体验</category>
-      </categories>
-      <tags>
-        <tag>人生</tag>
       </tags>
   </entry>
   <entry>
@@ -557,6 +478,146 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo搭建日志</title>
+    <url>/2022/hexo%E6%90%AD%E5%BB%BA%E6%97%A5%E5%BF%97/</url>
+    <content><![CDATA[<p>hexo搭建过程，部分记录</p>
+<h1 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h1><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://blog.csdn.net/weixin_54880923/article/details/115319991">yml知识</a></li>
+<li><a href="https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml">yml,in,markdown</a></li>
+<li><a href="https://blog.csdn.net/weixin_42305648/article/details/114733118">代码高亮</a></li>
+<li><a href="https://www.jianshu.com/p/65ab196bef04">代码高亮2</a><h2 id="yaml语法"><a href="#yaml语法" class="headerlink" title="yaml语法"></a>yaml语法</h2></li>
+</ol>
+<ul>
+<li><p>普通键值对</p>
+  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 备注</span></span><br><span class="line"><span class="attr">key:</span> <span class="string">value</span></span><br></pre></td></tr></table></figure></li>
+<li><p>对象键值对</p>
+  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">person：</span></span><br><span class="line"> <span class="attr">name:</span> <span class="string">无为</span></span><br><span class="line"> <span class="attr">age:</span> <span class="number">18</span></span><br></pre></td></tr></table></figure>
+<p>  ||</p>
+  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> &#123;</span><br><span class="line">   <span class="attr">key:</span> <span class="string">value</span>,</span><br><span class="line">   <span class="attr">key:</span> <span class="string">value</span></span><br><span class="line">   &#125;   </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组键值对   </p>
+  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> <span class="bullet">-</span> <span class="string">value</span> <span class="bullet">-</span> <span class="string">value</span></span><br></pre></td></tr></table></figure>
+<p>  ||</p>
+  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> [<span class="string">value</span>,<span class="string">value</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>集合</p>
+  <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> [&#123;<span class="attr">key:</span> <span class="string">value</span>&#125;,&#123;<span class="attr">key:</span> <span class="string">value</span>&#125;]</span><br></pre></td></tr></table></figure>
+<h2 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h2></li>
+<li><p>打包没有发现对应的yaml样式<br>  -&gt;尝试其他代码块,markdown语法编译器可以高亮，但hexo打包没有高亮<br>  -&gt;打包没有对应的样式包<br>  -&gt;浏览器样式区别对比<br>  -&gt;解决了，过程里发现自己在之前关闭高亮设置，hexo clean，hexo server</p>
+</li>
+<li><p>多行字体显示不全<br>  -&gt;浏览器排查，发现是padding属性导致字体显示空间错误。<br>  —&gt;或者改一下font-Size以及line-height<br>  -&gt;问题解决了，wrap开启true</p>
+</li>
+</ul>
+<hr>
+<h1 id="分类和标签"><a href="#分类和标签" class="headerlink" title="分类和标签"></a>分类和标签</h1><pre><code>分类：具有顺序和层次
+标签：则没有
+</code></pre>
+<h2 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://blog.csdn.net/weixin_33857230/article/details/91474562">Hexo 添加分类及标签</a></li>
+</ol>
+<h2 id="创建选项"><a href="#创建选项" class="headerlink" title="创建选项"></a>创建选项</h2><pre><code>hexo new page[layout] categories/tags
+</code></pre>
+<h2 id="追加选项"><a href="#追加选项" class="headerlink" title="追加选项"></a>追加选项</h2><pre><code>在生成的配置文件里追加type categories/tags，如果是有配置化的布局，还可以加入layout配置
+</code></pre>
+<h2 id="文章使用"><a href="#文章使用" class="headerlink" title="文章使用"></a>文章使用</h2><pre><code>在文章里追加相应属性，categories/tags：- 属性1 -属性2
+</code></pre>
+<hr>
+<h1 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h1><h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><ol>
+<li>生成文件<br> hexo new [layout] fileName</li>
+<li>草稿<br> hexo publice [layout] [title]</li>
+<li>模板<br> 在新建文章时，Hexo 会根据 scaffolds 文件夹内相对应的文件来建立文件。<br> 以下是您可以在模版中使用的变量：<br> layout，title，date</li>
+<li>文章更新<br> _congfig.yml updated:true,ejs使用变量接受，应该是post.updated</li>
+</ol>
+<h2 id="默认布局"><a href="#默认布局" class="headerlink" title="默认布局"></a>默认布局</h2><p>post&#x2F;source&#x2F;page&#x3D;&gt;source&#x2F;_post\source\source&#x2F;_drafs</p>
+<h2 id="支持格式"><a href="#支持格式" class="headerlink" title="支持格式"></a>支持格式</h2><p>Hexo 支持以任何格式书写文章，只要安装了相应的渲染插件。</p>
+<hr>
+<h1 id="标签插件语法"><a href="#标签插件语法" class="headerlink" title="标签插件语法"></a>标签插件语法</h1><h1 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h1><h2 id="参考-2"><a href="#参考-2" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://www.jianshu.com/p/43eb0819f51a">Hexo数据文件功能添加友情链接</a></li>
+</ol>
+<style>
+    #logo{
+        font-size:10px;
+    }
+</style>
+<h2 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h2><ol>
+<li>layout目录,layout.ejs为主体框架,partial为子目录</li>
+<li><code>&lt;span id=&quot;logo&quot;&gt;&lt;%= title %&gt;&lt;/span&gt;</code>任意parial的模板header.ejs</li>
+<li><code>&lt;%- partial(&#39;partial/header&#39;, &#123;title: &#39;Hello World&#39;&#125;) %&gt;</code>调用</li>
+<li>markdown支持内嵌html,css语法.</li>
+<li>低级错误对着在线发布页面测试</li>
+</ol>
+<h1 id="markdown语法"><a href="#markdown语法" class="headerlink" title="markdown语法"></a>markdown语法</h1><ul>
+<li>代码块<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">\<span class="code">```</span></span><br><span class="line"><span class="code">code</span></span><br><span class="line"><span class="code">\```</span></span><br></pre></td></tr></table></figure></li>
+<li>缩进<h1 id="辅助函数"><a href="#辅助函数" class="headerlink" title="辅助函数"></a>辅助函数</h1><strong>网址</strong></li>
+</ul>
+<p><strong>url_for</strong>在路径前加上根路径，从 Hexo 2.7 开始您应该使用此函数而不是 <code>config.root + path</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">url_for</span>(path,[options]) %&gt;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>relative</td>
+<td>是否输出相对连接</td>
+<td>congig.relative_link的值</td>
+</tr>
+</tbody></table>
+<p><strong>relative_url</strong>取得与 from 相对的 to 路径。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">relative_url</span>(<span class="keyword">from</span>, to) %&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>gravatar</strong>根据邮箱地址返回 Gravatar 头像 URL。<br>如果你不指定 options 参数，将会应用默认参数。否则，你可以将其设置为一个数字，这个数字将会作为 Gravatar 的大小参数。最后，如果你设置它一个对象，它将会被转换为 Gravatar 的一个查询字符串参数。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">gravatar</span>(email, [options]) %&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><ul>
+<li>在实现文件加密，ejs的JavaScript标签不能内嵌一些变量元素，可能我没有深入学习，我采用另外一种迂回方案，就是dom，和传统组件以及jsonp技术类似。<br>在阅读主题时发现另一种js用esj语法变量的方法，之前可能没有加&#x3D;&#x2F;-，还有字符串,导致无效，目前看来只适合字符串形式。</li>
+</ul>
+<h1 id="ejs"><a href="#ejs" class="headerlink" title="ejs"></a>ejs</h1><p>- </p>
+<h1 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h1><ul>
+<li>在一个while判断的时候，只要循环条件不被打破，就无法history.back();<br>问题解决了，明明我会的的，哼！<br>其实这个问题就是Bom API is belong to async，and while is a sync code,now if you wan to make it work frist you should break it or make it can’t work.<br>thanks 红宝书 and <a href="https://stackoverflow.com/questions/25543052/what-happens-to-code-after-history-back">thisQuesstion</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Web</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>study-from-云游君</title>
+    <url>/2022/study-from-%E4%BA%91%E6%B8%B8%E5%90%9B/</url>
+    <content><![CDATA[<h1 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h1><p><a href="https://www.yunyoujun.cn/">云游君的小站</a></p>
+<p><a href="https://blog.csdn.net/dcl199728/article/details/123380485"><code>css</code>中的<code>var()</code>和<code>:root</code></a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/var">mdn</a></p>
+<h1 id="css"><a href="#css" class="headerlink" title="css"></a>css</h1><ol>
+<li><code>:root</code>里面可以设置公用颜色属性 <code>--bg-color:#fff</code><br>然后颜色用 <code>var(--bg-color)</code>;</li>
+<li>background-img设置渐进色,linear&#x2F;radio gradient</li>
+<li>鼠标悬浮显示特效</li>
+</ol>
+<ul>
+<li><p>第一种,文字左右两角悬浮</p>
+<p>首先，我们用一种样式名</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;text-hover&quot;</span>&gt;</span></span><br><span class="line">   //text </span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>定义两个伪类元素，让其获得边框,  并绝对定位该元素于悬浮触发器元素，设置过渡属性0.3s,运动采用贝塞尔曲线,透明度为0，变形属性设置移动。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.text-hover</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.text-hover</span><span class="selector-pseudo">:before</span>,<span class="selector-class">.text-hover</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>:<span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    position:absolute;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">10px</span>;<span class="attribute">height</span>:<span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">border-style</span>:solid;</span><br><span class="line">    <span class="attribute">transition</span>: .<span class="number">3s</span>;</span><br><span class="line">    <span class="attribute">transition-timing-function</span>: <span class="built_in">cubic-bezier</span>(<span class="number">0.17</span>,<span class="number">0.67</span>,<span class="number">0.05</span>,<span class="number">1.29</span>);</span><br><span class="line">    <span class="attribute">opacity</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.hover-text</span><span class="selector-pseudo">::before</span>&#123;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">2px</span> <span class="number">0</span> <span class="number">0</span> <span class="number">2px</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(<span class="number">10px</span>,<span class="number">10px</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.hover-text</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">2px</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(-<span class="number">10px</span>,-<span class="number">10px</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>设置悬浮样式，触发过度效果</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.hover-text</span><span class="selector-pseudo">:hover</span><span class="selector-pseudo">::before</span>,<span class="selector-class">.hover-text</span><span class="selector-pseudo">:hover</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translate3d</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>再临梦中等雨</title>
     <url>/2022/%E5%86%8D%E4%B8%B4%E6%A2%A6%E4%B8%AD%E7%AD%89%E9%9B%A8/</url>
     <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>又一次10：30左右的早餐时间。从七点半到现在我都在改进自己的博客系统，中间出了cdn资源请求失败导致长时间白屏渲染。</p>
@@ -593,6 +654,27 @@
 <p>然而我还是渴望有它的存在，</p>
 <p>它让我如此真实，</p>
 <p>如此迷人。</p>
+]]></content>
+      <categories>
+        <category>体验</category>
+      </categories>
+      <tags>
+        <tag>人生</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>梦中等雨</title>
+    <url>/2022/%E6%A2%A6%E4%B8%AD%E7%AD%89%E9%9B%A8/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>　　今早我从睡醒开始到10：30，一直在浅学hexo的博客搭建，学习了简单的代码块语法，以及高亮尝试，中间浅浅地接触了yaml格式配置，highlight.js高亮。</p>
+<p>　　然而我的早餐时间，并未开始。于是乎，到10：30时，我准备去附近的肉夹馍店……在前往的途中，遇上了这场雨，它似乎想要告诉我什么。</p>
+<h1 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h1><ul>
+<li>初始<br>　　简单的穿了鞋子，没有带上任何东西的我，出了门。</li>
+</ul>
+<p>　　开始的时候，雨犹如细丝，一丝丝地落在我的周围，我也享受这种视觉感受。</p>
+<p>　　逐渐，雨开始大了点，雨由丝化滴，稀疏地滴落在我的衣服上。我也渐渐地靠向附近地屋檐边躲雨边前行。</p>
+<ul>
+<li>发生<br>　　在到达一个楼道通口的时候，细雨连成线，我就停下了前往吃饭的意识，收紧步伐，等待雨停之时……<br>　　等雨的时间里，雨落声音又带着我进入那种体验者的感觉，没有目的，没有束缚。它是想告诉我什么，停止步伐，还是继续前进。<br>　　雨的一切好像占据了我的格式塔心智，雨在告诉我它的众生相，我仿佛见到了众生在它里五味杂陈。谁能言的明“雨”的相，吾的“雨”与汝的“雨”如何相同呢？雨的到来，风的羁绊。风雨里的心仿佛都在彷徨着远方的灯塔，迫切地焦急地追逐。我如我所见，我的心在此刻亦如焦灼般的追逐。亦如我现在对找工作的态度一样。对于雨，我知道我的这份等待，雨终将会停止并等待下一次的到来，我可以等待；而我的人生，自己的工作，或许亦如所有，同样也只有等待，去明白自己的追寻，去沉淀自己的感觉，才能在等待中明白自己的所有。雨仿佛知道我的等待，越下越大，我再一次沉浸其中，然而风的存在却在呼唤着我，它的存在。我想是的，如我们所“见”，我们只在乎我们知道的。<br>　　雨，它的所有，填充着每个人的心灵，成为背景，成为旋律，成为遇见，成为我们每个的相。<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1>　　雨在述说着它的一切，而我是这场雨的一个观众。</li>
+</ul>
 ]]></content>
       <categories>
         <category>体验</category>

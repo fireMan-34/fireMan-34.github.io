@@ -27,8 +27,8 @@
 <link rel="stylesheet" href="/css/my.css">
 
       
-<link rel="stylesheet" href="/css/fonts/remixicon.css">
-
+       
+      <link href="https://cdn.jsdelivr.net/npm/remixicon@2.1.0/fonts/remixicon.css" rel="stylesheet">
       
 <link rel="stylesheet" href="/css/custom.css">
  
@@ -54,36 +54,6 @@
   </html>
 </html>
 
-<div id="addShowdowOnPC"></div>
-<script>
-    function isMobile(){
-    if(window.navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec   wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
-     return true; // 移动端
-    }else{
-     return false; // PC端
-    }
-}
-if(!isMobile()){
-const styleText=`.article{
-    box-shadow: 0 0 3px #657b83;
-    padding: 2em !important;
-    margin: 2em;
-  }.article:hover{
-    box-shadow: 0 0 7px #657b83;
-  }`;
-if(document.all){
-  window.style=styleText;
-  document.createStyleSheet("javascript:style");
-}
-else{
-  const styleDom=document.createElement('style');
-  const addShowdowOnPC=document.getElementById('addShowdowOnPC');
-  styleDom.type="text/css";
-  styleDom.innerHTML=styleText;
-  addShowdowOnPC.appendChild(styleDom);
-}
-}
-</script> 
 <body>
   <div class="my">
     
@@ -633,7 +603,7 @@ else{
 
     </div>
     <aside class="sidebar on">
-      <button class="navbar-toggle"></button>
+      <button class="navbar-toggle" aria-label="a button can opend or hide navbar"></button>
 <nav class="navbar">
   
   <div class="logo">
@@ -944,6 +914,36 @@ else{
     
 
   </div>
+  <div id="addShowdowOnPC"></div>
+<script async>
+    function isMobile(){
+    if(window.navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec   wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
+     return true; // 移动端
+    }else{
+     return false; // PC端
+    }
+}
+if(!isMobile()){
+const styleText=`.article{
+    box-shadow: 0 0 3px #657b83;
+    padding: 2em !important;
+    margin: 2em;
+  }.article:hover{
+    box-shadow: 0 0 7px #657b83;
+  }`;
+if(document.all){
+  window.style=styleText;
+  document.createStyleSheet("javascript:style");
+}
+else{
+  const styleDom=document.createElement('style');
+  const addShowdowOnPC=document.getElementById('addShowdowOnPC');
+  styleDom.type="text/css";
+  styleDom.innerHTML=styleText;
+  addShowdowOnPC.appendChild(styleDom);
+}
+}
+</script> 
 </body>
 
 </html>
