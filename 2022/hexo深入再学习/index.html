@@ -98,7 +98,7 @@
 </a>
       <a href="/2022/hexo%E6%B7%B1%E5%85%A5%E5%86%8D%E5%AD%A6%E4%B9%A0/" class="article-date">
     更新:
-    <time datetime="2022-06-07T01:07:11.124Z" itemprop="datePublished">2022-06-07</time>
+    <time datetime="2022-06-08T13:38:31.158Z" itemprop="datePublished">2022-06-08</time>
 </a> 
       
   <div class="article-category">
@@ -136,17 +136,17 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="主题文件夹功能探索"><a href="#主题文件夹功能探索" class="headerlink" title="主题文件夹功能探索"></a>主题文件夹功能探索</h1><h2 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h2><p><strong>ejs</strong>文件或者其他模板文件。</p>
-<h3 id="条件函数使用"><a href="#条件函数使用" class="headerlink" title="条件函数使用"></a>条件函数使用</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;%= is_post()?&quot;class1&quot;:&quot;class2&quot; %&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="HEXO设计模式笔记"><a href="#HEXO设计模式笔记" class="headerlink" title="HEXO设计模式笔记"></a>HEXO设计模式笔记</h1><p>静态网站生成器以及api文档。</p>
-<h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903469669679117">hexo设计模式探索</a></p>
+  <h1 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h1><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903469669679117">hexo设计模式探索</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/56b9cb8ac2ea">node之proce模块</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/fangxuan1509/article/details/107469465">minimist命令行引擎</a></p>
 <p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf">Object.setPrototypeOf原型组合</a></p>
 <p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"> 模板引擎</a></p>
 <p><a target="_blank" rel="noopener" href="http://nodejs.cn/api/vm.html">nodejs vm模块</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f935e5459c49">简书-个人学习</a></p>
+<h1 id="主题文件夹功能探索"><a href="#主题文件夹功能探索" class="headerlink" title="主题文件夹功能探索"></a>主题文件夹功能探索</h1><h2 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h2><p><strong>ejs</strong>文件或者其他模板文件。</p>
+<h3 id="条件函数使用"><a href="#条件函数使用" class="headerlink" title="条件函数使用"></a>条件函数使用</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;%= is_post()?&quot;class1&quot;:&quot;class2&quot; %&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="HEXO设计模式笔记"><a href="#HEXO设计模式笔记" class="headerlink" title="HEXO设计模式笔记"></a>HEXO设计模式笔记</h1><p>静态网站生成器以及api文档。</p>
 <h2 id="框架特色"><a href="#框架特色" class="headerlink" title="框架特色"></a>框架特色</h2><p>​	nodejs运行环境，速度块，扩展能力强，插件丰富，主题开发，一键部署。</p>
 <h2 id="盲点"><a href="#盲点" class="headerlink" title="盲点"></a>盲点</h2><h3 id="process-argv"><a href="#process-argv" class="headerlink" title="process.argv"></a>process.argv</h3><p>process.argv返回一个包含所有启动Nodejs的参数，第一个参数为process.execPath,第二个为当前执行js文件的路径，其它为其它命令行参数。</p>
 <h3 id="minimist"><a href="#minimist" class="headerlink" title="minimist"></a>minimist</h3><p>轻量级nodejs命令行解析引擎。</p>
@@ -156,7 +156,7 @@
 <p>作者的意思大概是事件逻辑存储在store，依靠store进行耦合工作。</p>
 <h3 id="句柄"><a href="#句柄" class="headerlink" title="句柄"></a>句柄</h3><p>函数的意思，或者说可以通过它来执行某些逻辑。</p>
 <h3 id="模板引擎"><a href="#模板引擎" class="headerlink" title="模板引擎"></a>模板引擎</h3><h3 id="node-vm"><a href="#node-vm" class="headerlink" title="node vm"></a>node vm</h3><p>v8虚拟机，无安全机制，所以使用者自行担保安全机制。</p>
-<h3 id="命令行模式"><a href="#命令行模式" class="headerlink" title="命令行模式"></a>命令行模式</h3><p>在命令行模块，Hexo选择使用minimist来解析命令行参数得到一个js对象，并建立一个Hexo实例并初始化，最后通过实例对象call方法传递命令行指令。</p>
+<h2 id="命令行模式"><a href="#命令行模式" class="headerlink" title="命令行模式"></a>命令行模式</h2><p>在命令行模块，Hexo选择使用minimist来解析命令行参数得到一个js对象，并建立一个Hexo实例并初始化，最后通过实例对象call方法传递命令行指令。</p>
 <h2 id="Hexo入口模块设计"><a href="#Hexo入口模块设计" class="headerlink" title="Hexo入口模块设计"></a>Hexo入口模块设计</h2><p>采用构造-原型组合定义类，采用组合继承的方式继承Node的EventEmitter模块，相对简单的完成on与emit的发布订阅。</p>
 <p>实例化阶段，保存所编译文件的存放路径，输出路径，以及其它脚本，插件，主题等所处的路径，保存环境变量，即命令行参数，版本信息号等基本信息。</p>
 <p>创建扩展对象按不同功能进行分类，作用是创建store，用于注册句柄，获取句柄。</p>
@@ -212,14 +212,14 @@
 <p>最后通过Node fs 模块将内容输出public目标。</p>
 <p>回顾所有的工作流程，可以看作是</p>
 <p>cli&#x3D;&gt;hexo.init&#x3D;&gt;plugin.load&#x3D;&gt;process&#x3D;&gt;filter&#x3D;&gt;render&#x3D;&gt;generate</p>
-<h3 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h3><p>此外，Hexo还有很多优秀的设计模式</p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p>此外，Hexo还有很多优秀的设计模式</p>
 <h3 id="数据库系统"><a href="#数据库系统" class="headerlink" title="数据库系统"></a>数据库系统</h3><p>Hexo 引入 json 数据库 warehouse ,也是作者自己开发的一个数据库驱动，api 和 Mongoose 相差无几。在架构中角色充当一个中介者，存储临时数据，或者持久化数据数据存储，如博客的发表时间，还可以作为缓存层，比对文件修改时间，跳过无修改文件的编译过程，减少二次编译的时间。</p>
 <h3 id="异步方案"><a href="#异步方案" class="headerlink" title="异步方案"></a>异步方案</h3><p>在大量异步回调文件会造成代码阅读性下降。</p>
 <p>Hexo 引入 Promise 库  bindBrid,  内置丰富 API，</p>
 <p>很方便的处理异步的流程控制，如使用 Promise.promisify(require(‘fs’).readFile)可以原生 fs 模块包装成一个promise对象。</p>
 <h3 id="通用日志模块"><a href="#通用日志模块" class="headerlink" title="通用日志模块"></a>通用日志模块</h3><p>把Log划分为六个级别，’TRACE’,’DEBUG’,’INFO,’WARN’,’FATAL’,不同级别输出不同的格式与颜色(chalk) ,并提供命令含接口，如果带有–debug字段，则Log自动降级为’TRACE’。</p>
 <hr>
-<h2 id="高级进阶"><a href="#高级进阶" class="headerlink" title="高级进阶"></a>高级进阶</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>_config.yml</p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>_config.yml</p>
 <p>markdown.md Front-matter</p>
 <h3 id="多语言支持"><a href="#多语言支持" class="headerlink" title="多语言支持"></a>多语言支持</h3><h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><h4 id="全局设置"><a href="#全局设置" class="headerlink" title="全局设置"></a>全局设置</h4><h4 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h4><h4 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h4><p>基本就是网站布局，如果你想要亲手制作一个Hexo的主题，那么就要深入了解这块内容。每一个主题至少都要包含index模板，下面是各页面对应的模板名称：</p>
 <ul>

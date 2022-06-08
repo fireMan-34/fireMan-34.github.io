@@ -3,60 +3,78 @@
   <entry>
     <title>Hexo性能优化记录</title>
     <url>/2022/Hexo%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  本来我是打算先写一篇关于vim的笔记。其实我觉得自己的博客没有自己真实的技术输出，所以这些看起来文章看起来更多像自己的笔记。<br>  我是用的是谷歌的“光之屋”进行来实施对应优化的。</p>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  本来我是打算先写一篇关于vim的笔记。其实我觉得自己的博客没有自己真实的技术输出，所以这些看起来文章看起来更多像自己的笔记。<br>  我是用的是谷歌的“开发者工具”进行来实施对应优化的。</p>
 <p>之前更多是采用<code>Webpack</code>的构建<code>plugin</code>进行优化，所以这对于我来说算是一个新的尝试。</p>
-<h1 id="英文词汇"><a href="#英文词汇" class="headerlink" title="英文词汇"></a>英文词汇</h1><ul>
-<li>Performance 表演，表现</li>
-<li>Accessibility 可访问性</li>
-<li>Prctices 实践，惯例</li>
-</ul>
-<h1 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h1><p><a href="https://webmasters.stackexchange.com/questions/56561/is-gzip-compression-available-for-github-pages">Is gzip compression available for GitHub pages?</a></p>
+<h1 id="英文词汇"><a href="#英文词汇" class="headerlink" title="英文词汇"></a>英文词汇</h1><p>Accessibility 可访问性</p>
+<p>case n. 情况</p>
+<p>custom n. 习惯的，v.自定义 文章里面应该指的是自定义属性之类的</p>
+<p>collapse n. 列，简写 Col</p>
+<p>manner n. 样子，礼貌</p>
+<p>Performance 表演，表现</p>
+<p>Prctices 实践，惯例</p>
+<p>sensitive a. 敏感的，灵敏的</p>
+<p>Treat 	vt. 视为，n 款待</p>
+<h1 id="感谢-THANKS"><a href="#感谢-THANKS" class="headerlink" title="感谢 THANKS"></a>感谢 THANKS</h1><p><a href="https://webmasters.stackexchange.com/questions/56561/is-gzip-compression-available-for-github-pages">Is gzip compression available for GitHub pages?</a></p>
 <p><a href="https://blog.skk.moe/post/improve-fcp-for-my-blog/">skk blog</a></p>
 <p><a href="https://segmentfault.com/a/1190000039843064?utm_source=tag-newest">Layout Shift</a></p>
+<p><a href="https://www.npmjs.com/package/html-minifier">html-miniifier</a></p>
 <h1 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h1><ul>
 <li>Layout.shift 可视元素渲染起始位置</li>
+<li>Frist Contentful Paint 首次加载时间</li>
 </ul>
-<h1 id="优化前数据"><a href="#优化前数据" class="headerlink" title="优化前数据"></a>优化前数据</h1><p><code>Performance</code>：88</p>
-<p><code>Accessibility</code>：68</p>
-<p><code>Best Prctices</code>83</p>
-<p><code>SEO</code>：92</p>
-<p><code>PWA</code>： 无</p>
-<p><code>Frist Contentful Paint</code>:1.9</p>
-<p><code>Time to interactive</code>:1.9</p>
-<p><code>Speed Index</code>:27.8 </p>
-<p><code>Total Blocking Time</code>：0</p>
-<p><code>Largest Contentful Paint</code>：1.9</p>
-<p><code>Cumulative Layout Shift</code>：0.014</p>
-<h2 id="光之屋的优化建议"><a href="#光之屋的优化建议" class="headerlink" title="光之屋的优化建议"></a>光之屋的优化建议</h2><ul>
-<li><strong>Serve images in next-gen formats</strong> 2.2 s 建议我采用 Webp 或者 AVIF 格式图片。</li>
-<li><strong>Efficiently encode images</strong> 1.5 s 建议我采用压缩图片和 使用更少的请求</li>
-<li>Eliminate render-blocking resources 0.66 s 压缩资源</li>
-<li>Use HTTP&#x2F;2 0.3s 使用HTTP&#x2F;2协议</li>
-<li><strong>Image elements do not have explicit <code>width</code> and <code>height</code></strong> 图像无明显宽高</li>
-<li><strong>Serve static assets with an efficient cache policy 17 resources found</strong>应该是配置请求策略，后面转图床或者个人服务器。</li>
-<li><strong>Minimize main-thread work</strong> 7.6 s 考虑减少分析、编译和执行 js 所花费的时间。</li>
-</ul>
-<p>Other 3 s ，Style &amp; Layout 2.1 s ，Render 1.4 s, Script Evaluation .74 s</p>
-<p>Maximum critical path latency: <strong>30,330 ms</strong></p>
-<p>​	main.css 1.4 s  8.32 k</p>
-<p>​	my.css  1.4 s  .85 k</p>
-<p>​	fonts 5.8 s  93 k</p>
-<p>​	custom 1.7s .56k</p>
-<p>​	jquery &#x2F; lazyload …. 采用GitHub 域名的速度都比较慢。</p>
-<ul>
-<li>User Timing marks and measures 用户计时标志和措施</li>
-<li>Keep request counts low and transfer sizes small 保持请求体积合理化</li>
-<li>Largest Contentful Paint element 最大绘制内容</li>
-<li>Avoid large layout shifts 避免大的布局变化</li>
-<li>Avoid long main-thread tasks </li>
-<li>Avoid non-composited animations</li>
-<li><strong>Buttons do not have an accessible name</strong></li>
-<li>**Links do not have a discernible name **</li>
-<li>BEST PRACTICES <code>[user-scalable=&quot;no&quot;]</code> is used in the <code>&lt;meta name=&quot;viewport&quot;&gt;</code> element or the <code>[maximum-scale]</code> attribute is less than 5.</li>
-<li>Background and foreground colors do not have a sufficient contrast ratio.背景色和前景色没有足够的对比度。</li>
-<li>Browser errors were logged to the console 控制台打印错误 bulma sweetaler2</li>
-<li>Links are not crawlable</li>
-<li>Web app manifest or service worker do not meet the installability requirements</li>
+<h1 id="一些建议"><a href="#一些建议" class="headerlink" title="一些建议"></a>一些建议</h1><ul>
+<li><p><strong>Serve images in next-gen formats</strong> 2.2 s 建议我采用 Webp 或者 AVIF 格式图片。</p>
+</li>
+<li><p><strong>Efficiently encode images</strong> 1.5 s 建议我采用压缩图片和 使用更少的请求</p>
+</li>
+<li><p>Eliminate render-blocking resources 0.66 s 压缩资源</p>
+</li>
+<li><p>Use HTTP&#x2F;2 0.3s 使用HTTP&#x2F;2协议</p>
+</li>
+<li><p><strong>Image elements do not have explicit <code>width</code> and <code>height</code></strong> 图像无明显宽高</p>
+</li>
+<li><p><strong>Serve static assets with an efficient cache policy 17 resources found</strong>应该是配置请求策略，后面转图床或者个人服务器。</p>
+</li>
+<li><p><strong>Minimize main-thread work</strong> 7.6 s 考虑减少分析、编译和执行 js 所花费的时间。</p>
+</li>
+<li><p>User Timing marks and measures 用户计时标志和措施</p>
+</li>
+<li><p>Keep request counts low and transfer sizes small 保持请求体积合理化</p>
+</li>
+<li><p>Largest Contentful Paint element 最大绘制内容</p>
+</li>
+<li><p>Avoid large layout shifts 避免大的布局变化</p>
+</li>
+<li><p>Avoid long main-thread tasks </p>
+</li>
+<li><p>Avoid non-composited animations</p>
+</li>
+<li><p><strong>Buttons do not have an accessible name</strong></p>
+</li>
+<li><p>**Links do not have a discernible name **</p>
+</li>
+<li><p>BEST PRACTICES <code>[user-scalable=&quot;no&quot;]</code> is used in the <code>&lt;meta name=&quot;viewport&quot;&gt;</code> element or the <code>[maximum-scale]</code> attribute is less than 5.</p>
+</li>
+<li><p>Background and foreground colors do not have a sufficient contrast ratio.背景色和前景色没有足够的对比度。</p>
+</li>
+<li><p>Browser errors were logged to the console 控制台打印错误 bulma sweetaler2</p>
+</li>
+<li><p>Links are not crawlable</p>
+</li>
+<li><p>Web app manifest or service worker do not meet the installability requirements </p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+search.xml访问速度慢,search插件用的是老的数据结构能否使用json格式之类地进行，或者更加轻便的数据格式</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+工具库尝试改cdn，需要降级方案支持</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+多域名多id方案？</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+压缩模块</p>
+</li>
 </ul>
 <h1 id="优化过程"><a href="#优化过程" class="headerlink" title="优化过程"></a>优化过程</h1><ul>
 <li><input disabled="" type="checkbox"> 图片资源优化可选策略<ul>
@@ -75,231 +93,8 @@
 <li><input checked="" disabled="" type="checkbox"> 按钮添加可访问名称，语义化处理，seo优化</li>
 <li><input checked="" disabled="" type="checkbox"> 图片悬浮文本，语义化处理，seo优化</li>
 <li><input checked="" disabled="" type="checkbox"> 请求优化，开启 gzip 压缩</li>
+<li><input disabled="" type="checkbox"> html 压缩，css 压缩，js 压缩</li>
 </ul>
-<h1 id="优化后数据"><a href="#优化后数据" class="headerlink" title="优化后数据"></a>优化后数据</h1><p><code>Performance</code>：93</p>
-<p><code>Accessibility</code>：86</p>
-<p><code>Best Prctices</code>92</p>
-<p><code>SEO</code>：92</p>
-<p><code>PWA</code>： 无</p>
-<p><code>Frist Contentful Paint</code>:2.9</p>
-<p><code>Time to interactive</code>:25</p>
-<p><code>Speed Index</code>:5.4</p>
-<p><code>Total Blocking Time</code>：0</p>
-<p><code>Largest Contentful Paint</code>：2.9</p>
-<p><code>Cumulative Layout Shift</code>：0.012</p>
-<h1 id="后面再优化"><a href="#后面再优化" class="headerlink" title="后面再优化"></a>后面再优化</h1><h1 id="performance-优化"><a href="#performance-优化" class="headerlink" title="performance 优化"></a>performance 优化</h1><ul>
-<li><input disabled="" type="checkbox"> search.xml访问速度慢,search插件用的是老的数据结构能否使用json格式之类地进行</li>
-<li><input disabled="" type="checkbox"> jqeury 尝试改cdn</li>
-<li><input disabled="" type="checkbox"> busuananzi请求慢,多域名方案?可能是和并发有关</li>
-<li><input disabled="" type="checkbox"> 压缩模块+手动识别脚本,exec and processer</li>
-<li><input disabled="" type="checkbox"> 代码压缩脚本+html-miniifier<br>更新前，9，4M左右<br>先更新版本</li>
-</ul>
-<h1 id="htm-minifier"><a href="#htm-minifier" class="headerlink" title="htm-minifier"></a>htm-minifier</h1><h2 id="THANKS"><a href="#THANKS" class="headerlink" title="THANKS"></a>THANKS</h2><p><a href="https://www.npmjs.com/package/html-minifier">模块教程</a></p>
-<h2 id="词汇"><a href="#词汇" class="headerlink" title="词汇"></a>词汇</h2><p>case n. 情况</p>
-<p>custom n. 习惯的，v.自定义 文章里面应该指的是自定义属性之类的</p>
-<p>collapse n. 列，简写 Col</p>
-<p>manner n. 样子，礼貌</p>
-<p>sensitive a. 敏感的，灵敏的</p>
-<p>Treat 	vt. 视为，n 款待</p>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>caseSensitive</code>区分自定义属性大小写</td>
-<td>Treat attributes in case sensitive manner (useful for custom HTML tags)</td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>collapseBooleanAttributes</code>简化属性</td>
-<td><a href="http://perfectionkills.com/experimenting-with-html-minifier/#collapse_boolean_attributes">Omit attribute values from boolean attributes</a></td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>collapseInlineTagWhitespace</code></td>
-<td>Don’t leave any spaces between <code>display:inline;</code> elements when collapsing. Must be used in conjunction with <code>collapseWhitespace=true</code></td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>collapseWhitespace</code>删除空格</td>
-<td><a href="http://perfectionkills.com/experimenting-with-html-minifier/#collapse_whitespace">Collapse white space that contributes to text nodes in a document tree</a></td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>conservativeCollapse</code></td>
-<td>Always collapse to 1 space (never remove it entirely). Must be used in conjunction with <code>collapseWhitespace=true</code></td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>continueOnParseError</code></td>
-<td><a href="https://html.spec.whatwg.org/multipage/parsing.html#parse-errors">Handle parse errors</a> instead of aborting.</td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>customAttrAssign</code></td>
-<td>Arrays of regex’es that allow to support custom attribute assign expressions (e.g. <code>&#39;&lt;div flex?=&quot;&#123;&#123;mode != cover&#125;&#125;&quot;&gt;&lt;/div&gt;&#39;</code>)</td>
-<td><code>[ ]</code></td>
-</tr>
-<tr>
-<td><code>customAttrCollapse</code></td>
-<td>Regex that specifies custom attribute to strip newlines from (e.g. <code>/ng-class/</code>)</td>
-<td></td>
-</tr>
-<tr>
-<td><code>customAttrSurround</code></td>
-<td>Arrays of regex’es that allow to support custom attribute surround expressions (e.g. <code>&lt;input &#123;&#123;#if value&#125;&#125;checked=&quot;checked&quot;&#123;&#123;/if&#125;&#125;&gt;</code>)</td>
-<td><code>[ ]</code></td>
-</tr>
-<tr>
-<td><code>customEventAttributes</code></td>
-<td>Arrays of regex’es that allow to support custom event attributes for <code>minifyJS</code> (e.g. <code>ng-click</code>)</td>
-<td><code>[ /^on[a-z]&#123;3,&#125;$/ ]</code></td>
-</tr>
-<tr>
-<td><code>decodeEntities</code></td>
-<td>Use direct Unicode characters whenever possible</td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>html5</code></td>
-<td>Parse input according to HTML5 specifications</td>
-<td><code>true</code></td>
-</tr>
-<tr>
-<td><code>ignoreCustomComments</code></td>
-<td>Array of regex’es that allow to ignore certain comments, when matched</td>
-<td><code>[ /^!/ ]</code></td>
-</tr>
-<tr>
-<td><code>ignoreCustomFragments</code></td>
-<td>Array of regex’es that allow to ignore certain fragments, when matched (e.g. <code>&lt;?php ... ?&gt;</code>, <code>&#123;&#123; ... &#125;&#125;</code>, etc.)</td>
-<td><code>[ /&lt;%[\s\S]*?%&gt;/, /&lt;\?[\s\S]*?\?&gt;/ ]</code></td>
-</tr>
-<tr>
-<td><code>includeAutoGeneratedTags</code></td>
-<td>Insert tags generated by HTML parser</td>
-<td><code>true</code></td>
-</tr>
-<tr>
-<td><code>keepClosingSlash</code></td>
-<td>Keep the trailing slash on singleton elements</td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>maxLineLength</code></td>
-<td>Specify a maximum line length. Compressed output will be split by newlines at valid HTML split-points</td>
-<td></td>
-</tr>
-<tr>
-<td><code>minifyCSS</code></td>
-<td>Minify CSS in style elements and style attributes (uses <a href="https://github.com/jakubpawlowicz/clean-css">clean-css</a>)</td>
-<td><code>false</code> (could be <code>true</code>, <code>Object</code>, <code>Function(text, type)</code>)</td>
-</tr>
-<tr>
-<td><code>minifyJS</code></td>
-<td>Minify JavaScript in script elements and event attributes (uses <a href="https://github.com/mishoo/UglifyJS2">UglifyJS</a>)</td>
-<td><code>false</code> (could be <code>true</code>, <code>Object</code>, <code>Function(text, inline)</code>)</td>
-</tr>
-<tr>
-<td><code>minifyURLs</code></td>
-<td>Minify URLs in various attributes (uses <a href="https://github.com/stevenvachon/relateurl">relateurl</a>)</td>
-<td><code>false</code> (could be <code>String</code>, <code>Object</code>, <code>Function(text)</code>)</td>
-</tr>
-<tr>
-<td><code>preserveLineBreaks</code></td>
-<td>Always collapse to 1 line break (never remove it entirely) when whitespace between tags include a line break. Must be used in conjunction with <code>collapseWhitespace=true</code></td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>preventAttributesEscaping</code></td>
-<td>Prevents the escaping of the values of attributes</td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>processConditionalComments</code></td>
-<td>Process contents of conditional comments through minifier</td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>processScripts</code></td>
-<td>Array of strings corresponding to types of script elements to process through minifier (e.g. <code>text/ng-template</code>, <code>text/x-handlebars-template</code>, etc.)</td>
-<td><code>[ ]</code></td>
-</tr>
-<tr>
-<td><code>quoteCharacter</code></td>
-<td>Type of quote to use for attribute values (‘ or “)</td>
-<td></td>
-</tr>
-<tr>
-<td><code>removeAttributeQuotes</code></td>
-<td><a href="http://perfectionkills.com/experimenting-with-html-minifier/#remove_attribute_quotes">Remove quotes around attributes when possible</a></td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>removeComments</code></td>
-<td><a href="http://perfectionkills.com/experimenting-with-html-minifier/#remove_comments">Strip HTML comments</a></td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>removeEmptyAttributes</code></td>
-<td><a href="http://perfectionkills.com/experimenting-with-html-minifier/#remove_empty_or_blank_attributes">Remove all attributes with whitespace-only values</a></td>
-<td><code>false</code> (could be <code>true</code>, <code>Function(attrName, tag)</code>)</td>
-</tr>
-<tr>
-<td><code>removeEmptyElements</code></td>
-<td><a href="http://perfectionkills.com/experimenting-with-html-minifier/#remove_empty_elements">Remove all elements with empty contents</a></td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>removeOptionalTags</code></td>
-<td><a href="http://perfectionkills.com/experimenting-with-html-minifier/#remove_optional_tags">Remove optional tags</a></td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>removeRedundantAttributes</code></td>
-<td><a href="http://perfectionkills.com/experimenting-with-html-minifier/#remove_redundant_attributes">Remove attributes when value matches default.</a></td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>removeScriptTypeAttributes</code></td>
-<td>Remove <code>type=&quot;text/javascript&quot;</code> from <code>script</code> tags. Other <code>type</code> attribute values are left intact</td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>removeStyleLinkTypeAttributes</code></td>
-<td>Remove <code>type=&quot;text/css&quot;</code> from <code>style</code> and <code>link</code> tags. Other <code>type</code> attribute values are left intact</td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>removeTagWhitespace</code></td>
-<td>Remove space between attributes whenever possible. <strong>Note that this will result in invalid HTML!</strong></td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>sortAttributes</code></td>
-<td><a href="https://www.npmjs.com/package/html-minifier#sorting-attributes--style-classes">Sort attributes by frequency</a></td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>sortClassName</code></td>
-<td><a href="https://www.npmjs.com/package/html-minifier#sorting-attributes--style-classes">Sort style classes by frequency</a></td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>trimCustomFragments</code></td>
-<td>Trim white space around <code>ignoreCustomFragments</code>.</td>
-<td><code>false</code></td>
-</tr>
-<tr>
-<td><code>useShortDoctype</code></td>
-<td><a href="http://perfectionkills.com/experimenting-with-html-minifier/#use_short_doctype">Replaces the <code>doctype</code> with the short (HTML5) doctype</a></td>
-<td><code>false</code></td>
-</tr>
-</tbody></table>
 ]]></content>
       <categories>
         <category>web</category>
@@ -384,17 +179,17 @@
   <entry>
     <title>hexo深入再学习</title>
     <url>/2022/hexo%E6%B7%B1%E5%85%A5%E5%86%8D%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="主题文件夹功能探索"><a href="#主题文件夹功能探索" class="headerlink" title="主题文件夹功能探索"></a>主题文件夹功能探索</h1><h2 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h2><p><strong>ejs</strong>文件或者其他模板文件。</p>
-<h3 id="条件函数使用"><a href="#条件函数使用" class="headerlink" title="条件函数使用"></a>条件函数使用</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;%= is_post()?&quot;class1&quot;:&quot;class2&quot; %&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="HEXO设计模式笔记"><a href="#HEXO设计模式笔记" class="headerlink" title="HEXO设计模式笔记"></a>HEXO设计模式笔记</h1><p>静态网站生成器以及api文档。</p>
-<h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><p><a href="https://juejin.cn/post/6844903469669679117">hexo设计模式探索</a></p>
+    <content><![CDATA[<h1 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h1><p><a href="https://juejin.cn/post/6844903469669679117">hexo设计模式探索</a></p>
 <p><a href="https://www.jianshu.com/p/56b9cb8ac2ea">node之proce模块</a></p>
 <p><a href="https://blog.csdn.net/fangxuan1509/article/details/107469465">minimist命令行引擎</a></p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf">Object.setPrototypeOf原型组合</a></p>
 <p><a href="https://baike.baidu.com/item/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"> 模板引擎</a></p>
 <p><a href="http://nodejs.cn/api/vm.html">nodejs vm模块</a></p>
 <p><a href="https://www.jianshu.com/p/f935e5459c49">简书-个人学习</a></p>
+<h1 id="主题文件夹功能探索"><a href="#主题文件夹功能探索" class="headerlink" title="主题文件夹功能探索"></a>主题文件夹功能探索</h1><h2 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h2><p><strong>ejs</strong>文件或者其他模板文件。</p>
+<h3 id="条件函数使用"><a href="#条件函数使用" class="headerlink" title="条件函数使用"></a>条件函数使用</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;%= is_post()?&quot;class1&quot;:&quot;class2&quot; %&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="HEXO设计模式笔记"><a href="#HEXO设计模式笔记" class="headerlink" title="HEXO设计模式笔记"></a>HEXO设计模式笔记</h1><p>静态网站生成器以及api文档。</p>
 <h2 id="框架特色"><a href="#框架特色" class="headerlink" title="框架特色"></a>框架特色</h2><p>​	nodejs运行环境，速度块，扩展能力强，插件丰富，主题开发，一键部署。</p>
 <h2 id="盲点"><a href="#盲点" class="headerlink" title="盲点"></a>盲点</h2><h3 id="process-argv"><a href="#process-argv" class="headerlink" title="process.argv"></a>process.argv</h3><p>process.argv返回一个包含所有启动Nodejs的参数，第一个参数为process.execPath,第二个为当前执行js文件的路径，其它为其它命令行参数。</p>
 <h3 id="minimist"><a href="#minimist" class="headerlink" title="minimist"></a>minimist</h3><p>轻量级nodejs命令行解析引擎。</p>
@@ -404,7 +199,7 @@
 <p>作者的意思大概是事件逻辑存储在store，依靠store进行耦合工作。</p>
 <h3 id="句柄"><a href="#句柄" class="headerlink" title="句柄"></a>句柄</h3><p>函数的意思，或者说可以通过它来执行某些逻辑。</p>
 <h3 id="模板引擎"><a href="#模板引擎" class="headerlink" title="模板引擎"></a>模板引擎</h3><h3 id="node-vm"><a href="#node-vm" class="headerlink" title="node vm"></a>node vm</h3><p>v8虚拟机，无安全机制，所以使用者自行担保安全机制。</p>
-<h3 id="命令行模式"><a href="#命令行模式" class="headerlink" title="命令行模式"></a>命令行模式</h3><p>在命令行模块，Hexo选择使用minimist来解析命令行参数得到一个js对象，并建立一个Hexo实例并初始化，最后通过实例对象call方法传递命令行指令。</p>
+<h2 id="命令行模式"><a href="#命令行模式" class="headerlink" title="命令行模式"></a>命令行模式</h2><p>在命令行模块，Hexo选择使用minimist来解析命令行参数得到一个js对象，并建立一个Hexo实例并初始化，最后通过实例对象call方法传递命令行指令。</p>
 <h2 id="Hexo入口模块设计"><a href="#Hexo入口模块设计" class="headerlink" title="Hexo入口模块设计"></a>Hexo入口模块设计</h2><p>采用构造-原型组合定义类，采用组合继承的方式继承Node的EventEmitter模块，相对简单的完成on与emit的发布订阅。</p>
 <p>实例化阶段，保存所编译文件的存放路径，输出路径，以及其它脚本，插件，主题等所处的路径，保存环境变量，即命令行参数，版本信息号等基本信息。</p>
 <p>创建扩展对象按不同功能进行分类，作用是创建store，用于注册句柄，获取句柄。</p>
@@ -460,14 +255,14 @@
 <p>最后通过Node fs 模块将内容输出public目标。</p>
 <p>回顾所有的工作流程，可以看作是</p>
 <p>cli&#x3D;&gt;hexo.init&#x3D;&gt;plugin.load&#x3D;&gt;process&#x3D;&gt;filter&#x3D;&gt;render&#x3D;&gt;generate</p>
-<h3 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h3><p>此外，Hexo还有很多优秀的设计模式</p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p>此外，Hexo还有很多优秀的设计模式</p>
 <h3 id="数据库系统"><a href="#数据库系统" class="headerlink" title="数据库系统"></a>数据库系统</h3><p>Hexo 引入 json 数据库 warehouse ,也是作者自己开发的一个数据库驱动，api 和 Mongoose 相差无几。在架构中角色充当一个中介者，存储临时数据，或者持久化数据数据存储，如博客的发表时间，还可以作为缓存层，比对文件修改时间，跳过无修改文件的编译过程，减少二次编译的时间。</p>
 <h3 id="异步方案"><a href="#异步方案" class="headerlink" title="异步方案"></a>异步方案</h3><p>在大量异步回调文件会造成代码阅读性下降。</p>
 <p>Hexo 引入 Promise 库  bindBrid,  内置丰富 API，</p>
 <p>很方便的处理异步的流程控制，如使用 Promise.promisify(require(‘fs’).readFile)可以原生 fs 模块包装成一个promise对象。</p>
 <h3 id="通用日志模块"><a href="#通用日志模块" class="headerlink" title="通用日志模块"></a>通用日志模块</h3><p>把Log划分为六个级别，’TRACE’,’DEBUG’,’INFO,’WARN’,’FATAL’,不同级别输出不同的格式与颜色(chalk) ,并提供命令含接口，如果带有–debug字段，则Log自动降级为’TRACE’。</p>
 <hr>
-<h2 id="高级进阶"><a href="#高级进阶" class="headerlink" title="高级进阶"></a>高级进阶</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>_config.yml</p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>_config.yml</p>
 <p>markdown.md Front-matter</p>
 <h3 id="多语言支持"><a href="#多语言支持" class="headerlink" title="多语言支持"></a>多语言支持</h3><h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><h4 id="全局设置"><a href="#全局设置" class="headerlink" title="全局设置"></a>全局设置</h4><h4 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h4><h4 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h4><p>基本就是网站布局，如果你想要亲手制作一个Hexo的主题，那么就要深入了解这块内容。每一个主题至少都要包含index模板，下面是各页面对应的模板名称：</p>
 <ul>
@@ -707,46 +502,67 @@
   <entry>
     <title>hexo搭建日志</title>
     <url>/2022/hexo%E6%90%AD%E5%BB%BA%E6%97%A5%E5%BF%97/</url>
-    <content><![CDATA[<p>hexo搭建过程，部分记录</p>
-<h1 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h1><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://blog.csdn.net/weixin_54880923/article/details/115319991">yml知识</a></li>
+    <content><![CDATA[<p>hexo 搭建过程，部分记录,笔记，零碎。</p>
+<p>在整理途中，发现一些内容其实是摘抄，有的还比较长，而且还抄了一半。</p>
+<p>つ﹏⊂</p>
+<p>所以为脸面和整洁，我决定更多以链接形式的，这里更多的是一些使用bug 或者体会心得。</p>
+<hr>
+<h1 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h1><ol>
+<li><a href="https://blog.csdn.net/weixin_54880923/article/details/115319991">yml</a></li>
 <li><a href="https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml">yml,in,markdown</a></li>
 <li><a href="https://blog.csdn.net/weixin_42305648/article/details/114733118">代码高亮</a></li>
-<li><a href="https://www.jianshu.com/p/65ab196bef04">代码高亮2</a><h2 id="yaml语法"><a href="#yaml语法" class="headerlink" title="yaml语法"></a>yaml语法</h2></li>
+<li><a href="https://www.jianshu.com/p/65ab196bef04">代码高亮2</a></li>
+<li><a href="https://www.jianshu.com/p/43eb0819f51a"><code>Hexo</code>数据文件功能添加友情链接</a></li>
+<li><a href="https://blog.csdn.net/weixin_33857230/article/details/91474562"><code>Hexo</code> 添加分类及标签</a></li>
+<li><a href="https://hexo.io/zh-cn/"><code>Hexo</code></a></li>
+<li><a href="https://markdown.com.cn/"><code>Markdown</code></a></li>
 </ol>
+<h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><h2 id="markdown-语法"><a href="#markdown-语法" class="headerlink" title="markdown 语法"></a>markdown 语法</h2><p>[^markdown]: suppurt html,css.js in it.</p>
 <ul>
+<li>代码块</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">\<span class="code">```language</span></span><br><span class="line"><span class="code">code</span></span><br><span class="line"><span class="code">\```</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>缩进</li>
+</ul>
+<h2 id="yaml-语法"><a href="#yaml-语法" class="headerlink" title="yaml 语法"></a>yaml 语法</h2><ul>
 <li><p>普通键值对</p>
   <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 备注</span></span><br><span class="line"><span class="attr">key:</span> <span class="string">value</span></span><br></pre></td></tr></table></figure></li>
 <li><p>对象键值对</p>
   <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">person：</span></span><br><span class="line"> <span class="attr">name:</span> <span class="string">无为</span></span><br><span class="line"> <span class="attr">age:</span> <span class="number">18</span></span><br></pre></td></tr></table></figure>
-<p>  ||</p>
   <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> &#123;</span><br><span class="line">   <span class="attr">key:</span> <span class="string">value</span>,</span><br><span class="line">   <span class="attr">key:</span> <span class="string">value</span></span><br><span class="line">   &#125;   </span><br></pre></td></tr></table></figure>
 </li>
 <li><p>数组键值对   </p>
   <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> <span class="bullet">-</span> <span class="string">value</span> <span class="bullet">-</span> <span class="string">value</span></span><br></pre></td></tr></table></figure>
-<p>  ||</p>
   <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> [<span class="string">value</span>,<span class="string">value</span>]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>集合</p>
   <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">key:</span> [&#123;<span class="attr">key:</span> <span class="string">value</span>&#125;,&#123;<span class="attr">key:</span> <span class="string">value</span>&#125;]</span><br></pre></td></tr></table></figure>
 <h2 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h2></li>
-<li><p>打包没有发现对应的yaml样式<br>  -&gt;尝试其他代码块,markdown语法编译器可以高亮，但hexo打包没有高亮<br>  -&gt;打包没有对应的样式包<br>  -&gt;浏览器样式区别对比<br>  -&gt;解决了，过程里发现自己在之前关闭高亮设置，hexo clean，hexo server</p>
-</li>
-<li><p>多行字体显示不全<br>  -&gt;浏览器排查，发现是padding属性导致字体显示空间错误。<br>  —&gt;或者改一下font-Size以及line-height<br>  -&gt;问题解决了，wrap开启true</p>
-</li>
 </ul>
-<hr>
-<h1 id="分类和标签"><a href="#分类和标签" class="headerlink" title="分类和标签"></a>分类和标签</h1><pre><code>分类：具有顺序和层次
-标签：则没有
-</code></pre>
-<h2 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://blog.csdn.net/weixin_33857230/article/details/91474562">Hexo 添加分类及标签</a></li>
+<ol>
+<li><p>打包没有发现Hexo语法高亮<br> 尝试其他代码块,markdown语法编译器可以高亮，但hexo打包没有高亮&#x3D;&gt;step1<br> 打包没有对应的样式包&#x3D;&gt;step 2<br> 浏览器样式区别对比&#x3D;&gt;step 3<br> 解决了，过程里发现自己在之前关闭高亮设置，hexo clean，hexo server&#x3D;&gt;step 4</p>
+</li>
+<li><p>Hexo markdown 代码块多行字体显示不全</p>
+<p> 浏览器排查，发现是padding属性导致字体显示空间错误。&#x3D;&gt;step 1</p>
+<p> 配置没有开启多行&#x3D;&gt; step 2</p>
+</li>
+<li><p>做笔记最好整洁好看。——整理的≧ ﹏ ≦</p>
+</li>
+<li><p>在一个while判断的时候，只要循环条件不被打破，就无法history.back();<br> 问题解决了，明明我会的的，哼！</p>
+<p> BOM API is belong to async，and while is a sync code,now if you wan to make it work frist you should break it or make it can’t work.</p>
+</li>
+<li><p>低级错误对着在线发布页面测试</p>
+</li>
 </ol>
-<h2 id="创建选项"><a href="#创建选项" class="headerlink" title="创建选项"></a>创建选项</h2><pre><code>hexo new page[layout] categories/tags
-</code></pre>
-<h2 id="追加选项"><a href="#追加选项" class="headerlink" title="追加选项"></a>追加选项</h2><pre><code>在生成的配置文件里追加type categories/tags，如果是有配置化的布局，还可以加入layout配置
-</code></pre>
-<h2 id="文章使用"><a href="#文章使用" class="headerlink" title="文章使用"></a>文章使用</h2><pre><code>在文章里追加相应属性，categories/tags：- 属性1 -属性2
+<hr>
+<h1 id="分类和标签"><a href="#分类和标签" class="headerlink" title="分类和标签"></a>分类和标签</h1><p>分类：具有顺序和层次这一概念，即需要逻辑层次。<br>        标签：则没有顺序和层次，不需要逻辑层次。</p>
+<h2 id="创建选项"><a href="#创建选项" class="headerlink" title="创建选项"></a>创建选项</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page[layout] categories/tags</span><br></pre></td></tr></table></figure>
+<h2 id="追加选项"><a href="#追加选项" class="headerlink" title="追加选项"></a>追加选项</h2><p>在生成的配置文件里追加type categories&#x2F;tags，如果是有配置化的布局，还可以加入layout配置。</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">categories:</span><br><span class="line"><span class="bullet">-</span> []</span><br><span class="line">tags:</span><br><span class="line"><span class="bullet">-</span> []</span><br><span class="line"><span class="section">layout: </span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
+<h2 id="文章使用"><a href="#文章使用" class="headerlink" title="文章使用"></a>文章使用</h2><p>在 模板文件夹  (scaffolds) 可以直接配置后续使用命令即可创建 <code>hexo new scaffolds_folderName postName</code></p>
+<pre><code>在文章里追加相应属性，categories/tags：- 属性1 -属性2
 </code></pre>
 <hr>
 <h1 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h1><h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><ol>
@@ -758,10 +574,7 @@
 <h2 id="默认布局"><a href="#默认布局" class="headerlink" title="默认布局"></a>默认布局</h2><p>post&#x2F;source&#x2F;page&#x3D;&gt;source&#x2F;_post\source\source&#x2F;_drafs</p>
 <h2 id="支持格式"><a href="#支持格式" class="headerlink" title="支持格式"></a>支持格式</h2><p>Hexo 支持以任何格式书写文章，只要安装了相应的渲染插件。</p>
 <hr>
-<h1 id="标签插件语法"><a href="#标签插件语法" class="headerlink" title="标签插件语法"></a>标签插件语法</h1><h1 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h1><h2 id="参考-2"><a href="#参考-2" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://www.jianshu.com/p/43eb0819f51a">Hexo数据文件功能添加友情链接</a></li>
-</ol>
-<style>
+<h1 id="标签插件语法"><a href="#标签插件语法" class="headerlink" title="标签插件语法"></a>标签插件语法</h1><h1 id="模版"><a href="#模版" class="headerlink" title="模版"></a>模版</h1><style>
     #logo{
         font-size:10px;
     }
@@ -770,41 +583,12 @@
 <li>layout目录,layout.ejs为主体框架,partial为子目录</li>
 <li><code>&lt;span id=&quot;logo&quot;&gt;&lt;%= title %&gt;&lt;/span&gt;</code>任意parial的模板header.ejs</li>
 <li><code>&lt;%- partial(&#39;partial/header&#39;, &#123;title: &#39;Hello World&#39;&#125;) %&gt;</code>调用</li>
-<li>markdown支持内嵌html,css语法.</li>
-<li>低级错误对着在线发布页面测试</li>
 </ol>
-<h1 id="markdown语法"><a href="#markdown语法" class="headerlink" title="markdown语法"></a>markdown语法</h1><ul>
-<li>代码块<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">\<span class="code">```</span></span><br><span class="line"><span class="code">code</span></span><br><span class="line"><span class="code">\```</span></span><br></pre></td></tr></table></figure></li>
-<li>缩进<h1 id="辅助函数"><a href="#辅助函数" class="headerlink" title="辅助函数"></a>辅助函数</h1><strong>网址</strong></li>
-</ul>
-<p><strong>url_for</strong>在路径前加上根路径，从 Hexo 2.7 开始您应该使用此函数而不是 <code>config.root + path</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">url_for</span>(path,[options]) %&gt;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>描述</th>
-<th>默认值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>relative</td>
-<td>是否输出相对连接</td>
-<td>congig.relative_link的值</td>
-</tr>
-</tbody></table>
-<p><strong>relative_url</strong>取得与 from 相对的 to 路径。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">relative_url</span>(<span class="keyword">from</span>, to) %&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>gravatar</strong>根据邮箱地址返回 Gravatar 头像 URL。<br>如果你不指定 options 参数，将会应用默认参数。否则，你可以将其设置为一个数字，这个数字将会作为 Gravatar 的大小参数。最后，如果你设置它一个对象，它将会被转换为 Gravatar 的一个查询字符串参数。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;%- <span class="title function_">gravatar</span>(email, [options]) %&gt;</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><ul>
-<li>在实现文件加密，ejs的JavaScript标签不能内嵌一些变量元素，可能我没有深入学习，我采用另外一种迂回方案，就是dom，和传统组件以及jsonp技术类似。<br>在阅读主题时发现另一种js用esj语法变量的方法，之前可能没有加&#x3D;&#x2F;-，还有字符串,导致无效，目前看来只适合字符串形式。</li>
-</ul>
-<h1 id="ejs"><a href="#ejs" class="headerlink" title="ejs"></a>ejs</h1><p>- </p>
-<h1 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h1><ul>
-<li>在一个while判断的时候，只要循环条件不被打破，就无法history.back();<br>问题解决了，明明我会的的，哼！<br>其实这个问题就是Bom API is belong to async，and while is a sync code,now if you wan to make it work frist you should break it or make it can’t work.<br>thanks 红宝书 and <a href="https://stackoverflow.com/questions/25543052/what-happens-to-code-after-history-back">thisQuesstion</a></li>
+<h1 id="辅助函数"><a href="#辅助函数" class="headerlink" title="辅助函数"></a>辅助函数</h1><h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><ul>
+<li><p>在实现文件加密，<code>ejs</code>的<code>JavaScript</code>标签不能内嵌一些变量元素，可能我没有深入学习，我采用另外一种迂回方案，就是<code>dom</code>，和传统组件以及<code>jsonp</code>技术类似获取变量元素。</p>
+</li>
+<li><p>在阅读主题时发现另一种js用esj语法变量的方法，之前可能没有加&#x3D;&#x2F;-，还有字符串,导致无效，目前看来只适合字符串形式。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	const str=&quot;&lt;%= post.password %&gt;&quot;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
 </ul>
 ]]></content>
       <categories>
@@ -919,13 +703,20 @@
   <entry>
     <title>nodejs个人工具编写错误汇总</title>
     <url>/2022/nodejs%E4%B8%AA%E4%BA%BA%E5%B7%A5%E5%85%B7%E7%BC%96%E5%86%99%E9%94%99%E8%AF%AF%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<h1 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h1><h1 id="功能简单深度读取"><a href="#功能简单深度读取" class="headerlink" title="功能简单深度读取"></a>功能简单深度读取</h1><ol>
+    <content><![CDATA[<h1 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h1><ol>
 <li>fsPromise.readDir path 报错：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title class_">The</span> <span class="string">&quot;path&quot;</span> argument must be <span class="keyword">of</span> type string or an instance <span class="keyword">of</span> <span class="title class_">Buffer</span> or <span class="variable constant_">URL</span>. <span class="title class_">Received</span> <span class="literal">undefined</span></span><br></pre></td></tr></table></figure>
 错误的原因是空字符进入readDir</li>
 <li>无后缀名文件被识别成文件夹进入读取文件路径里面<br>暂时解决方法写了简单地忽略判定，如果写负责可以加一个配置，以及读取，以及生成相应功能。<br>另外有空地话，可以多研究fs模块，或者采用忽略异常处理。</li>
 <li>使用函数解构对象参数至少需要一个对象{}，否则会报<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title class_">TypeError</span>: <span class="title class_">Cannot</span> read properties <span class="keyword">of</span> <span class="literal">undefined</span></span><br></pre></td></tr></table></figure></li>
 <li>fs&#x2F;Promise输出二进制流，使用encoding属性配置对应字符集即可。</li>
 <li>reduce&#x2F;filter忘记如何写串行了，好想用RX。</li>
+</ol>
+<h1 id="功能函数"><a href="#功能函数" class="headerlink" title="功能函数"></a>功能函数</h1><ol>
+<li>多路径扁平读取文件夹整合输出所在路径，一维数组。</li>
+<li>路径深读读取并生成路径，一维数组。</li>
+<li>一维路径数组识别文件和文件夹并输出，有Bug，暂时不能识别无后缀文件。</li>
+<li>一维文件数组识别转文件格式key的路径对象。</li>
+<li>简单地读取提供打包插件功能的函数，应该设计成实体对象。</li>
 </ol>
 ]]></content>
       <categories>
