@@ -614,14 +614,20 @@
     <content><![CDATA[<h1 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h1><p><a href="https://www.yunyoujun.cn/">云游君的小站</a></p>
 <p><a href="https://blog.csdn.net/dcl199728/article/details/123380485"><code>css</code>中的<code>var()</code>和<code>:root</code></a></p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/var">mdn</a></p>
+<p><a href="https://diff.blog/">Diff.Blog</a><br>感谢Diff.Blog收录。</p>
 <h1 id="css"><a href="#css" class="headerlink" title="css"></a>css</h1><ol>
-<li><code>:root</code>里面可以设置公用颜色属性 <code>--bg-color:#fff</code><br>然后颜色用 <code>var(--bg-color)</code>;</li>
-<li>background-img设置渐进色,linear&#x2F;radio gradient</li>
-<li>鼠标悬浮显示特效</li>
+<li><p><code>:root</code>里面可以设置公用颜色属性 <code>--bg-color:#fff</code><br>然后颜色用 <code>var(--bg-color)</code>;</p>
+</li>
+<li><p>background-img设置渐进色,linear&#x2F;radio gradient;</p>
+</li>
+<li><p>鼠标悬浮显示特效</p>
+</li>
 </ol>
 <ul>
-<li><p>第一种,文字左右两角悬浮</p>
-<p>首先，我们用一种样式名</p>
+<li><p>第一种,文字左右两角悬浮<br>this is Effect 效果 ↓</p>
+<p class="hover-text"  style="text-align:center;">Hello,World.click Here you can know it's workd.</p>
+首先，我们用一种样式名
+
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;text-hover&quot;</span>&gt;</span></span><br><span class="line">   //text </span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>定义两个伪类元素，让其获得边框,  并绝对定位该元素于悬浮触发器元素，设置过渡属性0.3s,运动采用贝塞尔曲线,透明度为0，变形属性设置移动。</p>
