@@ -98,7 +98,7 @@
 </a>
       <a href="/2022/nodejs%E4%B8%AA%E4%BA%BA%E5%B7%A5%E5%85%B7%E7%BC%96%E5%86%99%E9%94%99%E8%AF%AF%E6%B1%87%E6%80%BB/" class="article-date">
     更新:
-    <time datetime="2022-06-07T15:11:47.640Z" itemprop="datePublished">2022-06-07</time>
+    <time datetime="2022-06-08T10:33:56.178Z" itemprop="datePublished">2022-06-08</time>
 </a> 
       
   <div class="article-category">
@@ -112,7 +112,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">132</span>
+            <span class="post-count">198</span>
         </span>
     </span>
 
@@ -140,6 +140,9 @@
 <li>fsPromise.readDir path 报错：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title class_">The</span> <span class="string">&quot;path&quot;</span> argument must be <span class="keyword">of</span> type string or an instance <span class="keyword">of</span> <span class="title class_">Buffer</span> or <span class="variable constant_">URL</span>. <span class="title class_">Received</span> <span class="literal">undefined</span></span><br></pre></td></tr></table></figure>
 错误的原因是空字符进入readDir</li>
 <li>无后缀名文件被识别成文件夹进入读取文件路径里面<br>暂时解决方法写了简单地忽略判定，如果写负责可以加一个配置，以及读取，以及生成相应功能。<br>另外有空地话，可以多研究fs模块，或者采用忽略异常处理。</li>
+<li>使用函数解构对象参数至少需要一个对象{}，否则会报<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title class_">TypeError</span>: <span class="title class_">Cannot</span> read properties <span class="keyword">of</span> <span class="literal">undefined</span></span><br></pre></td></tr></table></figure></li>
+<li>fs&#x2F;Promise输出二进制流，使用encoding属性配置对应字符集即可。</li>
+<li>reduce&#x2F;filter忘记如何写串行了，好想用RX。</li>
 </ol>
  
       <div style="text-align:center;color: #ccc;font-size:14px;margin: 2em;">---------------- The End and 
