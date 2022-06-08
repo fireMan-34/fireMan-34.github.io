@@ -718,6 +718,8 @@ search.xml访问速度慢,search插件用的是老的数据结构能否使用jso
 <li>一维文件数组识别转文件格式key的路径对象。</li>
 <li>简单地读取提供打包插件功能的函数，应该设计成实体对象。</li>
 </ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>代码部分过程化，更加建议采用语义化，还有面向对象的涉及不太好。</p>
+<p>部分变量名字单复数造成写代码易错，建议统一把复数形式放最后面。</p>
 ]]></content>
       <categories>
         <category>nodejs</category>
