@@ -16,7 +16,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Web |  我的博客</title>
+      <title>web |  我的博客</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -78,7 +78,7 @@
   <article class="articles">
     
     
-    <h1 class="page-type-title">Web</h1>
+    <h1 class="page-type-title">web</h1>
     
     
   
@@ -96,13 +96,13 @@
       <article class="archive-article archive-type-post">
   <div class="archive-article-inner">
     <header class="archive-article-header">
-      <a href="/2022/hexo%E6%90%AD%E5%BB%BA%E6%97%A5%E5%BF%97/" class="archive-article-date">
-  <time datetime="2022-06-03T04:45:49.000Z" itemprop="datePublished">06/03</time>
+      <a href="/2022/Hexo%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="archive-article-date">
+  <time datetime="2022-06-07T06:53:47.000Z" itemprop="datePublished">06/07</time>
 </a>
        
 <h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/hexo%E6%90%AD%E5%BB%BA%E6%97%A5%E5%BF%97/"
-    >hexo搭建日志</a> 
+  <a class="archive-article-title" href="/2022/Hexo%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"
+    >Hexo性能优化记录</a> 
 </h2>
  
 
@@ -110,7 +110,7 @@
     
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Web/">Web</a> / <a class="article-category-link" href="/categories/Web/hexo/">hexo</a>
+    <a class="article-category-link" href="/categories/web/">web</a> / <a class="article-category-link" href="/categories/web/hexo/">hexo</a>
   </div>
 
     
@@ -123,13 +123,13 @@
       <article class="archive-article archive-type-post">
   <div class="archive-article-inner">
     <header class="archive-article-header">
-      <a href="/2022/hello-world/" class="archive-article-date">
-  <time datetime="2022-06-03T03:45:54.267Z" itemprop="datePublished">06/03</time>
+      <a href="/2022/study-from-%E4%BA%91%E6%B8%B8%E5%90%9B/" class="archive-article-date">
+  <time datetime="2022-06-06T11:10:41.000Z" itemprop="datePublished">06/06</time>
 </a>
        
 <h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/hello-world/"
-    >Hello World</a> 
+  <a class="archive-article-title" href="/2022/study-from-%E4%BA%91%E6%B8%B8%E5%90%9B/"
+    >study-from-云游君</a> 
 </h2>
  
 
@@ -137,7 +137,61 @@
     
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Web/">Web</a>
+    <a class="article-category-link" href="/categories/web/">web</a>
+  </div>
+
+    
+    
+  </div>
+</article>
+      
+  
+  
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2022/hexo%E6%B7%B1%E5%85%A5%E5%86%8D%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  <time datetime="2022-06-05T10:02:57.000Z" itemprop="datePublished">06/05</time>
+</a>
+       
+<h2 itemprop="name">
+  <a class="archive-article-title" href="/2022/hexo%E6%B7%B1%E5%85%A5%E5%86%8D%E5%AD%A6%E4%B9%A0/"
+    >hexo深入再学习</a> 
+</h2>
+ 
+
+    </header>
+    
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/web/">web</a> / <a class="article-category-link" href="/categories/web/hexo/">hexo</a>
+  </div>
+
+    
+    
+  </div>
+</article>
+      
+  
+  
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2022/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/" class="archive-article-date">
+  <time datetime="2022-06-04T11:09:14.000Z" itemprop="datePublished">06/04</time>
+</a>
+       
+<h2 itemprop="name">
+  <a class="archive-article-title" href="/2022/hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/"
+    >hexo博客部署</a> 
+</h2>
+ 
+
+    </header>
+    
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/web/">web</a> / <a class="article-category-link" href="/categories/web/hexo/">hexo</a> / <a class="article-category-link" href="/categories/web/%E9%83%A8%E7%BD%B2/">部署</a>
   </div>
 
     
@@ -469,72 +523,6 @@
         }, 2000);
       });
       clipboard.on('error', function(e) {
-        e.clearSelection();
-        let $btn = $(e.trigger);
-        $btn.addClass('copy-failed');
-        let $icon = $($btn.find('i'));
-        $icon.removeClass('ri-file-copy-2-line');
-        $icon.addClass('ri-time-line');
-        let $span = $($btn.find('span'));
-        $span[0].innerText = 'COPY FAILED';
-        
-        wait(function () { // 等待两秒钟后恢复
-          $icon.removeClass('ri-time-line');
-          $icon.addClass('ri-file-copy-2-line');
-          $span[0].innerText = 'COPY';
-        }, 2000);
-      });
-    }
-    initCopyCode();
-  }(window, document);
-</script>
- 
-<!-- CanvasBackground -->
-
-<script>
-  if (window.mermaid) {
-    mermaid.initialize({ theme: "forest" });
-  }
-</script>
-
-
-    
-    
-
-  </div>
-  <div id="addShowdowOnPC"></div>
-<script async>
-    function isMobile(){
-    if(window.navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec   wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
-     return true; // 移动端
-    }else{
-     return false; // PC端
-    }
-}
-if(!isMobile()){
-const styleText=`.article{
-    box-shadow: 0 0 3px #657b83;
-    padding: 2em !important;
-    margin: 2em;
-  }.article:hover{
-    box-shadow: 0 0 7px #657b83;
-  }`;
-if(document.all){
-  window.style=styleText;
-  document.createStyleSheet("javascript:style");
-}
-else{
-  const styleDom=document.createElement('style');
-  const addShowdowOnPC=document.getElementById('addShowdowOnPC');
-  styleDom.type="text/css";
-  styleDom.innerHTML=styleText;
-  addShowdowOnPC.appendChild(styleDom);
-}
-}
-</script> 
-</body>
-
-</html>n('error', function(e) {
         e.clearSelection();
         let $btn = $(e.trigger);
         $btn.addClass('copy-failed');
