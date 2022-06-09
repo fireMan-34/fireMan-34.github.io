@@ -92,3 +92,10 @@
   background-color: rgba(141,15,15,0.75);
   color: #000;
 }
+@media screen and (max-width: 480px) {
+  .article-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
