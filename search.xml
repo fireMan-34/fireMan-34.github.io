@@ -261,7 +261,8 @@ search.xml访问速度慢,search插件用的是老的数据结构能否使用jso
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">\<span class="code">```language</span></span><br><span class="line"><span class="code">code</span></span><br><span class="line"><span class="code">\```</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>缩进</li>
+<li>缩退 <code>shift+tab</code></li>
+<li><code>YAML Front Matter</code>在 <code>Typora</code>下第一行中文标题打字会跳，解决方法是：先输入一个英文单词，然后再输入中文，然后删除英文即可。</li>
 </ul>
 <h2 id="yaml-语法"><a href="#yaml-语法" class="headerlink" title="yaml 语法"></a>yaml 语法</h2><ul>
 <li><p>普通键值对</p>
@@ -788,6 +789,104 @@ search.xml访问速度慢,search插件用的是老的数据结构能否使用jso
       </categories>
       <tags>
         <tag>人生</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo过滤器Filter</title>
+    <url>/2022/Hexo%E8%BF%87%E6%BB%A4%E5%99%A8Filter/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>之前兴冲冲的自己用Nodejs实现一个简易式可以加载插件打包器，虽然可以对文件进行压缩，但和Hexo 部署包没有产生什么关系，也和自己学到一半，就冲冲有关系。</p>
+<p>官方中文文档也是确实的，所以我是看主题和库，进行模仿和学习的。</p>
+<p>今天我将用文字记录，不加图，没有工作不想搞图床，(* ￣3)(ε￣ *)，谁能给我一份工作。</p>
+<p>我还没吃早餐，┭┮﹏┭┮，突然想起尼米。</p>
+<h1 id="开始讲述"><a href="#开始讲述" class="headerlink" title="开始讲述"></a>开始讲述</h1><h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><p>首先是文件目录，在你的根目录里创建一个名为 <code>scripts</code>的文件夹。</p>
+<p>文件内可以创建一些Hexo的扩展，对应的英文名小写复数形式即是对应的扩展器集成。</p>
+<p>如：过滤器 (Filter)则在上面的所说的目录里创建一个名为 <code>filters</code>的文件夹</p>
+<p>创建文件夹后，在该文件夹里加入 <code>index.js</code>文件夹</p>
+<p>并写入和调用相应过滤器函数。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>=<span class="function"><span class="params">hexo</span>=&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">const</span> &#123;filter&#125;=hexo.<span class="property">extend</span>;</span><br><span class="line">    filter.<span class="title function_">register</span>(type,callbackFn,options)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//这里过滤器最先执行</span></span><br><span class="line"><span class="comment">//hexo.extend.filter.register(&#x27;after_render:html&#x27;,require(&#x27;./lib/miniHTML&#x27;));</span></span><br></pre></td></tr></table></figure>
+
+<p>type 指的是过滤列表，详情看官方文档，<a href="https://hexo.io/zh-cn/api/filter">here</a></p>
+<p>callback指的是相应传参处理，…args参数，传递给内部的filter处理</p>
+<p>options指的是对应的选项，具体，我也不太清楚，文档没那么细，慢慢摸索，也可以看 ide 是否有对应提示。</p>
+<p>今天主要讲的是如何写出一个mini压缩过滤插件。</p>
+<p>我这里options是priority的可选数字类型参数，它主要作用是负责优先级计算。</p>
+<p>callback则是</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">(<span class="attr">result</span>:<span class="title class_">String</span>,<span class="attr">data</span>:&#123;</span><br><span class="line"> 	[<span class="attr">key</span>:<span class="title class_">String</span>]:<span class="built_in">any</span>,</span><br><span class="line">    <span class="attr">path</span>:<span class="title class_">String</span>,</span><br><span class="line">    <span class="attr">text</span>:<span class="title class_">String</span>,</span><br><span class="line"> &#125;)=&gt;&#123;</span><br><span class="line">     </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我在这里演示如何获取到它的参数数量</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(...args)=&gt;&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(args.<span class="property">length</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h3><p>如果输出太多个，我们可以通过创建一个上下文变量来进行控制。</p>
+<p>最简单的可能是这样的</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> count=<span class="number">0</span>;</span><br><span class="line"><span class="function">(<span class="params">..args</span>)=&gt;</span>&#123;</span><br><span class="line">    count++;</span><br><span class="line">    <span class="keyword">if</span>(count===<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(args.<span class="property">lenght</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但我更喜欢这样，创建一个闭包作为上下文，最好是装饰器这样的，但显然不太可能。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> count=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>)=&gt;</span>&#123;</span><br><span class="line">        count++;</span><br><span class="line">        <span class="keyword">if</span>(count===<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="comment">//do it</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<h2 id="继续"><a href="#继续" class="headerlink" title="继续"></a>继续</h2><p>话题扯远了，让我们会到正规。</p>
+<p>通过打印，我列出自己对这个函数的了解。</p>
+<p>result 变量就是hexo输入给plugin 的utf-8 的文本字符串，也就是你的写的代码以字符串的形式。</p>
+<p>data对象</p>
+<p>​	path属性通过打印可以知道均为.html后缀文件。</p>
+<p>​	text属性则是<code>underfined</code></p>
+<p>​	…</p>
+<p>这里data属性一些文本有点多，如果你需要你可以这样</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">keys</span>(data));</span><br></pre></td></tr></table></figure>
+
+<p>然后慢慢查找它。</p>
+<p>return string 就是返回的结果作为下一个result</p>
+<h3 id="data：object"><a href="#data：object" class="headerlink" title="data：object"></a>data：object</h3><h4 id="page变量"><a href="#page变量" class="headerlink" title="page变量"></a>page变量</h4><table>
+<thead>
+<tr>
+<th>label</th>
+<th>desc</th>
+<th>type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tilte</td>
+<td>标题</td>
+<td>string</td>
+</tr>
+<tr>
+<td>date</td>
+<td>创建时间</td>
+<td>Moment对象</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody></table>
+<h4 id="path-相对路径，没有加上根路径"><a href="#path-相对路径，没有加上根路径" class="headerlink" title="path 相对路径，没有加上根路径"></a>path 相对路径，没有加上根路径</h4><h4 id="url-绝对路径，网络路径"><a href="#url-绝对路径，网络路径" class="headerlink" title="url 绝对路径，网络路径"></a>url 绝对路径，网络路径</h4><h4 id="config配置对象，-config-yml对象"><a href="#config配置对象，-config-yml对象" class="headerlink" title="config配置对象，_config.yml对象"></a>config配置对象，_config.yml对象</h4><h4 id="theme配置对象，-config-yml对象"><a href="#theme配置对象，-config-yml对象" class="headerlink" title="theme配置对象，_config.yml对象"></a>theme配置对象，_config.yml对象</h4><h4 id="layout"><a href="#layout" class="headerlink" title="layout?"></a>layout?</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">layout</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="env"><a href="#env" class="headerlink" title="env"></a>env</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">args</span>: &#123; <span class="attr">_</span>: [] &#125;,</span><br><span class="line">  <span class="attr">debug</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">safe</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">silent</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">env</span>: <span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">  <span class="attr">version</span>: <span class="string">&#x27;6.2.0&#x27;</span>,</span><br><span class="line">  <span class="attr">cmd</span>: <span class="string">&#x27;g&#x27;</span>,</span><br><span class="line">  <span class="attr">init</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="view-dir"><a href="#view-dir" class="headerlink" title="view_dir"></a>view_dir</h4><h4 id="site"><a href="#site" class="headerlink" title="site"></a>site</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">posts</span>: _Query &#123;</span><br><span class="line">    <span class="attr">data</span>: [</span><br><span class="line">      [_Document], [_Document],</span><br><span class="line">      [_Document], [_Document],</span><br><span class="line">      [_Document], [_Document],</span><br><span class="line">      [_Document], [_Document],</span><br><span class="line">      [_Document], [_Document],</span><br><span class="line">      [_Document]</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">length</span>: <span class="number">11</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">pages</span>: _Query &#123;</span><br><span class="line">    <span class="attr">data</span>: [</span><br><span class="line">      [_Document],</span><br><span class="line">      [_Document],</span><br><span class="line">      [_Document],</span><br><span class="line">      [_Document],</span><br><span class="line">      [_Document],</span><br><span class="line">      [_Document]</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">length</span>: <span class="number">6</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">categories</span>: _Query &#123;</span><br><span class="line">    <span class="attr">data</span>: [</span><br><span class="line">      [_Document],</span><br><span class="line">      [_Document],</span><br><span class="line">      [_Document],</span><br><span class="line">      [_Document],</span><br><span class="line">      [_Document],</span><br><span class="line">      [_Document],</span><br><span class="line">      [_Document]</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">length</span>: <span class="number">7</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">tags</span>: _Query &#123;</span><br><span class="line">    <span class="attr">data</span>: [</span><br><span class="line">      [_Document],</span><br><span class="line">      [_Document],</span><br><span class="line">      [_Document],</span><br><span class="line">      [_Document],</span><br><span class="line">      [_Document],</span><br><span class="line">      [_Document]</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">length</span>: <span class="number">6</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">menu</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;主页&#x27;</span>: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;归档&#x27;</span>: <span class="string">&#x27;/archives/&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;分类&#x27;</span>: <span class="string">&#x27;/categories/&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;标签&#x27;</span>: <span class="string">&#x27;/tags/&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="p"><a href="#p" class="headerlink" title="_p"></a>_p</h4><p><code>[Function (anonymous)]</code></p>
+<h5 id="tips-1"><a href="#tips-1" class="headerlink" title="tips:"></a>tips:</h5><p>nodejs如何打印函数呢？</p>
+<p>我们可以利用toString方法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">funciton.<span class="title function_">toString</span>()</span><br></pre></td></tr></table></figure>
+
+<p>哈哈，突然想起来它是内部函数。</p>
+<h4 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h4><p>布尔值 true&#x2F;false</p>
+]]></content>
+      <categories>
+        <category>web</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
 </search>
