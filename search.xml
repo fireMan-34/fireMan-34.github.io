@@ -880,7 +880,10 @@ search.xml访问速度慢,search插件用的是老的数据结构能否使用jso
 
 <p>哈哈，突然想起来它是内部函数。</p>
 <h4 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h4><p>布尔值 true&#x2F;false</p>
-]]></content>
+<h2 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h2><p>这是极简版代码，具体配置我还需要多多研究，它已经成功上传到服务器了。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> &#123;minify&#125; = <span class="built_in">require</span>(<span class="string">&#x27;html-minifier&#x27;</span>)</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="keyword">function</span>(<span class="params">str, data</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> options=<span class="variable language_">this</span>.<span class="property">config</span>.<span class="property">html_minifter</span>;</span><br><span class="line">  <span class="keyword">const</span> &#123;path&#125;=data;</span><br><span class="line">  <span class="keyword">return</span> <span class="title function_">minify</span>(str,&#123;<span class="attr">caseSensitive</span>:<span class="literal">true</span>,<span class="attr">collapseWhitespace</span>:<span class="literal">true</span>,<span class="attr">removeAttributeQuotes</span>:<span class="literal">true</span>,<span class="attr">removeCommentsL</span>:<span class="literal">true</span>,<span class="attr">minifyJS</span>:<span class="literal">true</span>,<span class="attr">minifyCSS</span>:<span class="literal">true</span>,...options&#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="有缘更新"><a href="#有缘更新" class="headerlink" title="有缘更新"></a>有缘更新</h2>]]></content>
       <categories>
         <category>web</category>
         <category>hexo</category>
