@@ -66,6 +66,23 @@
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
+.hover-a-1 {
+  position: relative;
+  line-height: 2em;
+}
+.hover-a-1::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  background-color: #000;
+  width: 0;
+  transition: 0.8s;
+}
+.hover-a-1:hover::before {
+  width: 100%;
+}
 .my {
   position: absolute;
   z-index: 9;
