@@ -939,4 +939,117 @@ search.xml访问速度慢,search插件用的是老的数据结构能否使用jso
         <tag>人生</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Hexo主题学习</title>
+    <url>/2022/Hexo%E4%B8%BB%E9%A2%98%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="hexo主题"><a href="#hexo主题" class="headerlink" title="hexo主题"></a><code>hexo</code>主题</h1><p>我使用的是一名在官网留言的的网友的主题文件。</p>
+<p>安装有两种方法当时。</p>
+<p>一种是 <code>npm</code> 命令，</p>
+<p>第二种是拷贝到项目根目录下 <code>themes</code>文件夹下，</p>
+<p>然后在根目录配置 <code>_config.yml</code>里的</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">hexo-theme-</span> <span class="comment">#主题名</span></span><br></pre></td></tr></table></figure>
+
+<p>他提供了一个极简主题，方便快速搭建博客。</p>
+<p>这是目录结构有一部是我自己的修改，和增加的功能。</p>
+<h2 id="项目目录"><a href="#项目目录" class="headerlink" title="项目目录"></a>项目目录</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">D:.</span><br><span class="line">│  .gitattributes</span><br><span class="line">│  .gitignore</span><br><span class="line">│  .npmignore</span><br><span class="line">│  .stylintrc</span><br><span class="line">│  .travis.yml</span><br><span class="line">│  index.js</span><br><span class="line">│  LICENSE</span><br><span class="line">│  logo.png</span><br><span class="line">│  move_config.js</span><br><span class="line">│  package.json</span><br><span class="line">│  README.md</span><br><span class="line">│  rollup.config.js</span><br><span class="line">│  _config.yml</span><br><span class="line">│</span><br><span class="line">├─.github</span><br><span class="line">│  │  config.yml</span><br><span class="line">│  │  FUNDING.yml</span><br><span class="line">│  │</span><br><span class="line">│  ├─ISSUE_TEMPLATE</span><br><span class="line">│  │      bug-report.md</span><br><span class="line">│  │      feature-request.md</span><br><span class="line">│  │      other.md</span><br><span class="line">│  │      question.md</span><br><span class="line">│  │</span><br><span class="line">│  └─workflows</span><br><span class="line">│          npmpublish.yml</span><br><span class="line">│</span><br><span class="line">├─languages</span><br><span class="line">│      de.yml</span><br><span class="line">│      default.yml</span><br><span class="line">│      en.yml</span><br><span class="line">│      es.yml</span><br><span class="line">│      fr.yml</span><br><span class="line">│      ja.yml</span><br><span class="line">│      ko.yml</span><br><span class="line">│      nl.yml</span><br><span class="line">│      no.yml</span><br><span class="line">│      pt.yml</span><br><span class="line">│      ru.yml</span><br><span class="line">│      vi.yml</span><br><span class="line">│      zh-CN.yml</span><br><span class="line">│      zh-TW.yml</span><br><span class="line">│</span><br><span class="line">├─layout</span><br><span class="line">│  │  archive.ejs</span><br><span class="line">│  │  categories.ejs</span><br><span class="line">│  │  friends.ejs</span><br><span class="line">│  │  index.ejs</span><br><span class="line">│  │  layout.ejs</span><br><span class="line">│  │  page.ejs</span><br><span class="line">│  │  plain-page.ejs</span><br><span class="line">│  │  post.ejs</span><br><span class="line">│  │  tags.ejs</span><br><span class="line">│  │</span><br><span class="line">│  ├─partial</span><br><span class="line">│  │      addShowdowOnPC.ejs</span><br><span class="line">│  │      articleEnd.ejs</span><br><span class="line">│  │      my.ejs</span><br><span class="line">│  │      pageEncryption.ejs</span><br><span class="line">│  │</span><br><span class="line">│  └─_partial</span><br><span class="line">│      │  ads.ejs</span><br><span class="line">│      │  after-footer.ejs</span><br><span class="line">│      │  archive-post.ejs</span><br><span class="line">│      │  archive.ejs</span><br><span class="line">│      │  article.ejs</span><br><span class="line">│      │  ayer.ejs</span><br><span class="line">│      │  baidu-analytics.ejs</span><br><span class="line">│      │  broadcast.ejs</span><br><span class="line">│      │  float-btns.ejs</span><br><span class="line">│      │  footer.ejs</span><br><span class="line">│      │  google-analytics.ejs</span><br><span class="line">│      │  head.ejs</span><br><span class="line">│      │  katex.ejs</span><br><span class="line">│      │  lock.ejs</span><br><span class="line">│      │  mathjax.ejs</span><br><span class="line">│      │  modal.ejs</span><br><span class="line">│      │  music.ejs</span><br><span class="line">│      │  sidebar.ejs</span><br><span class="line">│      │  viewer.ejs</span><br><span class="line">│      │</span><br><span class="line">│      └─post</span><br><span class="line">│              albums.ejs</span><br><span class="line">│              author.ejs</span><br><span class="line">│              busuanzi.ejs</span><br><span class="line">│              category.ejs</span><br><span class="line">│              clipboard.ejs</span><br><span class="line">│              date.ejs</span><br><span class="line">│              gallery.ejs</span><br><span class="line">│              gitalk.ejs</span><br><span class="line">│              justifiedGallery.ejs</span><br><span class="line">│              minivaline.ejs</span><br><span class="line">│              nav.ejs</span><br><span class="line">│              search.ejs</span><br><span class="line">│              share.ejs</span><br><span class="line">│              tag.ejs</span><br><span class="line">│              title.ejs</span><br><span class="line">│              tocbot.ejs</span><br><span class="line">│              topping.ejs</span><br><span class="line">│              twikoo.ejs</span><br><span class="line">│              updated.ejs</span><br><span class="line">│              valine.ejs</span><br><span class="line">│              word.ejs</span><br><span class="line">│</span><br><span class="line">├─screenshots</span><br><span class="line">│      hexo-theme-ayer.png</span><br><span class="line">│</span><br><span class="line">├─scripts</span><br><span class="line">│  │  default_config.js</span><br><span class="line">│  │</span><br><span class="line">│  ├─events</span><br><span class="line">│  │  │  index.js</span><br><span class="line">│  │  │</span><br><span class="line">│  │  └─lib</span><br><span class="line">│  │          hello.js</span><br><span class="line">│  │          merge-configs.js</span><br><span class="line">│  │</span><br><span class="line">│  ├─filters</span><br><span class="line">│  │      index.js</span><br><span class="line">│  │      meta_generator.js</span><br><span class="line">│  │</span><br><span class="line">│  ├─helpers</span><br><span class="line">│  │      ayer-plus-vendors.js</span><br><span class="line">│  │      wordcount.js</span><br><span class="line">│  │</span><br><span class="line">│  ├─lib</span><br><span class="line">│  │      core.js</span><br><span class="line">│  │</span><br><span class="line">│  └─utils</span><br><span class="line">│          join-path.js</span><br><span class="line">│          object.js</span><br><span class="line">│</span><br><span class="line">├─<span class="built_in">source</span></span><br><span class="line">│  │  404.html</span><br><span class="line">│  │  favicon.ico</span><br><span class="line">│  │</span><br><span class="line">│  ├─css</span><br><span class="line">│  │  │  clipboard.styl</span><br><span class="line">│  │  │  custom.styl</span><br><span class="line">│  │  │  my.styl</span><br><span class="line">│  │  │  mySmallScreen.styl</span><br><span class="line">│  │  │</span><br><span class="line">│  │  └─fonts</span><br><span class="line">│  │          remixicon.css</span><br><span class="line">│  │          remixicon.eot</span><br><span class="line">│  │          remixicon.svg</span><br><span class="line">│  │          remixicon.ttf</span><br><span class="line">│  │          remixicon.woff</span><br><span class="line">│  │          remixicon.woff2</span><br><span class="line">│  │</span><br><span class="line">│  ├─dist</span><br><span class="line">│  │      main.css</span><br><span class="line">│  │      main.js</span><br><span class="line">│  │</span><br><span class="line">│  ├─images</span><br><span class="line">│  │      404.jpg</span><br><span class="line">│  │      alipay.jpg</span><br><span class="line">│  │      ayer-side.svg</span><br><span class="line">│  │      ayer.png</span><br><span class="line">│  │      ayer.svg</span><br><span class="line">│  │      beian.png</span><br><span class="line">│  │      cover1.jpg</span><br><span class="line">│  │      cover7.jpg</span><br><span class="line">│  │      forkme.png</span><br><span class="line">│  │      gitee.png</span><br><span class="line">│  │      github.png</span><br><span class="line">│  │      hexo-tag-chart.png</span><br><span class="line">│  │      hexo.png</span><br><span class="line">│  │      mouse.cur</span><br><span class="line">│  │      sponsor.jpg</span><br><span class="line">│  │      wechat.jpg</span><br><span class="line">│  │</span><br><span class="line">│  └─js</span><br><span class="line">│          busuanzi-2.3.pure.min.js</span><br><span class="line">│          clickBoom1.js</span><br><span class="line">│          clickBoom2.js</span><br><span class="line">│          clickLove.js</span><br><span class="line">│          dz.js</span><br><span class="line">│          jquery-3.6.0.min.js</span><br><span class="line">│          lazyload.min.js</span><br><span class="line">│          search.js</span><br><span class="line">│          tocbot.min.js</span><br><span class="line">│</span><br><span class="line">└─source-src</span><br><span class="line">    │  main.js</span><br><span class="line">    │</span><br><span class="line">    ├─css</span><br><span class="line">    │  │  style.styl</span><br><span class="line">    │  │  _darkmode.styl</span><br><span class="line">    │  │  _extend.styl</span><br><span class="line">    │  │  _mixins.styl</span><br><span class="line">    │  │  _normalize.styl</span><br><span class="line">    │  │  _remixicon.styl</span><br><span class="line">    │  │  _variables.styl</span><br><span class="line">    │  │</span><br><span class="line">    │  └─_partial</span><br><span class="line">    │          ads.styl</span><br><span class="line">    │          albums.styl</span><br><span class="line">    │          apple.styl</span><br><span class="line">    │          archive.styl</span><br><span class="line">    │          article.styl</span><br><span class="line">    │          articles.styl</span><br><span class="line">    │          ayer.styl</span><br><span class="line">    │          categories.styl</span><br><span class="line">    │          float.styl</span><br><span class="line">    │          footer.styl</span><br><span class="line">    │          friends.styl</span><br><span class="line">    │          gallery.styl</span><br><span class="line">    │          gitalk.styl</span><br><span class="line">    │          highlight.styl</span><br><span class="line">    │          justifiedGallery.styl</span><br><span class="line">    │          layout.styl</span><br><span class="line">    │          lists.styl</span><br><span class="line">    │          mobile.styl</span><br><span class="line">    │          navbar.styl</span><br><span class="line">    │          pace.styl</span><br><span class="line">    │          reward.styl</span><br><span class="line">    │          search.styl</span><br><span class="line">    │          share.styl</span><br><span class="line">    │          sidebar.styl</span><br><span class="line">    │          tag.styl</span><br><span class="line">    │          tocbot.styl</span><br><span class="line">    │          totop.styl</span><br><span class="line">    │</span><br><span class="line">    ├─js</span><br><span class="line">    │      ayer.js</span><br><span class="line">    │      share.js</span><br><span class="line">    │</span><br><span class="line">    └─util</span><br></pre></td></tr></table></figure>
+
+<h3 id="tips："><a href="#tips：" class="headerlink" title="tips："></a>tips：</h3><p>如何快速打印文件目录结构呢？window</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tree -f</span><br></pre></td></tr></table></figure>
+
+<h2 id="github"><a href="#github" class="headerlink" title=".github"></a>.github</h2><p>这个主要是 Git 的工作目录，这里简单介绍一下里面的一些文件和文件夹作用。</p>
+<p><code>.gitgnore</code>忽略Git监听的配置文件</p>
+<p><code>README.md</code> 项目的介绍文件，是文档总目录。</p>
+<p><code>package.json</code>项目的一些配置信息</p>
+<p><code>.gitattributes</code>比较有意思，会详细点介绍</p>
+<p><a href="https://blog.csdn.net/taiyangdao/article/details/78484623">这是一篇中文的介绍</a></p>
+<p><a href="https://git-scm.com/docs/gitattributes">这是官方原文</a></p>
+<p><a href="https://blog.csdn.net/u014298440/article/details/92659085?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1-92659085-blog-111696005.pc_relevant_aa&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1-92659085-blog-111696005.pc_relevant_aa&utm_relevant_index=1">git 行尾</a></p>
+<p><a href="https://blog.csdn.net/qq_35425070/article/details/106883833?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1-106883833-blog-78484623.pc_relevant_downloadblacklistv1&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1-106883833-blog-78484623.pc_relevant_downloadblacklistv1&utm_relevant_index=1">git 行尾1</a></p>
+<ul>
+<li><p>他是设置其文件夹路径下的所有文件 	</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">匹配的文件 属性1 属性2  ...</span><br><span class="line">↓这个是主题的里的一个属性，它的作用是强制设置语言类型</span><br><span class="line">*.html linguist-language=javascript</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>属性的四种写法</p>
+<ul>
+<li>设置 属性 key</li>
+<li>不设置属性   -key</li>
+<li>设置键值对 key&#x3D;value</li>
+<li>不声明属性，用来覆盖其它文件声明，!key</li>
+<li>text &#x3D; auto 行尾自动转换<ul>
+<li>行尾规范，有机会学习学习一下。行尾规范主要是换行方式，window 和 mac 开发换行方式不同。</li>
+</ul>
+</li>
+<li>diff 属性</li>
+</ul>
+</li>
+</ul>
+<p><code>ISSUE_TEMPLATE</code>主要是给 PR用的模板形式</p>
+<ul>
+<li>参考这里 <a href="https://docs.github.com/cn/communities/using-templates-to-encourage-useful-issues-and-pull-requests/manually-creating-a-single-issue-template-for-your-repository">GitHub Docs</a></li>
+</ul>
+<p><code>workflows</code>同样可以参考上面，在搜索栏里可以找到，这个主要是可配置化的自动化工作流程，</p>
+<p>主要是用的也是 <code>yml</code>语法</p>
+<h4 id="阅读扩展"><a href="#阅读扩展" class="headerlink" title="阅读扩展"></a>阅读扩展</h4><p>[^yml vs json]: <a href="https://linuxhint.com/yaml-vs-json-which-is-better/">whitch is better</a></p>
+<p><code>config.yml </code>文件 工作流的一部分文件</p>
+<p><code>FUNDING.yml</code>赞赏作者</p>
+<h2 id="languages"><a href="#languages" class="headerlink" title="languages"></a>languages</h2><p>语言配置</p>
+<h2 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h2><p>主题主要采用 <code>ejs</code>编写</p>
+<p><code>js</code> 代码中可以ejs渲染布尔，数字，字符串，之前以为不行，现在看来是ide报错限制我。</p>
+<p>代码提示，本身无错误，难受报错，等我手撸一个 <code>vscode</code>插件，诸君待我披甲归来。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+  </entry>
+  <entry>
+    <title>短信验证的思考</title>
+    <url>/2022/%E7%9F%AD%E4%BF%A1%E9%AA%8C%E8%AF%81%E7%9A%84%E6%80%9D%E8%80%83/</url>
+    <content><![CDATA[<h1 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h1><p>今天是希望慢慢的一天，随着学习深入，一些之前忘记的知识也被重新提取出来。</p>
+<p>过去的我学习过于碎片化，而如今相比过去好一点，但仍然需要继续学习。</p>
+<p>如今摆在我面前的是：</p>
+<ul>
+<li><input disabled="" type="checkbox"> <code>hexo</code>深入扩展架构</li>
+<li><input disabled="" type="checkbox"> <code>nodejs</code>模块多线程工作，多进程，系统这些更加复炸的模块</li>
+<li><input disabled="" type="checkbox"> 回到我熟悉的虚拟 <code>dom</code>开发</li>
+<li><input disabled="" type="checkbox"> 对于数据存储采用本地端，还是服务端，还是云端，这些都需要成本。</li>
+<li><input disabled="" type="checkbox"> ……</li>
+</ul>
+<p>确实有点觉得压力，或许我需要一些放松。</p>
+<p>我打算先学 <code>Hexo</code>吧，一个 <code>Free</code> 和 <code>Happly</code> 是我目前的选择。</p>
+<p>我觉得我现在对于学习还是蛮渴望的，除了背诵一堆无意义的东西┭┮﹏┭┮。</p>
+<p>说说正事，这也是我产生记录的缘由。</p>
+<h1 id="缘来"><a href="#缘来" class="headerlink" title="缘来"></a>缘来</h1><p>今天有一个自称移动客服打过来，告诉我打开5G开关，然后她会发个验证码，让我在电话里头告诉她，就可以每个月 10 G 流量。这对于我来说很心动。我已经很久没有富裕流量，不是因为我用手机流量特别多，而是我卡里每个月流量200 m ，┭┮﹏┭┮。</p>
+<p>除了支付其余时间，都是打电话，有热点的蹭热点。</p>
+<p>在我看来是不错的选择，然而我的行业经验告诉我事情不简单。</p>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><p>验证码，本身第一属性作为人机交互验证的。这样就可以拦截和识别大部分自动程序。</p>
+<p>其次，比如深度学习用于帮助机器学习的谷歌验证服务</p>
+<p>第三种，就是登陆验证，这也就是为什么我当心的缘故</p>
+<p>在挂断电话后，我反复查看短信，确实是移动发来的业务。</p>
+<p>我去搜索确实有一些业务有这么做，但不是官方行为。也有一些人因此得到流量。但假如重来一次，我还是会放弃，</p>
+<p>因为这种行为和诈骗分子索取验证码无差别。</p>
+<p>从营销活动角度，这也是需要做出改变的。</p>
+<p>我突然有点搞搞设计营销活动，算了。过去就是没有重心的探索导致，碎片化知识。</p>
+<p>很多人都说好奇心很重要，但在我觉得如何保护好好奇心更重要。社会里杂事，琐事，环境都会影响一个人的选择，让他失去好奇心。</p>
+<p>在社会上，我不得不面对生计奔波，我不是个贪钱的人，但我确实也需要糊口。</p>
+<h2 id="破解思路"><a href="#破解思路" class="headerlink" title="破解思路"></a>破解思路</h2><p>当然也有破解的思路，主要最传统，人肉验证后，让机器人。这个方法属于最笨的，但破解成本是最低的，也是影响范围最小。</p>
+<p>其次还有针对特定网站破解其脚本，这个需要一定的逆向工程能力，之前学过一点皮毛。这种方法也属于笨方法，需要的水准高一点。</p>
+<p>第三种，针对常规验证类型，启用一个伪AI验证，就是不断手动扩充其验证方式。它提供一个类似行为接口，然后开发者编写特定的脚本进行破解。这种方法也属于比较笨，因为能做到的也已经属于优秀程序员级别，浪费和消耗的精力也比较大。</p>
+<p>第四种，就是目前的深度学习，这种就不讨论。因为这种成本最大，难度也大，我( •̀ ω •́ )y不知到，我现在只是简单涉及前后端的程序员。</p>
+<p>还有第五种，那就是社会工程学，永远也不要怀疑。这种成本最廉价，也最有风险。操作上分为主动接触，或者被动接触等一下列入侵手段，“走后门”就是他们的写照。</p>
+<p>还有第六种，那就是我们最强大的领域，灵能飞升。相信你自己靠着心灵感应就能扭曲现实，俺寻思没有验证码，密码就是这个。</p>
+<p>以及第七种，传闻中的“物理黑客”，他们已经领域的机械之心，任何程序的代码对于他们不过是0和1的区别，最擅长的就是物理黑入。</p>
+<p>我b（￣▽￣）d　好皮。</p>
+<h2 id="种类"><a href="#种类" class="headerlink" title="种类"></a>种类</h2><p>验证的方式也分为几种，本地验证，服务端验证，第三方验证，形式多种多样。</p>
+<p>本地设备上也有多种验证方式，</p>
+<p>其实按上面的话来说，其实分为无网络验证和网络验证这两种更好。</p>
+<p>当然还有好多角度。</p>
+<p>验证的设备或者形式也可以分类。</p>
+<p>如短信验证，邮箱验证，图片验证，计算验证，动态验证，担保人验证……</p>
+<p>说的有点多，我先学习了。</p>
+]]></content>
+      <categories>
+        <category>体验</category>
+      </categories>
+      <tags>
+        <tag>人升</tag>
+        <tag>产品</tag>
+      </tags>
+  </entry>
 </search>
