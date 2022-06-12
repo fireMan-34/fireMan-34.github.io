@@ -999,7 +999,22 @@ search.xml访问速度慢,search插件用的是老的数据结构能否使用jso
 <p><a href="https://blog.csdn.net/luoluoyang23/article/details/124543453">vscode 插件开发介绍博客</a></p>
 <p><a href="https://liiked.github.io/VS-Code-Extension-Doc-ZH/#/preknowledge/variable-and-type">中文插件开发文档</a></p>
 <p><a href="https://vscode-docs.readthedocs.io/en/stable/tools/yocode/">code support</a></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+<p>解决了，奋战几天，突然脑子灵光一闪，随手一查就就有个暂时性解决方法。呜呜呜，这插件的文档又长又没人带。</p>
+<p><a href="https://stackoverflow.com/questions/66827697/writing-ejs-in-a-script-is-giving-me-the-error-expression-expected">解决ejs在script的预期表达式问题</a></p>
+<h2 id="scripts"><a href="#scripts" class="headerlink" title="scripts"></a>scripts</h2><p><code>hexo</code> 扩展</p>
+<h2 id="source"><a href="#source" class="headerlink" title="source"></a>source</h2><p>加载对应的文件夹 <code>css</code> 和 <code>js</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;%- js(&#x27;/js/xxx&#x27;) %&gt;</span><br><span class="line">&lt;%- css(&#x27;/css/xxx&#x27;) %&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>dist</code>打包文件夹</p>
+<h2 id="rollup"><a href="#rollup" class="headerlink" title="rollup"></a>rollup</h2><p>作者采用 <code>roullup</code>构建工具,对 <code>source-src</code>的目标文件映射到 <code>source</code>文件夹内</p>
+<h2 id="滚动条bug"><a href="#滚动条bug" class="headerlink" title="滚动条bug"></a>滚动条bug</h2><p>假如滚动条事件不生效有可能是因为他的滚动条是其它节点而不是window或者什么。</p>
+]]></content>
+      <categories>
+        <category>web.hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title>短信验证的思考</title>
@@ -1058,7 +1073,9 @@ search.xml访问速度慢,search插件用的是老的数据结构能否使用jso
   <entry>
     <title>VSCODE插件编写记录</title>
     <url>/2022/VSCODE%E6%8F%92%E4%BB%B6%E7%BC%96%E5%86%99%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<ol>
+    <content><![CDATA[<h1 id="感谢-THANKS"><a href="#感谢-THANKS" class="headerlink" title="感谢 THANKS"></a>感谢 THANKS</h1><p><a href="https://liiked.github.io/VS-Code-Extension-Doc-ZH/#/get-started/extension-anatomy">中文VSCode</a></p>
+<p><a href="https://code.visualstudio.com/">官网</a></p>
+<h1 id="记录-RECORD"><a href="#记录-RECORD" class="headerlink" title="记录 RECORD"></a>记录 RECORD</h1><ol>
 <li><p>小错误官方教程自己谁便定义几个不一样的名字就进不去，但以后还是先跟着官方吧。好累，我已经连续不断学习了很久，记得小时候，我常常在熬夜写作业，那种又困又想睡觉的感觉是那么强烈。它在呼唤我停止。我从小不喜欢填鸭式学习，逐渐变得自己离所有人越来越远。</p>
 </li>
 <li><p>多多阅读英文注释，能够快速获悉一些关键意图。</p>
@@ -1072,6 +1089,29 @@ search.xml访问速度慢,search插件用的是老的数据结构能否使用jso
 <p><code>extendsion.ts</code></p>
 <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> vscode <span class="keyword">from</span> <span class="string">&#x27;vscode&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">active</span>(<span class="params">context:vscode.ExtensionContext</span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> disposable=vscode.<span class="property">commands</span>.<span class="title function_">registerCommand</span>(<span class="string">&#x27;fireMan&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">       vscode.<span class="property">window</span>.<span class="title function_">showErrorMessage</span>(<span class="string">&#x27;Hello,a error with code.this is fireMan.&#x27;</span>); </span><br><span class="line">    &#125;);</span><br><span class="line">    context.<span class="property">subscriptions</span>.<span class="title function_">push</span>(disposable);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">deactivate</span>(<span class="params"></span>)&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<ol start="5">
+<li><p>插件目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── .vscode</span><br><span class="line">│   ├── launch.json     // 插件加载和调试的配置</span><br><span class="line">│   └── tasks.json      // 配置TypeScript编译任务</span><br><span class="line">├── .gitignore          // 忽略构建输出和node_modules文件</span><br><span class="line">├── README.md           // 一个友好的插件文档</span><br><span class="line">├── src</span><br><span class="line">│   └── extension.ts    // 插件源代码</span><br><span class="line">├── package.json        // 插件配置清单</span><br><span class="line">├── tsconfig.json       // TypeScript配置</span><br></pre></td></tr></table></figure>
+
+<p>一些相对需要记忆的东西</p>
+<ul>
+<li><p><code>main</code> 插件的主入口</p>
+</li>
+<li><p><code>postinstall</code>脚本：根据 <code>engies.vscode</code> 的版本信息进行安装。一旦 <code>vscode.d.ts</code>文件存在于 <code>node_modules/vscode/vscode.d.ts</code> ， IntelliSense就会开始运作，你就可以所有 <code>VS CODE API</code> 进行定义跳转或者语法检测。<a href="https://liiked.github.io/VS-Code-Extension-Doc-ZH/#/get-started/extension-anatomy">小不足有空PR</a></p>
+</li>
+<li><p>插件入口导出两个函数 <code>activate</code> 和 <code>deactivate</code>。注册  <strong>激活事件</strong>之前触发 <code>activate</code>,<code>deactivate</code>则提供销毁权柄。</p>
+</li>
+<li><p><code>vscode</code>模块包含 <code>node</code>, <code>./node_modules/vscode/bin/install</code>的脚本。这个脚本拉取 <code>package.json</code>中的 <code>engines.vscode</code>字段定义的 VS Code API 。这个脚本执行过，你就得到智能代码，定义跳转等 <code>TS</code>特性。</p>
+</li>
+<li><p><code>Mocha</code>测试库</p>
+</li>
+<li><p><code>glob</code> Match files using the patterns the shell uses, like stars and stuff.使用参数匹配文件，内置使用 <code>minimatch</code>模块</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="暂时鸽了"><a href="#暂时鸽了" class="headerlink" title="暂时鸽了"></a>暂时鸽了</h2><p>喜极而泣，找到一个可以解决的方法，暂时不用编写什么支持插件了，&#96;(<em>&gt;﹏&lt;</em>)′。</p>
+<p>解决之路在原文列出。</p>
 ]]></content>
       <categories>
         <category>web</category>
@@ -1109,13 +1149,44 @@ search.xml访问速度慢,search插件用的是老的数据结构能否使用jso
 <p>就这样，我主动承包电费，也不和他交往了。</p>
 <p>为了一点钱财就和情谊决裂，我看不透。不要说什么节约用电，平日里他用水哗哗，电费可能就是相对贵了点。而我自己用水挤着那一点水，涂抹在手上。</p>
 <p>现在用我电费倒是挺土豪的，白天无人时刻，风扇依旧呼呼地开着，又有钱买了个超大显示器。</p>
-<p>我那时候有郁闷过，想在想通了。找工作急不来，如果没有编程行业不要我，那我就选择一份安心的工作。即可，有机会也要搬走。一个人独处，一个人世界，一个人安静。</p>
+<p>我那时候有郁闷过，想在想通了。找工作急不来，如果编程行业不要我，那我就选择一份安心的工作。即可，有机会也要搬走。一个人独处，一个人世界，一个人安静。</p>
 <p>至于社会不需要我，嘿嘿，我也不在乎。</p>
 <p>我的责任心，荣誉感不是用来为那些不值得拥有的人。</p>
 <p>其实这些烦恼都是因为我遇到那些不是我自身原因的人，我改变不了，不还有一种。</p>
 <h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>希望每一个真正需要光的人都能找到属于自己的光，不被迷茫的烟雾所埋葬。</p>
 <p>江湖不老，人心不变。那人那光，依旧依在。</p>
 <p>泥团(￣︶￣*))。</p>
+]]></content>
+      <categories>
+        <category>体验</category>
+      </categories>
+      <tags>
+        <tag>人生</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2022-06-12散步小记</title>
+    <url>/2022/2022-06-12%E6%95%A3%E6%AD%A5%E5%B0%8F%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="新发现"><a href="#新发现" class="headerlink" title="新发现"></a>新发现</h1><p>今天我穿过新的马路，发现了一座 <strong>公园</strong>，免费的，我进去里面逛了一圈。</p>
+<p>公园不大，但是花草都是精心摆设，整体色调为三种，一粉红一紫色一绿色。绿色上色的种类倒是多，有青绿色，翠绿色。公园没有太多喧哗，整体感觉还不错。</p>
+<p>里边还有一些健身器材，挺好玩的。我去踩了那个两脚踏。</p>
+<p>记得在家里的最活泼的时候，我经常去小区里面的健身器材上玩。当时胆子和活力是现在不敢想象的，每天都充斥着快乐。虽然瘦的和猴子差不多，但精神和可爱就比现在强多了。</p>
+<p>有时候，我也在怀念过去那段时光。我现在变得沉默寡言，我不后悔。我如果不这么做，我可能会成为一个自己内心讨厌的人。无知最容易快乐，有了负担，有了追求就会被现实被责任所压垮。</p>
+<p>那如何做个绝对乐观之人呢？</p>
+<p>这也是今天回来偶然所得，不管这感觉像个笑一样，恐为世俗不容。	</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><!--新感悟--></h2><!--“强者就是看透生活依旧热爱。”-->
+
+<!--记得那句话，看透生活，依旧热爱。-->
+
+<!--达成这个有两种。-->
+
+<!--一种生活为乐，另一种与生活无关。-->
+
+<!--生活为乐，那就是面对那些不愿意面对的为乐。这个可就复杂了，什么是不愿意面对的，那就是你的妄念。以生活不幸为乐，以一种超越常识的存在，看待这个一切，对一切的妄念破灭为乐。-->
+
+<!--第二种，对一切无感，成为一个绝对的精神存在。-->
+
+<!--绝对乐观者是众生难以想象的存在，这两种存在都是一种奇怪。因为他们的快乐已经不是世俗可以评价和认知的，他们看起来像他者，就是无法评价和认知的存在.-->
 ]]></content>
       <categories>
         <category>体验</category>

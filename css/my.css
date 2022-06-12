@@ -109,10 +109,44 @@
   background-color: rgba(141,15,15,0.75);
   color: #000;
 }
+.leaves {
+  position: relative;
+}
+.leaves::before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 64px;
+  height: 64px;
+  background-image: url("../images/leaves.png");
+  transition: opacity 6s;
+  animation: xuanzhuan 6s infinite;
+}
 @media screen and (max-width: 480px) {
   .article-title {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+}
+@-moz-keyframes xuanzhuan {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes xuanzhuan {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes xuanzhuan {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes xuanzhuan {
+  100% {
+    transform: rotate(360deg);
   }
 }
