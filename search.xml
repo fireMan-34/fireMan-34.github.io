@@ -1195,4 +1195,24 @@ search.xml访问速度慢,search插件用的是老的数据结构能否使用jso
         <tag>人生</tag>
       </tags>
   </entry>
+  <entry>
+    <title>markdown在vscode语法提示探索方案</title>
+    <url>/2022/markdown%E5%9C%A8vscode%E8%AF%AD%E6%B3%95%E6%8F%90%E7%A4%BA%E6%8E%A2%E7%B4%A2%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<h1 id="Why-I-want-to-write-it"><a href="#Why-I-want-to-write-it" class="headerlink" title="Why I want to write it?"></a>Why I want to write it?</h1><p>when I want to write the code what about HTML in markdown file,there is not any code hints.<br>So that’s why I wrote this post.</p>
+<h1 id="Is-there-any-solution"><a href="#Is-there-any-solution" class="headerlink" title="Is there any solution?"></a>Is there any solution?</h1><p>Yes,but it doesn’t look prefect.</p>
+<h1 id="how-to-solve-it"><a href="#how-to-solve-it" class="headerlink" title="how to solve it?"></a>how to solve it?</h1><ul>
+<li>Frist way,you can use other html file to write code and then you can copy it and paste in markdown file.</li>
+<li>Second way,you can use Select language mode to change markdown and html.</li>
+<li>Third way, may be a vscode plugin can solve this question ,but now I can’t find it.</li>
+</ul>
+<h1 id="End"><a href="#End" class="headerlink" title="End"></a>End</h1><p>I’ve been looking for a web development job for nearly three months. Maybe I shouldn’t keep looking like this. Although I like this job, I really need to find a job that can exercise rather than sitting in front of the computer all day.<br>I like programming because I can create and explore, but I don’t have enough excellence to become a cultivator in this industry.<br>People who are not good enough in this society do not need much talent for creation and exploration. I’m embarrassed. I seem to be marginalizing.<br>Thank you for reading. Maybe you will find a new direction.</p>
+]]></content>
+      <categories>
+        <category>ide</category>
+        <category>vscode</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
 </search>
