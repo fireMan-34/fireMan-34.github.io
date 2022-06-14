@@ -123,6 +123,38 @@
   transition: opacity 6s;
   animation: xuanzhuan 6s infinite;
 }
+.about-hr {
+  position: relative;
+}
+.about-hr::before,
+.about-hr::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255,0,0,0.95);
+  transform: rotate(45deg);
+}
+.about-hr::before {
+  top: -6px;
+/* left: -1.5px; */
+  left: 50%;
+  border-top: none;
+  border-right: none;
+  animation: about-hr-before-move-left 2s ease-in-out;
+/* 动画结束时不切换原来的样式 */
+  animation-fill-mode: forwards;
+}
+.about-hr::after {
+  bottom: -6px;
+/* right: -1.5px ; */
+  right: 50%;
+  border-left: none;
+  border-bottom: none;
+  animation: about-hr-before-move-right 2s ease-in-out;
+/* 动画结束时不切换原来的样式 */
+  animation-fill-mode: forwards;
+}
 @media screen and (max-width: 480px) {
   .article-title {
     overflow: hidden;
@@ -148,5 +180,45 @@
 @keyframes xuanzhuan {
   100% {
     transform: rotate(360deg);
+  }
+}
+@-moz-keyframes about-hr-before-move-left {
+  100% {
+    left: -1.5px;
+  }
+}
+@-webkit-keyframes about-hr-before-move-left {
+  100% {
+    left: -1.5px;
+  }
+}
+@-o-keyframes about-hr-before-move-left {
+  100% {
+    left: -1.5px;
+  }
+}
+@keyframes about-hr-before-move-left {
+  100% {
+    left: -1.5px;
+  }
+}
+@-moz-keyframes about-hr-before-move-right {
+  100% {
+    right: -1.5px;
+  }
+}
+@-webkit-keyframes about-hr-before-move-right {
+  100% {
+    right: -1.5px;
+  }
+}
+@-o-keyframes about-hr-before-move-right {
+  100% {
+    right: -1.5px;
+  }
+}
+@keyframes about-hr-before-move-right {
+  100% {
+    right: -1.5px;
   }
 }
