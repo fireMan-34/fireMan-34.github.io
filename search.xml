@@ -1228,4 +1228,24 @@ search.xml访问速度慢,search插件用的是老的数据结构能否使用jso
         <tag>markdown</tag>
       </tags>
   </entry>
+  <entry>
+    <title>hexo自定义页面布局</title>
+    <url>/2022/hexo%E8%87%AA%E5%AE%9A%E4%B9%89%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80/</url>
+    <content><![CDATA[<h1 id="自定义布局页面的写法"><a href="#自定义布局页面的写法" class="headerlink" title="自定义布局页面的写法"></a>自定义布局页面的写法</h1><h2 id="why"><a href="#why" class="headerlink" title="why"></a>why</h2><p>搜索引擎上的教程大部分语焉不详，<br>我想在学习的过程记录，并且能够自己独立写自定义布局页面</p>
+<h2 id="step"><a href="#step" class="headerlink" title="step"></a>step</h2><ul>
+<li>step1:<br>cmd<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page <span class="string">&quot;创建的页面&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li>step2:<br><code>_config.yml</code>配置你的 <code>nav</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">nav :</span></span><br><span class="line">  <span class="attr">youKey:</span> <span class="string">yourpageName</span></span><br><span class="line">  <span class="comment">#...</span></span><br></pre></td></tr></table></figure></li>
+<li>step3<br>folder <code>layout</code><br>create fileName about your layout name<br>and I create about.ejs<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;%# your code wirite here %&gt;</span><br></pre></td></tr></table></figure>
+it will be a page code with layout.ejs.</li>
+<li>step4<br>to you page Name<br>and <code>yaml front matter</code><br>add this yaml<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">layout:</span> <span class="string">yourlayoutName</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>web</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
 </search>
