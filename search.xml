@@ -1304,4 +1304,19 @@ it will be a page code with layout.ejs.</li>
         <tag>产品</tag>
       </tags>
   </entry>
+  <entry>
+    <title>hexo添加markdown文章自动缩进功能</title>
+    <url>/2022/hexo%E6%B7%BB%E5%8A%A0markdown%E6%96%87%E7%AB%A0%E8%87%AA%E5%8A%A8%E7%BC%A9%E8%BF%9B%E5%8A%9F%E8%83%BD/</url>
+    <content><![CDATA[<h1 id="Why-I-write-this"><a href="#Why-I-write-this" class="headerlink" title="Why I write this?"></a>Why I write this?</h1><p style="text-indent:2em;">Because I has found how to add auto indent in post;But now it is not prefect,and it has a break change,So I will study deeply the hexo how to work.</p>
+<h1 id="Now-how-to-do-it。"><a href="#Now-how-to-do-it。" class="headerlink" title="Now how to do it。"></a>Now how to do it。</h1><p style="text-indent:2em;">I use hexo-render-marked to write post ,and I don’t have easy way to auto tap in post.<br><span style="padding:0 1em;"></span>And I find someOne maybe has something Solutions,but it will make me hard to change Input Method.<br><span style="padding:0 1em;"></span>So I find way on the brower and add Style.The effect is good,but I use filter to hanle it ,it is diffcult for me to use reg and handle string.<br><span style="padding:0 1em;"></span>I will study more and hanler it,make it to plugin,Year!</p>
+<h1 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h1><p style="text-indent:2em;">Every reader!</p>
+]]></content>
+      <categories>
+        <category>web</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
 </search>
