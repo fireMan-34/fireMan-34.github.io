@@ -1,7 +1,0 @@
-@media screen and (max-width: 480px) {
-  .article-title {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-}
