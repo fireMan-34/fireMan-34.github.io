@@ -1104,6 +1104,7 @@ it will be a page code with layout.ejs.</li>
 <li>Frist way,you can use other html file to write code and then you can copy it and paste in markdown file.</li>
 <li>Second way,you can use Select language mode to change markdown and html.</li>
 <li>Third way, may be a vscode plugin can solve this question ,but now I can’t find it.</li>
+<li>Four way,if you are also use hexo and write <code>markdown</code>,you can use layout <code>ejs</code> to write <code>html</code> and add layou name in yaml font matters</li>
 </ul>
 <h1 id="End"><a href="#End" class="headerlink" title="End"></a>End</h1><p style="text-indent:2em;">I’ve been looking for a web development job for nearly three months. Maybe I shouldn’t keep looking like this. Although I like this job, I really need to find a job that can exercise rather than sitting in front of the computer all day.<br><span style="padding:0 1em;"></span>I like programming because I can create and explore, but I don’t have enough excellence to become a cultivator in this industry.<br><span style="padding:0 1em;"></span>People who are not good enough in this society do not need much talent for creation and exploration. I’m embarrassed. I seem to be marginalizing.<br><span style="padding:0 1em;"></span>Thank you for reading. Maybe you will find a new direction.</p>
 ]]></content>
@@ -1332,6 +1333,18 @@ it will be a page code with layout.ejs.</li>
 <h1 id="肯德基的音响"><a href="#肯德基的音响" class="headerlink" title="肯德基的音响"></a>肯德基的音响</h1><p style="text-indent:2em;">今天看到肯德基的音响，然我想起一条规则，一条互联网最普遍的规则，也是和我大学末尾两个号一样的规则。我会心一笑就回去了。</p>
 <h1 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h1><p style="text-indent:2em;">早晨吃饭时间打开公众号，遇到一篇reduce的文章，我就点进去。点进去后，初略地阅读，里面讲述的内容大致和我掌握没有太多出入，这方面我算是一个中度使用者，在一次项目里疯狂的使用数据变形链式，接上各种数组的方法吗，而<code>reduce</code>就是里面的佼佼者。并且<code>reduce</code>还在我探索异步串行中实现的一个结合<code>async</code>的异步方案,但本质是使用<code>generate</code>返回的异步迭代器加上一个自动处理器。<br><span style="padding:0 1em;"></span>说岔，后面我就看到一篇栈和队列在算法中的地位。<br><span style="padding:0 1em;"></span>我点开后，并没有深入阅读，而是边走边想者栈和队列的一些过往使用。<br><span style="padding:0 1em;"></span>栈和“最近”这个概念很接近，栈的本身被用在上下文或者其它“就近”场景。<br><span style="padding:0 1em;"></span>而队列更像一个事务“线”或者时间“线’之类的东西。<br><span style="padding:0 1em;"></span>从数据内存读写角度来看，栈的出入速度远快于队列的出入速度，执行方面的话，我就不太清楚，或许有机会再深入对数据的一种操作。</p>
 <h1 id="结尾暂时就这样了。"><a href="#结尾暂时就这样了。" class="headerlink" title="结尾暂时就这样了。"></a>结尾暂时就这样了。</h1><p style="text-indent:2em;">我计划先练习一些正则和字符串处理方面的知识，争取以后可以在这方面更能得心应手。</p>
+<h2 id="补充缺失体验"><a href="#补充缺失体验" class="headerlink" title="补充缺失体验"></a>补充缺失体验</h2><h1 id="不放手的蚂蚁"><a href="#不放手的蚂蚁" class="headerlink" title="不放手的蚂蚁"></a>不放手的蚂蚁</h1><p style="text-indent:2em;">在一个垃圾箱顶部，我看到了一群蚂蚁，蚂蚁都是通体黑色，个头略大，数量较多，密密麻麻在寻找食物。</p>
+<p style="text-indent:2em;">在观看中，一对互相咬着幼虫死体的蚂蚁出现在我眼前。双方互相咬着比试图将死体强夺过来，奇怪的颜色也均是一样，理应是同个蚁群。双方展开拉锯式抢夺，然而似乎有一边蚂蚁，伙伴较多，时不时有一只蚂蚁经过，并试图帮忙。他们也没有攻击这个蚂蚁，而是咬合在那种昆虫幼体死体上。就这样形单影只的蚂蚁渐渐落了下沉，然而它并没有放弃，继续咬着这着，被另外一只蚂蚁拖到他们的老巢。</p>
+<p style="text-indent:2em;">在观看完，不由觉得自己难以确认双方的身份，这感觉就像你无法做到全知却仍然要做出一个评价，这对于我而言是有失偏颇的。或许对于科学来说，未知的一切不重要，我只需要接近未知，符合我的观察事实即可。</p>
+<p style="text-indent:2em;">在写这篇文章的时候，我又觉得或许那昆虫也并未死亡。我当时可能只是陷入一个第一次的影像。</p>
+<h1 id="我的智商测试"><a href="#我的智商测试" class="headerlink" title="我的智商测试"></a>我的智商测试</h1><p style="text-indent:2em;">在简单看完 <code>mdn</code>文档里的正则的时候，我突然生起闲暇偷懒的诉求。于是我翻开了无障碍设计公司的知乎页面，看到一篇谷歌无障碍设计师推荐文章，她叫“夏冰莹”，还有推荐的一些无障碍软件<code>app</code>，我下载了 <code>Lockout</code>里面没有中文，就几个简单二维码图标，用完觉得有点懵逼，因为里面都是英文，然而翻译的是我的中文文档，所以它只能识别我的数字。发现盲人真不容易，可能比其它任何残疾来得不容易，视觉作为人类第一感官，失去了缺失需要花费更多的东西在信息源上俘获。</p>
+<p style="text-indent:2em;">就这样，我把它又卸载了。</p>
+<p style="text-indent:2em;">然后就翻翻我的 <code>app</code> 清单，在穴位的<code>app</code>里发现了作者的一些其它<code>app</code> ,其中就有智商测试。</p>
+<p style="text-indent:2em;">我就下载体验了一把，一共花了35分多完成60道题，智商112水准。</p>
+<p style="text-indent:2em;">我并没有去查看任何答案，而且里面答案是模糊的，里面除了逻辑题，算术题，抽象类比题，还有一些很难评价的题，例如抽象排除题。</p>
+<p style="text-indent:2em;">我还是很开心，自己的智商在整体人群属于“中上”水平，这也和我对自然知识的认可和追随有关。或许很多人觉得大学就是读个文凭，但对于我来说背后的知识才是我的渴望，然而我感觉我自己不太适合国内教育体系，无法做到一个良好的适应，对于国内来说学得快，考得好就行，而我呢总是喜欢瞎琢磨，导致自己吊车尾，这种挫败感和我的完美主义倾向渐行渐远，我有时候会不自觉地逃避这教育。</p>
+<p style="text-indent:2em;">这个社会对慢热的人确实很不讨好，但我不希望你因此改变，你要抛弃自己的优势用自己的弱势去和别人优势竞争，你会失去更多。</p>
+<p style="text-indent:2em;">我确实需要更主动地向别人学习，就这样。我还没吃早餐呢。</p>
 ]]></content>
       <categories>
         <category>体验</category>
