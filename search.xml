@@ -1321,6 +1321,7 @@ it will be a page code with layout.ejs.</li>
 <h2 id="发布公共包"><a href="#发布公共包" class="headerlink" title="发布公共包"></a>发布公共包</h2><p style="text-indent:2em;">在<code>package</code>里使用</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm publish</span><br></pre></td></tr></table></figure>
 <h2 id="检测"><a href="#检测" class="headerlink" title="检测"></a>检测</h2><p style="text-indent:2em;">到你的npmjs里的<code>packages</code>检测是否发布成功。</p>
+<h2 id="很好"><a href="#很好" class="headerlink" title="很好"></a>很好</h2><p style="text-indent:2em;">  我的hexo自动缩进包完成了<br><span style="padding:0 1em;"></span>  （￣︶￣）↗　</p>
 ]]></content>
       <categories>
         <category>web</category>
