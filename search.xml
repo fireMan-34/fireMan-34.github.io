@@ -747,7 +747,7 @@ search.xml访问速度慢,search插件用的是老的数据结构能否使用jso
 <p style="text-indent:2em;">More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
       <categories>
-        <category>Web</category>
+        <category>web</category>
       </categories>
   </entry>
   <entry>
@@ -889,7 +889,7 @@ search.xml访问速度慢,search插件用的是老的数据结构能否使用jso
 </ul>
 ]]></content>
       <categories>
-        <category>Web</category>
+        <category>web</category>
         <category>hexo</category>
       </categories>
       <tags>
@@ -1539,6 +1539,14 @@ it will be a page code with layout.ejs.</li>
 <h2 id="readme"><a href="#readme" class="headerlink" title="readme"></a>readme</h2><ul>
 <li>模块里面的<code>readme</code>可能会稍微详细点。</li>
 </ul>
+<h1 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h1><h2 id="变量运算"><a href="#变量运算" class="headerlink" title="变量运算"></a>变量运算</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;% var num=0;</span><br><span class="line">if(num)num++;%&gt;</span><br><span class="line">&lt;%- num %&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;% var array=[1,2,3,4]; %&gt;</span><br><span class="line">&lt;% array.forEach(i)&#123;%&gt;</span><br><span class="line">	&lt;%= i %&gt;</span><br><span class="line">&lt;% &#125;) %&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="脚本变量"><a href="#脚本变量" class="headerlink" title="脚本变量"></a>脚本变量</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;%# 接受字符串整数布尔值以及其组成数组 %&gt;</span><br><span class="line">&lt;%# 接受对象的字符串数字属性值 %&gt;</span><br><span class="line">&lt;% let arr=[1,true,&quot;11&quot;];let obj=&#123;name:&quot;fireman34&quot;,age:22&#125; %&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	console.log(&lt;%= arr %&gt;,&quot;&lt;%= obj.name %&gt;&quot;,&lt;%= obj.age %&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
 <h1 id="碰到的问题"><a href="#碰到的问题" class="headerlink" title="碰到的问题"></a>碰到的问题</h1><h2 id="cache缓存"><a href="#cache缓存" class="headerlink" title="cache缓存"></a>cache缓存</h2><ul>
 <li>官方在cache使用第一次语焉不详，第二次版本落后了。</li>
 <li>我花了点时间查看一下源码，大概看懂是构造类，需要把参数变为<code>&#123;max:100&#125;</code>;代码如下<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">LRU</span>=<span class="built_in">require</span>(<span class="string">&#x27;lru-cache&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> ejs=<span class="built_in">require</span>(<span class="string">&#x27;ejs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">ejs.<span class="property">cache</span>=<span class="keyword">new</span> <span class="title function_">LRU</span>(&#123;<span class="attr">max</span>:<span class="number">100</span>&#125;);</span><br></pre></td></tr></table></figure>
@@ -1553,11 +1561,14 @@ it will be a page code with layout.ejs.</li>
 <li>不要使用<code>ejs.render</code>去处理带<code>inclued</code>的<code>ejs文件</code>,会报错，具体原因没有细究</li>
 </ul>
 <!--
-## 矛盾
-- 小时候教科书上告诉我读书要读透，然而现实教育去告诉我去不求甚解，不要钻牛角尖，要求各科达标。我不知道选择什么样的形式，在学校进步慢或者是一种原罪，在社会上没有能力又是另一种原罪。我有时真感到迷茫，深究 or 不求。
-- 有时候，我真的想说自己喜欢编程，但最后我还是害怕了。真的有那种不顾一切的喜欢吗？抛弃一切！
-- 或许，我看了太多的英雄事迹而忘记了自己的真实，为了成为那个目标，而自取灭亡。英雄从来只是被人用来怀念而不是拥护的，这就是现实世界。
--->]]></content>
+## <!--矛盾-->
+<ul>
+<li><!--小时候教科书上告诉我读书要读透，然而现实教育去告诉我去不求甚解，不要钻牛角尖，要求各科达标。我不知道选择什么样的形式，在学校进步慢或者是一种原罪，在社会上没有能力又是另一种原罪。我有时真感到迷茫，深究 or 不求。--></li>
+<li><!--有时候，我真的想说自己喜欢编程，但最后我还是害怕了。真的有那种不顾一切的喜欢吗？抛弃一切！--></li>
+<li><!--或许，我看了太多的英雄事迹而忘记了自己的真实，为了成为那个目标，而自取灭亡。英雄从来只是被人用来怀念而不是拥护的，这就是现实世界。-->
+–&gt;</li>
+</ul>
+]]></content>
       <categories>
         <category>web</category>
         <category>ejs</category>
