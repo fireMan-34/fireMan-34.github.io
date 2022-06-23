@@ -1524,4 +1524,39 @@ it will be a page code with layout.ejs.</li>
         <tag>人生</tag>
       </tags>
   </entry>
+  <entry>
+    <title>ejs学习笔记</title>
+    <url>/2022/ejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="吐槽"><a href="#吐槽" class="headerlink" title="吐槽"></a>吐槽</h1><p style="text-indent:2em;">  之前笔记过于零散，做出来反而没有查阅的效果。或许里面不乏有些解决思路，但没有起到很好的复用。<br><span style="padding:0 1em;"></span>  今天尽量开始将尝试以主题形式去描述，我的技术文章。至于我的日常日记，当然还是琐碎的，对于我目前来说生活没有统一主题。</p>
+<h1 id="学习零散笔记"><a href="#学习零散笔记" class="headerlink" title="学习零散笔记"></a>学习零散笔记</h1><h2 id="参观官方文档"><a href="#参观官方文档" class="headerlink" title="参观官方文档"></a>参观官方文档</h2><ul>
+<li>官网：<a href="https://ejs.bootcss.com/#">ejs</a></li>
+<li>感受：官网是真的少可怜，贴了很少的介绍。具体一些用法都没有做到完整显示，只是用文字去描述。还有一些用例已经换代了，这大概是失修已久的感觉。<h2 id="搜索问题"><a href="#搜索问题" class="headerlink" title="搜索问题"></a>搜索问题</h2><h2 id="看视频"><a href="#看视频" class="headerlink" title="看视频"></a>看视频</h2></li>
+<li>网站：b站</li>
+<li>这是我这段时间以来，头一次看视频学习。视频一般对我来说太慢了，而且讲了一下大概<code>ejs</code>，最终我放弃了，因为视频的验证成本太高了。他讲的很基础，而且他还说嵌入式代码开发(类似 <code>php</code>已经不适合现在的开发模式了)<h2 id="readme"><a href="#readme" class="headerlink" title="readme"></a>readme</h2></li>
+<li>模块里面的<code>readme</code>可能会稍微详细点。<h1 id="碰到的问题"><a href="#碰到的问题" class="headerlink" title="碰到的问题"></a>碰到的问题</h1><h2 id="cache缓存"><a href="#cache缓存" class="headerlink" title="cache缓存"></a>cache缓存</h2></li>
+<li>官方在cache使用第一次语焉不详，第二次版本落后了。</li>
+<li>我花了点时间查看一下源码，大概看懂是构造类，需要把参数变为<code>&#123;max:100&#125;</code>;代码如下<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">LRU</span>=<span class="built_in">require</span>(<span class="string">&#x27;lru-cache&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> ejs=<span class="built_in">require</span>(<span class="string">&#x27;ejs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">ejs.<span class="property">cache</span>=<span class="keyword">new</span> <span class="title function_">LRU</span>(&#123;<span class="attr">max</span>:<span class="number">100</span>&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="插入模板"><a href="#插入模板" class="headerlink" title="插入模板"></a>插入模板</h2></li>
+<li>这个就比较搞人了，你不会想到官方文档有多唬人。反正小白级别应该是妥妥倒地那种。</li>
+<li>之前使用插入模板报错，报错信息具体我也没有截图，不过可以大致列出最终堆栈抛出的异常位置,<code>ejs/lib/ejs.js</code>185 line  左右</li>
+<li>没想到这个问题，竟然激发了我的潜力，无师自通了，<code>vscode</code>断点调试和堆栈追踪以及调用引用。╮(╯▽╰)╭，但没有用。</li>
+<li>最后还是反复搜索<code>Stack overflow</code>才找到一个相对靠谱的解决。</li>
+<li>其实问题，我应该是能独自解决的，但花费时间可能会更长。<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> ejs=<span class="built_in">require</span>(<span class="string">&#x27;ejs&#x27;</span>);</span><br><span class="line">ejs.<span class="title function_">renderFile</span>(filePath,data,<span class="function">(<span class="params">err,str</span>)=&gt;</span>&#123;</span><br><span class="line">  response.<span class="title function_">end</span>(str)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3></li>
+<li>不要使用<code>fs</code>模块，字符集<code>utf-8</code>的字节用<code>ejs.render</code>渲染一个<code>foreach</code>里面的集合元素的字符串属性,这样会乱码。</li>
+<li>不要使用<code>ejs.render</code>去处理带<code>inclued</code>的<code>ejs文件</code>,会报错，具体原因没有细究<!--
+## 矛盾</li>
+<li>小时候教科书上告诉我读书要读透，然而现实教育去告诉我去不求甚解，不要钻牛角尖，要求各科达标。我不知道选择什么样的形式，在学校进步慢或者是一种原罪，在社会上没有能力又是另一种原罪。我有时真感到迷茫，深究 or 不求。</li>
+<li>有时候，我真的想说自己喜欢编程，但最后我还是害怕了。真的有那种不顾一切的喜欢吗？抛弃一切！</li>
+<li>或许，我看了太多的英雄事迹而忘记了自己的真实，为了成为那个目标，而自取灭亡。英雄从来只是被人用来怀念而不是拥护的，这就是现实世界。<br>–&gt;</li>
+</ul>
+]]></content>
+      <categories>
+        <category>web</category>
+        <category>ejs</category>
+      </categories>
+      <tags>
+        <tag>ejs</tag>
+      </tags>
+  </entry>
 </search>
