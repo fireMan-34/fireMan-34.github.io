@@ -1321,12 +1321,16 @@ it will be a page code with layout.ejs.</li>
 <p style="text-indent:2em;">这个我有一篇详细的介绍，这里主要有趣的是是官方加入的本地服务器中间件到过滤器。</p>
 <p style="text-indent:2em;">看风格有点像<code>epress</code>服务器的代码，然而并不是。</p>
 <h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><p style="text-indent:2em;">这个东西就要细说了。生成器的内容是由网站变量的上下文对象<code>locals</code></p>
-<p style="text-indent:2em;">更新路由这一块，暂时不明白，官方文档的内容太少了，或者我不是从0开始搭建的，用了<code>cli</code>确实方便和快速了不少，但是确实留给我知识盲区。其实这在大型编程领域非常常见。我们想要快捷、复杂，往往会留下很多盲区。</p>
+<p style="text-indent:2em;">更新路由这一块，暂时不明白，官方文档的内容太少了，或者我不是从0开始搭建的，用了<code>cli</code>确实方便和快速了不少，但是确实留给我知识盲区。</p>
 <p style="text-indent:2em;">分页归档，<code>hexo-pageination</code>就是用来分页处理的，它会生成页码数据。</p>
 <p style="text-indent:2em;">抱歉，突然发现昨天乱动模块出现一个小bug，文章被连续生成3次，页码增大了3倍。</p>
 <p style="text-indent:2em;">为什么会这样呢？我也不太清楚，我清理了配置，关掉服务，重新生成，它成功复原了。</p>
 <p style="text-indent:2em;">这个问题和记忆化在一起，使我定位有点模糊，我猜测是文章渲染的时候数据的时候裂变成3个。</p>
 <p style="text-indent:2em;">不管怎么样花了不到十分钟就解决了，还是挺开心的，本来以为要深入模块排查。</p>
+<p style="text-indent:2em;">终于，知道为什么<code>posts</code>变量那么多奇奇怪怪的方法。看这里官方文档，</p>
+<p style="text-indent:2em;"><a href="https://hexo.io/zh-cn/docs/variables">hexo post  变量介绍</a></p>
+<p style="text-indent:2em;">没有细究，方法太多了，还好作者有用法注释，虽然不是那么容易理解，捂脸，我的自动缩进没有写好注释，有空加回去。</p>
+<h1 id="辅助函数"><a href="#辅助函数" class="headerlink" title="辅助函数"></a>辅助函数</h1><p style="text-indent:2em;">这个方面，我在做更新页面的时候简单的查看了，<code>this</code>,做了一个更新页面的检测功能。</p>
 ]]></content>
       <categories>
         <category>web</category>
@@ -1392,6 +1396,10 @@ it will be a page code with layout.ejs.</li>
     <content><![CDATA[<h1 id="Why-I-write-this"><a href="#Why-I-write-this" class="headerlink" title="Why I write this?"></a>Why I write this?</h1><p style="text-indent:2em;">Because I has found how to add auto indent in post;But now it is not prefect,and it has a break change,So I will study deeply the hexo how to work.</p>
 <h1 id="Now-how-to-do-it。"><a href="#Now-how-to-do-it。" class="headerlink" title="Now how to do it。"></a>Now how to do it。</h1><p style="text-indent:2em;">I use hexo-render-marked to write post ,and I don’t have easy way to auto tap in post.<br><span style="padding:0 1em;"></span>And I find someOne maybe has something Solutions,but it will make me hard to change Input Method.<br><span style="padding:0 1em;"></span>So I find way on the brower and add Style.The effect is good,but I use filter to hanle it ,it is diffcult for me to use reg and handle string.<br><span style="padding:0 1em;"></span>I will study more and hanler it,make it to plugin,Year!</p>
 <h1 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h1><p style="text-indent:2em;">Every reader!</p>
+<h1 id="This-is-my-npm-module"><a href="#This-is-my-npm-module" class="headerlink" title="This is my npm module"></a>This is my npm module</h1><p style="text-indent:2em;"><a href="https://www.npmjs.com/package/hexo-filter-markdown-auto-indent">auto indent plugin</a></p>
+<h2 id="Now-has-some-quesiton"><a href="#Now-has-some-quesiton" class="headerlink" title="Now has some quesiton"></a>Now has some quesiton</h2><p style="text-indent:2em;">I auto indent only 2 <code>em</code>,If I have time,I will add config to control its indent value.</p>
+<p style="text-indent:2em;">I only publish it to npmjs,so and now I find a way in github packages to publish all.</p>
+<p style="text-indent:2em;">I don’t know all country ‘s indent format,so If I have time I will study all different and create a strong plugin.	</p>
 ]]></content>
       <categories>
         <category>web</category>
