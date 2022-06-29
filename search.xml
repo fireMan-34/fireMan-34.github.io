@@ -1331,6 +1331,15 @@ search.xml访问速度慢,search插件用的是老的数据结构能否使用jso
 <h2 id="处理器"><a href="#处理器" class="headerlink" title="处理器"></a>处理器</h2><p style="text-indent:2em;">第一个是用来匹配文件路径,第二个是获取传入的<code>Box</code>文件参数</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">_File &#123;</span><br><span class="line">  <span class="built_in">source</span>: <span class="string">&#x27;D:\\Project\\myBlog\\source\\about\\index.md&#x27;</span>,</span><br><span class="line">  path: <span class="string">&#x27;about/index.md&#x27;</span>,</span><br><span class="line">  params: [ <span class="string">&#x27;about&#x27;</span>, index: 0, input: <span class="string">&#x27;about/index.md&#x27;</span>, <span class="built_in">groups</span>: undefined ],</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">&#x27;skip&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="渲染器"><a href="#渲染器" class="headerlink" title="渲染器"></a>渲染器</h2><p style="text-indent:2em;">主要用来修改原始文件的映射处理。比如<code>ejs</code>,<code>md</code>.</p>
+<h2 id="自定义标签"><a href="#自定义标签" class="headerlink" title="自定义标签"></a>自定义标签</h2><p style="text-indent:2em;">采用<code>hexo</code>的代码块进行替换。</p>
+<strong>我的自定义tag</strong>
+
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% fireman 我的自定义tag %&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">hexo.<span class="property">extend</span>.<span class="property">tag</span>.<span class="title function_">register</span>(<span class="string">&quot;fireman&quot;</span>,<span class="title function_">fucntion</span>(<span class="params">args,content</span>)&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">`&lt;strong&gt;<span class="subst">$&#123;args[<span class="number">0</span>]&#125;</span>&lt;/strong&gt;`</span></span><br><span class="line">                         &#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="终于基本是写完了，整体有个大致了解。"><a href="#终于基本是写完了，整体有个大致了解。" class="headerlink" title="终于基本是写完了，整体有个大致了解。"></a>终于基本是写完了，整体有个大致了解。</h1><p style="text-indent:2em;">然而如果要深入还有很多的东西值得我去细究的东西。</p>
 ]]></content>
       <categories>
         <category>web</category>
@@ -1692,7 +1701,41 @@ it will be a page code with layout.ejs.</li>
 <p style="text-indent:2em;">这一次，我讲的还好，直到五点结束，我还在不断讲。但我讲的就是很随意，想起什么就讲什么，很多自己的优势事先没有说好就被忽略了。</p>
 <p style="text-indent:2em;">一共面试了有四家，有三家前端开发，一家软件开发。</p>
 <p style="text-indent:2em;">到现在，我还是没有收到一个通知，┭┮﹏┭┮。</p>
-<h1 id="面试结束"><a href="#面试结束" class="headerlink" title="面试结束"></a>面试结束</h1><h2 id="踩单刹车的电单车"><a href="#踩单刹车的电单车" class="headerlink" title="踩单刹车的电单车"></a>踩单刹车的电单车</h2><p style="text-indent:2em;">这一次一个刹车还有高德地图弄得我东跑西跑。就这样我抱着电单车上天桥，结果在下天桥到公园里被告知不能骑单车。</p>
+<h2 id="第一家"><a href="#第一家" class="headerlink" title="第一家"></a>第一家</h2><p style="text-indent:2em;">突兀的递交请求，我看到有人上前询问，所以等他询问离开后。</p>
+<p style="text-indent:2em;">我递交了自己的简历，负责面试的女士对我摇摇头，指着台上的主持，说现在还太吵，待会。</p>
+<p style="text-indent:2em;">我会意表示抱歉，先行去观赏台上的节目，一位同学也问我是什么情况，我如实告诉他。</p>
+<p style="text-indent:2em;">我就投入到舞台上，为一些自己认同的东西股掌。我觉得股掌这东西为自己认同的东西股掌就好了，不要千篇一律，那样不是礼节也不是尊重。</p>
+<p style="text-indent:2em;">就这样等到结束的时候。</p>
+<p style="text-indent:2em;">我来到面试单位附近，这里已经排满很多小伙伴了。</p>
+<p style="text-indent:2em;">我老老实实的排号队，手中抱着上午打印的文件夹和大一点零碎的努力证明。</p>
+<p style="text-indent:2em;">……</p>
+<p style="text-indent:2em;">轮到我了，我开始讲，我开始讲起我学习日子，特别是今年春节那段时间。就这样，终于结束了。</p>
+<h2 id="第二家"><a href="#第二家" class="headerlink" title="第二家"></a>第二家</h2><p style="text-indent:2em;">这次的面试官是个技术面，前端也是临时加上去的。</p>
+<p style="text-indent:2em;">我发现问了几个题就不问了。</p>
+<p style="text-indent:2em;">别人好像问很多。</p>
+<p style="text-indent:2em;">问我<code>nginx跨域</code>，<code>组件封装</code>、react生命周期</p>
+<p style="text-indent:2em;">我答出来了，但事后不太满意。</p>
+<p style="text-indent:2em;">其实我应该还要加上为什么跨域，跨域的原理又是什么。</p>
+<p style="text-indent:2em;">组件封装的，我说了自己在实践原生的中两次封装，基于<code>ant Design</code>以及 <code>hook</code> 的二次封装<code>时间戳picker</code>,其实我还封装过一些东西，然则当时忘记。</p>
+<p style="text-indent:2em;">react生命周期，嗯~ o(<em>￣▽￣</em>)o，面试题我基本也没背，几个大概说了几个，发现自己忘的差不多了。</p>
+<p style="text-indent:2em;">也差不多不过，我忘记拿出我的奖状出来。我发现周围的人也和我类似，不是考公就是专升本或者考研失败后，我也才知道不是我一个人交集。</p>
+<p style="text-indent:2em;">当问到工资的时候，我开头就是四千。在广州，我每月的基础生活费水电、租费还有吃饭消耗的钱在三千出头，剩下一千，我想用这点钱给我的亲人家人以及自己的学习买些资料。</p>
+<p style="text-indent:2em;">四千？好像开高了，面试官一脸不满，包吃住的哦。</p>
+<p style="text-indent:2em;">哦，那就两千，不一千五就好。我满脸羞愧好像要价高了。</p>
+<p style="text-indent:2em;">忘记展示我的奖状了。┭┮﹏┭┮</p>
+<h2 id="第三家"><a href="#第三家" class="headerlink" title="第三家"></a>第三家</h2><p style="text-indent:2em;">如实讲了自己的情况，还跟面试的小姐姐讲了自己的情况。</p>
+<h2 id="第四家"><a href="#第四家" class="headerlink" title="第四家"></a>第四家</h2><p style="text-indent:2em;">我看到有人去应聘前端，我也跟着跑过去排队面试。</p>
+<p style="text-indent:2em;">然后讲到一半，发现了会议结束了。面试官还是挺宽容得，让我继续讲。</p>
+<p style="text-indent:2em;">讲到情不自禁，我又把自己因为知识水平不够的学习的痛苦又讲出来，┭┮﹏┭┮，我就是这么实诚。</p>
+<p style="text-indent:2em;">这么实诚好吃亏，我也想改变，但我似乎已经认同了它，要抛下它，就好像无良一般。</p>
+<p style="text-indent:2em;">我确实有努力，但感觉和一直努力的人差距很大。</p>
+<p style="text-indent:2em;">从心态从底蕴层面，不说了。。</p>
+<h1 id="面试结束"><a href="#面试结束" class="headerlink" title="面试结束"></a>面试结束</h1><ul>
+<li>没有结构化的表达要素。</li>
+<li>没有准备好介绍流程</li>
+<li>最后我可能要回一趟家吧。</li>
+</ul>
+<h2 id="踩单刹车的电单车"><a href="#踩单刹车的电单车" class="headerlink" title="踩单刹车的电单车"></a>踩单刹车的电单车</h2><p style="text-indent:2em;">这一次一个刹车还有高德地图弄得我东跑西跑。就这样我抱着电单车上天桥，结果在下天桥到公园里被告知不能骑单车。</p>
 <p style="text-indent:2em;">我问附近有没有停放点，他想了很久，本意是打算让我重新抱回去，但最终指了指远处的停放点。</p>
 <p style="text-indent:2em;">我就这样推过去。之后也意识到好像没有锁车，就跑回来，结果锁好了。</p>
 <h2 id="闲暇拍照"><a href="#闲暇拍照" class="headerlink" title="闲暇拍照"></a>闲暇拍照</h2><p style="text-indent:2em;">我在公园里绕着绕，也拍了几张照片，其中最爱的光圈，我用手机拍到的( •̀ ω •́ )y。</p>
@@ -1742,7 +1785,8 @@ it will be a page code with layout.ejs.</li>
 <p style="text-indent:2em;">自己还尝试用过<code>daz</code>制作下载模型<code>3d</code>制作场景。</p>
 <p style="text-indent:2em;">……</p>
 <p style="text-indent:2em;">时间好快，而我真的……</p>
-<h1 id="大屠杀"><a href="#大屠杀" class="headerlink" title="大屠杀"></a>大屠杀</h1><p style="text-indent:2em;">偶然发现了张纯如女士关于南京大屠杀的一些纪实，发现贝拉。有机会会尝试购买吧。。</p>
+<h1 id="大屠杀"><a href="#大屠杀" class="headerlink" title="大屠杀"></a>大屠杀</h1><p style="text-indent:2em;">偶然发现了张纯如女士关于南京大屠杀的一些纪实，发现贝拉。有机会会尝试购买吧。</p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p style="text-indent:2em;">就像我的新偶像一样，或许不是他不够，而是有一条属于他自己的路要走，问自己一句为何而生。</p>
 ]]></content>
       <categories>
         <category>体验</category>
