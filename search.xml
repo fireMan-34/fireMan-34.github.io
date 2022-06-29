@@ -1324,8 +1324,13 @@ search.xml访问速度慢,search插件用的是老的数据结构能否使用jso
 <p style="text-indent:2em;">终于，知道为什么<code>posts</code>变量那么多奇奇怪怪的方法。看这里官方文档，</p>
 <p style="text-indent:2em;"><a href="https://hexo.io/zh-cn/docs/variables">hexo post  变量介绍</a></p>
 <p style="text-indent:2em;">没有细究，方法太多了，还好作者有用法注释，虽然不是那么容易理解，捂脸，我的自动缩进没有写好注释，有空加回去。</p>
-<h1 id="辅助函数"><a href="#辅助函数" class="headerlink" title="辅助函数"></a>辅助函数</h1><p style="text-indent:2em;">这个方面，我在做更新页面的时候简单的查看了，<code>this</code>,做了一个更新页面的检测功能。</p>
-<p style="text-indent:2em;">我又做了一个。</p>
+<h2 id="辅助函数"><a href="#辅助函数" class="headerlink" title="辅助函数"></a>辅助函数</h2><p style="text-indent:2em;">这个方面，我在做更新页面的时候简单的查看了，<code>this</code>,做了一个更新页面的检测功能。</p>
+<p style="text-indent:2em;">我又做了一个可以为虚拟列表提供的参数。</p>
+<h2 id="注入器"><a href="#注入器" class="headerlink" title="注入器"></a>注入器</h2><p style="text-indent:2em;">用于注入代码，用法看官方文档即可</p>
+<h2 id="迁移器"><a href="#迁移器" class="headerlink" title="迁移器"></a>迁移器</h2><p style="text-indent:2em;">暂时搞不懂，需要查看源码或者官网的话，官网介绍很少，从只言片语中只能得知是用命令行启动的。我暂时还无法触发，接下来有机会可能去学习一下吧。</p>
+<h2 id="处理器"><a href="#处理器" class="headerlink" title="处理器"></a>处理器</h2><p style="text-indent:2em;">第一个是用来匹配文件路径,第二个是获取传入的<code>Box</code>文件参数</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">_File &#123;</span><br><span class="line">  <span class="built_in">source</span>: <span class="string">&#x27;D:\\Project\\myBlog\\source\\about\\index.md&#x27;</span>,</span><br><span class="line">  path: <span class="string">&#x27;about/index.md&#x27;</span>,</span><br><span class="line">  params: [ <span class="string">&#x27;about&#x27;</span>, index: 0, input: <span class="string">&#x27;about/index.md&#x27;</span>, <span class="built_in">groups</span>: undefined ],</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">&#x27;skip&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>web</category>
@@ -1641,6 +1646,105 @@ it will be a page code with layout.ejs.</li>
       <tags>
         <tag>人生</tag>
         <tag>产品</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2022-06-29近日日记</title>
+    <url>/2022/2022-06-29%E8%BF%91%E6%97%A5%E6%97%A5%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="近日汇总"><a href="#近日汇总" class="headerlink" title="近日汇总"></a>近日汇总</h1><p style="text-indent:2em;">整体而言，我只用一点时间在我的博客搭建上扩展认知，大部分时间在于对自我以及我的三观的纠结和思考吧，也是对我未来行业选择的一个思考。</p>
+<h1 id="一位新的偶像"><a href="#一位新的偶像" class="headerlink" title="一位新的偶像"></a>一位新的偶像</h1><p style="text-indent:2em;">他的起点很低，童年长在一个自己被排斥的环境，然而这并没有磨平的棱角，而是让他变得更加坚实。</p>
+<p style="text-indent:2em;">他生活简单，人际关系简单，梦想成为艺术家。</p>
+<p style="text-indent:2em;">然而二次遭遇挫折，他也并没有抛下他的爱好去适应这个环境，而是继续前进，终于他把他的艺术用在了更大的蓝图。</p>
+<p style="text-indent:2em;">他一直在学习，在他身上，我看到很多理想者都难以去追逐的狂热。或许这就是真正的理想者，而不是想我这种白日梦的宅男。</p>
+<p style="text-indent:2em;">看完他的事迹有些唏嘘，他是个很有自我驱动力的理想主义者，正如，之前我在B站看到的李小龙的介绍，他有很强的愿景，不断自我驱动，成为那个引领集体的光。</p>
+<p style="text-indent:2em;">在反复查看他的事迹后，不免有些想更深的了解这个偶像。</p>
+<p style="text-indent:2em;">所以，我的书单又加了两本未来可能的会购买的书籍。</p>
+<h1 id="晚间散步"><a href="#晚间散步" class="headerlink" title="晚间散步"></a>晚间散步</h1><p style="text-indent:2em;">这些天，我总是选择晚上散步，去人行道下面那个场地去看老人小孩妇女以及一些男人的晚间生活吧。</p>
+<p style="text-indent:2em;">每一个在广场跳舞的人，都大胆的展示着自己舞姿，没有一丝害羞，大胆热情地投入沉浸在音响里，跟着里面的人比划动作。</p>
+<p style="text-indent:2em;">跳的最好的是一名脚踩高跟鞋穿着连衣裙扎着丸子头的美女，给我内心一种活力生机的感觉，洋溢着生命的精彩。</p>
+<p style="text-indent:2em;">而我在散步的时间里，时而思索自己的一些事情，时而把目光投入人群。</p>
+<p style="text-indent:2em;">有下棋，有跳舞，也有坐在椅子上看着人群，也有在欣赏音乐，这片地区时而有单车、电动车经过，他们也娴熟地穿过。</p>
+<p style="text-indent:2em;">我想了很多，也忘了很多。</p>
+<p style="text-indent:2em;">潮起潮落，这就是思绪如潮的感觉。</p>
+<h1 id="寻找核酸检测点一"><a href="#寻找核酸检测点一" class="headerlink" title="寻找核酸检测点一"></a>寻找核酸检测点一</h1><p style="text-indent:2em;">最近，我的健康码被打灰了。之前附近核酸点撤销后，我自费过一次核酸，然后就一直不愿意继续自费核酸了，我的行程基本很少，除了零星的面试，我基本吃饭散心就是在租房里呆着。</p>
+<p style="text-indent:2em;">这次我就不得不出行，我按照搜索找到一家公众号，上面有附近核酸检查点的信息，然而具体信息并没有写好。我被导航指引来到了一个封闭的停车场。当时我满脸疑惑，高德地图还是我的手机问题，信号好怪，我都走了不少冤枉路，算了是免费的，不能苛责。</p>
+<p style="text-indent:2em;">最后，我来到大马路边，看到对面有个停车场才发现了真正的核酸点，排了一段时间终于如愿以偿。</p>
+<p style="text-indent:2em;">说说一些见闻。</p>
+<p style="text-indent:2em;">自己对附近的交通认完善了一点，看到2.8 一斤的西瓜，一次印象深刻的高德地图经历。</p>
+<h1 id="准备面试"><a href="#准备面试" class="headerlink" title="准备面试"></a>准备面试</h1><p style="text-indent:2em;">感谢智联小姐姐，一共三次帮助我。第一次告诉我机会，第二次真正给我机会，之前邮箱不知道是什么原因没有收到，然后因为她再次确认，我如愿以偿的知道了详细信息。</p>
+<p style="text-indent:2em;">当天，我查找了在邮件里面搜索了“前端开发”工作，找到两家的公司，记录在我的招聘会信息里面。</p>
+<p style="text-indent:2em;">我准备好任务和资料后发送到手机上，当天晚上转了一圈，往日打印机的那个小店没开，我只能大老远的转圈圈，直至十一点左右，我找到导航附近，然而没有找到文印店，只能会租房处。</p>
+<p style="text-indent:2em;">第二天，醒来后，看代码到九点，吃个早餐顺便打印。</p>
+<p style="text-indent:2em;">直到中午，发现手机电量不足，急忙充电。到十一点半就出门了，带着两个吃不饱的小面包。</p>
+<p style="text-indent:2em;">坐着地铁到达目的地附近，然而坑很多。</p>
+<h2 id="奇怪的高德地图导航"><a href="#奇怪的高德地图导航" class="headerlink" title="奇怪的高德地图导航"></a>奇怪的高德地图导航</h2><p style="text-indent:2em;">我被他带了几次沟子，然后不小心输入错了地方。</p>
+<p style="text-indent:2em;">骑着电单车，来到了他们家的公寓，而不是他们家的酒楼。</p>
+<p style="text-indent:2em;">幸好有好心的老哥指路，我带着迷惑前进，发现自己输入错了。</p>
+<p style="text-indent:2em;">一路上踩着单车慢悠悠的开着，我怕车速太快，撞到别人。</p>
+<p style="text-indent:2em;">一手夹着手机导航和抓着握把，一手按住刹和握把，就这样一路前进。</p>
+<p style="text-indent:2em;">路上碰到一个遛狗的外国女人，我穿过后，她好像说着什么，然而，我就这样踩到红绿灯旁边。</p>
+<p style="text-indent:2em;">路上看到一些东倒西歪的自行车就去扶好……</p>
+<p style="text-indent:2em;">终于两点多，我找到了目标的是，我准备扫码停车的时候，发现微信小程序里面竟然找不到停车按钮？？？</p>
+<p style="text-indent:2em;">在收缩答案和自己尝试摸索无果后，我点了无法停车就上楼了。</p>
+<h2 id="被误会的沙龙"><a href="#被误会的沙龙" class="headerlink" title="被误会的沙龙"></a>被误会的沙龙</h2><p style="text-indent:2em;">在询问一个正在等待着远方的贵宾，我被错误地认为是贵宾，在上楼后感到她们态度奇怪后，一番询问才明白我不是沙龙的贵宾。我道歉后离开，来到实习招聘现场。</p>
+<h1 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h1><p style="text-indent:2em;">台上不断的宣讲，台下有的点头，有的继续交流。我刚开始绕了一回，也慢慢地听下去。</p>
+<p style="text-indent:2em;">台上结束后，就是火热的招聘时间。</p>
+<p style="text-indent:2em;">这一次，我讲的还好，直到五点结束，我还在不断讲。但我讲的就是很随意，想起什么就讲什么，很多自己的优势事先没有说好就被忽略了。</p>
+<p style="text-indent:2em;">一共面试了有四家，有三家前端开发，一家软件开发。</p>
+<p style="text-indent:2em;">到现在，我还是没有收到一个通知，┭┮﹏┭┮。</p>
+<h1 id="面试结束"><a href="#面试结束" class="headerlink" title="面试结束"></a>面试结束</h1><h2 id="踩单刹车的电单车"><a href="#踩单刹车的电单车" class="headerlink" title="踩单刹车的电单车"></a>踩单刹车的电单车</h2><p style="text-indent:2em;">这一次一个刹车还有高德地图弄得我东跑西跑。就这样我抱着电单车上天桥，结果在下天桥到公园里被告知不能骑单车。</p>
+<p style="text-indent:2em;">我问附近有没有停放点，他想了很久，本意是打算让我重新抱回去，但最终指了指远处的停放点。</p>
+<p style="text-indent:2em;">我就这样推过去。之后也意识到好像没有锁车，就跑回来，结果锁好了。</p>
+<h2 id="闲暇拍照"><a href="#闲暇拍照" class="headerlink" title="闲暇拍照"></a>闲暇拍照</h2><p style="text-indent:2em;">我在公园里绕着绕，也拍了几张照片，其中最爱的光圈，我用手机拍到的( •̀ ω •́ )y。</p>
+<p style="text-indent:2em;">顺手捡了一些垃圾。</p>
+<p style="text-indent:2em;">直到天色不晚了</p>
+<h2 id="入地铁前"><a href="#入地铁前" class="headerlink" title="入地铁前"></a>入地铁前</h2><p style="text-indent:2em;">我口渴难耐，买了一瓶五元的乌龙茶。我已经很久没有买饮料了，这既是借口也是身边的白开水已经喝完了。</p>
+<p style="text-indent:2em;">我的脚板也很酸，所以决定停下来吃了个晚饭再回去。</p>
+<h2 id="兄弟，打钱"><a href="#兄弟，打钱" class="headerlink" title="兄弟，打钱"></a>兄弟，打钱</h2><p style="text-indent:2em;">┭┮﹏┭┮，为什么你要找我，兄弟，我也快没钱了。</p>
+<p style="text-indent:2em;">这位仁兄，叫住我说行行好，帮个忙。就一包烟钱，他快吃不上饭，他有前科，找不到工作，还被中介骗了，他现在想要回去拿件衣服。劝我也不要犯罪。</p>
+<p style="text-indent:2em;">我想了想，我也是找不到工作，同是天涯沦落人，相逢何必曾相识。问多少钱。</p>
+<p style="text-indent:2em;">仁兄一句十五。</p>
+<p style="text-indent:2em;">我说我找不到工作。</p>
+<p style="text-indent:2em;">仁兄说我不是计算机大学生吗？工作很好找。</p>
+<p style="text-indent:2em;">我说不好找，</p>
+<p style="text-indent:2em;">仁兄还想问我家庭地址？？？</p>
+<p style="text-indent:2em;">最后我还是打钱了。</p>
+<p style="text-indent:2em;">突然想起单车还没锁，我就跑出去了。</p>
+<p style="text-indent:2em;">临走前，听到他说声谢谢。</p>
+<p style="text-indent:2em;">我心好像又被扎了一下。</p>
+<p style="text-indent:2em;">我还有两个月的生活费，如果没有工作我就回老家，换份工作，这里的生活费太高了。</p>
+<h2 id="晚餐"><a href="#晚餐" class="headerlink" title="晚餐"></a>晚餐</h2><p style="text-indent:2em;">一份潮汕的肠粉面和鳗鱼排只有三个。</p>
+<p style="text-indent:2em;">这是我这段时间，享受的口腹之欲吧。总结26元左右。</p>
+<h2 id="手机没电"><a href="#手机没电" class="headerlink" title="手机没电"></a>手机没电</h2><p style="text-indent:2em;">在过最后一个地铁口发现手机老刷不出。然后摆着摆着手机就黑屏了。</p>
+<p style="text-indent:2em;">遇到一位好心的女性，她告诉我找地铁穿黄衣服的工作人员，真的很感谢你，我好像忘记说声谢谢。有时我觉得对不起那些陌生人的善意，他们不求回报。我或许要找一种礼仪去回报吧。</p>
+<p style="text-indent:2em;">也感谢那位好心的地铁工作人员，在听到后，帮助我拉线。</p>
+<p style="text-indent:2em;">冲了一会，有位女孩子手机也没电了。</p>
+<p style="text-indent:2em;">我想着女士优先，就让给他，地铁工作人员也给我一条红色，然而我充电宝冲着没有反应。</p>
+<p style="text-indent:2em;">就这样我有时看着她，她有点不好意思想让给我，最后她还是放弃了说你冲吧。</p>
+<p style="text-indent:2em;">她人也很好，她自己好像回去了。</p>
+<p style="text-indent:2em;">我冲到5%，然后开超级省电模式，就刷铁过闸。</p>
+<p style="text-indent:2em;">然后，我突然想起最近看的一篇文章，对别人的帮助产生结果要适当反馈结果。</p>
+<p style="text-indent:2em;">就这样我有反复说了声谢谢。</p>
+<h1 id="笔试"><a href="#笔试" class="headerlink" title="笔试"></a>笔试</h1><p style="text-indent:2em;">在群里看到了一篇前端笔试 <code>repo</code> ，五道题，2个小时内。第一到题就是写个观察者，我想到两个写法，第一个直接继承事件对象，另一个手写。对于我来说so easy，感谢春节那段时间反复尝试手写<code>promise</code>，让我开始对观察者有点了解。</p>
+<p style="text-indent:2em;">其它两道也好可以，没有花太多功夫。</p>
+<p style="text-indent:2em;">第四道，花了一点时间，一开始想到一个办法的处理，后面有多处了几个处理的可能，我就改了个简单。</p>
+<p style="text-indent:2em;">最初版本处理，我应该也是可以写好的，但逻辑有点绕。</p>
+<p style="text-indent:2em;">第五题，我完全不会。是个尼姆题。</p>
+<p style="text-indent:2em;">这也引起我的学习兴趣，我反复查阅，然而用到的知识晦涩吧。如果我的知识水平能够高点就好了。</p>
+<h1 id="尼姆博弈"><a href="#尼姆博弈" class="headerlink" title="尼姆博弈"></a>尼姆博弈</h1><p style="text-indent:2em;">我查阅了相关的一些资料。</p>
+<p style="text-indent:2em;">逻辑运算</p>
+<p style="text-indent:2em;">二进制运算</p>
+<p style="text-indent:2em;">数学推导</p>
+<p style="text-indent:2em;">逻辑验证</p>
+<p style="text-indent:2em;">╮(╯▽╰)╭难！在写这段的时候，我已经决定现在暂时放弃吧。不过也算是一种知识的补充。</p>
+<h1 id="底层程序思维前传入手"><a href="#底层程序思维前传入手" class="headerlink" title="底层程序思维前传入手"></a>底层程序思维前传入手</h1><p style="text-indent:2em;">我将书籍从快递处拿回来。我不知道自己的坚持是否有意义吧。还顺路做了一次自费核酸。我想回去，见见我的家。大城市没有工作的日子，花销很大。我有时候忍不住会陷入纠结，不知道自己的努力有什么意义，就一个大专生，所以他才会成为我的偶像吗，出来还能做什么有意义的事情。身边的不求上进和现实是非常常见。不说了，┭┮﹏┭┮。找任务做，解决情绪最好的办法就是忙碌。</p>
+<h1 id="大屠杀"><a href="#大屠杀" class="headerlink" title="大屠杀"></a>大屠杀</h1><p style="text-indent:2em;">偶然发现了张纯如女士关于南京大屠杀的一些纪实，发现贝拉。有机会会尝试购买吧。。</p>
+]]></content>
+      <categories>
+        <category>体验</category>
+      </categories>
+      <tags>
+        <tag>人生</tag>
       </tags>
   </entry>
 </search>
