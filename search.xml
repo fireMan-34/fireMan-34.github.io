@@ -1995,4 +1995,55 @@ it will be a page code with layout.ejs.</li>
         <tag>人生</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2022-08-07月总结以及部分错误解析</title>
+    <url>/2022/2022-08-07%E6%9C%88%E6%80%BB%E7%BB%93%E4%BB%A5%E5%8F%8A%E9%83%A8%E5%88%86%E9%94%99%E8%AF%AF%E8%A7%A3%E6%9E%90/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p style="text-indent:2em;">真的好久没有更新过博客了。总结一下我这个月的收获。对于整体描述而言，我的收获更多的是知识广度收获。这里的话，就不说太多，而是侧重整体一个广度描述。</p>
+<h1 id="Vue-2-和-3"><a href="#Vue-2-和-3" class="headerlink" title="Vue 2 和 3"></a>Vue 2 和 3</h1><ul>
+<li>学习周期： 2 周 </li>
+<li>学习成果： 基本学完了所有 <code>API</code>,其实 不需要 多少东西， 都是响应式UI框架，核心思想都是状态驱动，编写范式出来的其实相差无多。</li>
+</ul>
+<h1 id="9天-Uniapp-小程序项目营销模块开发"><a href="#9天-Uniapp-小程序项目营销模块开发" class="headerlink" title="9天 Uniapp 小程序项目营销模块开发"></a>9天 Uniapp 小程序项目营销模块开发</h1><ul>
+<li>项目放在<code>coding</code>上面。</li>
+<li>学习周期 9天 左右 5个页面（原始组件开发，基本样式、跳转传参、海报功能、微信专用分享功能）</li>
+<li>期间尝试讯飞流式语音开发（未彻底开发，找到开发的可行思路），画布图片保持像素比的裁剪封装，简单grid布局，clip-path，filter等属性。</li>
+<li>产出封装：query参数封装，worker some method mock，二维码海报。</li>
+<li>吐槽，uniapp 编辑器 一些运行状态存在bug ，比方说导入路径无法识别、错误状态未热更新。</li>
+</ul>
+<h1 id="参与开源，-•̀-ω-•́-y"><a href="#参与开源，-•̀-ω-•́-y" class="headerlink" title="参与开源，( •̀ ω •́ )y"></a>参与开源，( •̀ ω •́ )y</h1><ul>
+<li>没想到吧，我的自动缩进插件已经被官方收入囊中了，哈哈哈。</li>
+<li>现在也是开源小伙了。</li>
+<li>据目前为止，已经有上二百的下载量，或许对于开源大佬来说不算什么。</li>
+<li>另外，好久没有研究自动缩进的其它 task。</li>
+</ul>
+<h1 id="一堆task"><a href="#一堆task" class="headerlink" title="一堆task"></a>一堆task</h1><ul>
+<li>你在生活中，脑子里时不时蹦出 task， 你敢想吗？</li>
+</ul>
+<h1 id="参与企业项目维护"><a href="#参与企业项目维护" class="headerlink" title="参与企业项目维护"></a>参与企业项目维护</h1><ul>
+<li>好心老哥给了我一次参与企业项目，大概学习 <code>vue</code>阶段我帮忙修复了一些错误信息，也踩了一些坑。<br>提交了2 次 <code>pr</code>,累计提交 16 次 commit，累计 修复 12次 警告。<br>这个过程，我觉得 <code>material design</code>在向我招手。<br>先是 在学 <code>vue</code>中发现 <code>quasar</code>,在老哥这里学到了<code>materail ui</code>。<br>尽管不是特别会，但起码对着文档上手，基本开发是没有问题的。</li>
+</ul>
+<h1 id="混乱的知识域"><a href="#混乱的知识域" class="headerlink" title="混乱的知识域"></a>混乱的知识域</h1><h2 id="流式数据"><a href="#流式数据" class="headerlink" title="流式数据"></a>流式数据</h2><p style="text-indent:2em;">  其实大概也不会，不过知道流式音频大致怎么用什么 api</p>
+<h2 id="en、de-、base64-、二进制、Buffer等"><a href="#en、de-、base64-、二进制、Buffer等" class="headerlink" title="en、de 、base64 、二进制、Buffer等"></a>en、de 、base64 、二进制、Buffer等</h2><p style="text-indent:2em;">  说起来还有点迷糊，不过大概碰到这类问题有个基础铺垫，起码阅读体验比没有碰过的人好。<br><span style="padding:0 1em;"></span>  二进制，突然自行领悟了，在某个期间突然就懂了。<br><span style="padding:0 1em;"></span>  然后顺便又温习了一遍一些二进制运算符。</p>
+<h2 id="vscode自定义图标尝试"><a href="#vscode自定义图标尝试" class="headerlink" title="vscode自定义图标尝试"></a>vscode自定义图标尝试</h2><p style="text-indent:2em;">  (￣▽￣)”相信每个热爱diy的人都会热衷于去定义自己能够定义的东西，捣鼓了配置自定义图标，利用<code>vscode-icons</code></p>
+<h1 id="真·读红宝书"><a href="#真·读红宝书" class="headerlink" title="真·读红宝书"></a>真·读红宝书</h1><ul>
+<li>目前进度251页左右了。随着自己水平提高，当年一些晦涩难懂的知识，也变得容易吸收。当然还是有部分任然难以读懂。<br>虽然读的内容很多都没有时间去练习，不过我觉得眼界和部分知识在这个过程和这些日子的过程中得到锤炼。</li>
+</ul>
+<h1 id="早早聊免费直播"><a href="#早早聊免费直播" class="headerlink" title="早早聊免费直播"></a>早早聊免费直播</h1><ul>
+<li>参与一期，后续就跳过了。</li>
+</ul>
+<h1 id="又买一本新书"><a href="#又买一本新书" class="headerlink" title="又买一本新书"></a>又买一本新书</h1><ul>
+<li>主要扩充前端视野。昨天读了，rxjs 这个部分挺开心的。rxjs 已经有很多天没有真正写过了，到现在，我还是没有真正下定决心去深入学习。</li>
+</ul>
+<h2 id="uniapp小程序开发部分总结"><a href="#uniapp小程序开发部分总结" class="headerlink" title="uniapp小程序开发部分总结"></a>uniapp小程序开发部分总结</h2><ul>
+<li>vue 语法支持层面，逻辑复用方面相对缺失。</li>
+<li>部分错误异常在尝试无方向后，考虑重启<code>Hbuilder</code></li>
+<li>不支持<code>dom</code>方面api</li>
+<li>微信小程序播放不支持本地文件</li>
+<li>海报制作精要：使用 canvas 导出二维码图片，再绘制到海报上面。这个过程有三个难点，一个是canvas相关，另一个是二维码图形编码技术。还有一个是图形化知识。<br>我使用的是一个uniapp专用二维码专用绘制库，我个人只对它添加参数注解，方便使用者得到ide的提示。<br>uniapp中 canvas api的领悟和小程序上并没有dom相关，虽然canvas api和 h5基本相似，但是drawImage不支持直接绘制画布。这些东西官方文档不会告诉你，你需要自行尝试把握其中的东西。<br>图形化知识又属于另一个领域层面，据大厂里面有一些前端工程师就专职于图形化、媒体方面的开发工作，这方面需要扎实的计算机科学理论。<br>个人在编写缩放裁剪逻辑需要不断画图来降低逻辑思考的困难度，泪目。┭┮﹏┭┮。<br>另外画布逻辑不好封装，没办法动画本身的描述就是依赖于其过程变化。如果封装也基本是基于模板类封装，也可能和我时间精力有关，毕竟满打满算花了近四天左右搞出来的。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>总结</category>
+      </categories>
+  </entry>
 </search>
